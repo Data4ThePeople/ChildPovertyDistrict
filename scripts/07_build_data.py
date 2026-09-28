@@ -87,6 +87,12 @@ def main():
             k[yi[r.year]] = int(r.kids_5_17)
             p[yi[r.year]] = int(r.kids_pov)
         rec[gid] = {"id": gid, "n": names[gid], "s": gid[:2], "l": LAYER_CODE[layer[gid]], "k": k, "p": p}
+    # ACS 2020-2024 below 200% of poverty: [rate x10, 90% MOE x10, children 6-17, children below 200%, shade flag
+    # (decided once, in 11_build_acs.py)], or absent
+    acs = pd.read_csv(PROC / "acs_map.csv", dtype={"geoid": str})
+    for r in acs[acs.rate.notna()].itertuples():
+        if r.geoid in rec:
+            rec[r.geoid]["a"] = [int(round(r.rate * 10)), int(round(r.rate_moe * 10)), int(round(r.kids_6_17)), int(round(r.below200)), int(bool(r.shade))]
     # history notes: earliest year whose value is a sum of several former districts
     multi = xw[xw.components.str.contains(";")]
     for gid, g in multi.groupby("geoid"):
@@ -126,7 +132,7 @@ def main():
     st = st[st.STATEFP.isin(STATES)]
     borders = [encode([ring for ring in prep(geom, s)]) for geom, s in zip(st.geometry, st.STATEFP)]
 
-    out = {"years": MAP_YEARS, "grid": GRID,
+    out = {"years": MAP_YEARS, "grid": GRID, "acs": {"period": "2020-2024", "moe_max": 10, "min_kids": 100},
            "states": {k: v for k, v in STATE_INFO.items()},
            "d": sorted(rec.values(), key=lambda r: r["id"]),
            "geo": geo, "borders": borders}

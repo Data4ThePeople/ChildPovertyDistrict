@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: none yet
-Step: 2a (waiting for slug and draft)
+Step: 1 (reopened)
 Since: 2026-09-28
 
 ## Steps
@@ -33,3 +33,5 @@ None.
 - 2026-09-28 Crosswalk done: 13,126 of 13,131 districts on 2025 TIGER geometry (Vermont recovered), history for 95.2% of children back to 2005 and 88.8% to 2000. Change view to use 3-year pooled rates (2000 stands alone); Eric agreed.
 - 2026-09-28 Eric's review of the viz: page locked to the 1200x780 embed size; hover now redraws only outlines (map fills cached); legend moved onto the map and compressed so it clears Florida; 2000 dropped, map runs 2005-2024 (history for 95.2% of children back to 2005); play speed 1x/2x/3x added; Vermont supervisory unions were not drawn (layer code collided with secondary districts), fixed.
 - 2026-09-28 Step 1 confirmed by Eric. GitHub Pages turned on (workflow deploys dist/). Next: 2a, needs the slug.
+- 2026-09-28 Step 1 reopened: adding an ACS 2020-2024 below-200%-of-poverty toggle. No later steps were confirmed, so nothing is stale.
+- 2026-09-28 ACS below-200% view added (2020-2024, B17024): shaded only where the margin of error is 10 points or less (4,939 districts, 86.1% of children). Tie-out passes. Waiting on Eric to re-confirm Step 1.
