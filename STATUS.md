@@ -39,3 +39,4 @@ None.
 - 2026-09-28 ACS below-200% view removed from the viz (Eric): SAIPE and ACS disagree below the poverty line in some districts (Monte Alto, TX). Scripts and CSVs parked. Viz back to SAIPE only; tie-out passes.
 - 2026-09-28 Step 1 re-confirmed by Eric. Next: 2a, needs the slug.
 - 2026-09-28 Step 2a opened. Slug: child-poverty-by-school-district. posts/child-poverty-by-school-district/ created.
+- 2026-09-28 2a: Claude-drafted POST.md at Eric's request (visualization page, modeled on lorenz-chart-viz); every number checked against the data. Waiting on Eric's edits.
