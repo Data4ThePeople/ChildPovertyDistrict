@@ -281,3 +281,40 @@ Two years move more than the rest:
 - District child counts reset in 2010 (median change 6.5%) and 2021 (5.0%),
   when the population base moved to the 2010 and 2020 Censuses. Counts are
   not a measure of district growth across those years.
+
+---
+
+## Source coverage check (September 28, 2026)
+
+Every SAIPE district value is a model estimate; none is a direct count. What
+changes over time is how much of a district's number comes from data about
+that district and how much comes from its county:
+
+| Map years | District-level input | Share of 2024 children with a comparable figure |
+|---|---|---|
+| 2000 | Census 2000 long form for each district piece, pulled toward the county rate | 88.8% |
+| 2005 to 2009 | Census 2000 shares, moved each year by that year's IRS child tax exemptions | 95.2% to 96.8% |
+| 2010 to 2024 | That year's IRS child tax exemptions plus 5-year ACS shares | 96.8% to 100% |
+
+Years left out because the district number is its county's change applied to
+a fixed share: 1995, 1997 (1990 Census shares) and 2001 to 2004 (Census 2000
+shares). The Census Bureau publishes no margins of error for district
+estimates in any year.
+
+The map shows measured-versus-missing directly: a district with no comparable
+figure for a year is hatched, not colored.
+
+### Caveat for the post: large recent drops on reservations
+
+Between 2018-2020 and 2022-2024, 3 of 9,355 districts with 500 or more
+children fell by 20 points or more; none rose that much. Several of the
+largest drops are reservation districts: Indian Oasis-Baboquivari, AZ
+(Tohono O'odham Nation; 42.1% to 9.7%, and 40.3% in 2020 to 7.2% in 2024),
+Sacaton, AZ (Gila River; 36.4% to 16.5%), Chinle, AZ (Navajo Nation; 51.4% to
+36.9%), St. Ignatius, MT (Flathead; 30.3% to 17.9%). These are the Census
+Bureau's published numbers under unchanged district boundaries, so they are
+shown as published. The model's district split leans on IRS tax filings, and
+filing on reservations may have shifted after the 2021 expanded Child Tax
+Credit. We have not established that; it is a question, not a finding. The
+post should not present these drops as real change without a check against
+another source (for example the ACS 5-year school district tables).
