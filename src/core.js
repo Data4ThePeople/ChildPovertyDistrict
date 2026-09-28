@@ -394,8 +394,8 @@
     el.innerHTML = `<h2>District</h2><div class="name">${esc(d.n)}</div><div class="meta">${DATA.states[d.s][1]} &middot; ${LAYER_NAME[d.l]}</div>`
       + (big ? `<div class="big">${big}</div>` : "") + `<div class="counts">${esc(valueText(d, v))}</div>`
       + (S.mode !== "acs" ? `<div class="acsline">${esc(acsLine(d))}</div>` : "")
-      + `<div class="cap">Official poverty rate, ages 5 to 17 (SAIPE)</div>` + spark(d)
-      + `<div class="hist">${notes.map(esc).join(" ")}</div>`;
+      + (S.mode === "acs" ? ""   // the ACS view is a single 2020-2024 period: no SAIPE history chart or history notes
+        : `<div class="cap">Official poverty rate, ages 5 to 17 (SAIPE)</div>` + spark(d) + `<div class="hist">${notes.map(esc).join(" ")}</div>`);
   }
 
   // ---------- legend ----------
