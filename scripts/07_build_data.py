@@ -17,6 +17,8 @@ import shapely
 from albers import project
 from common import MAP_YEARS, PROC, RAW, STATES
 
+# one-letter layer codes used by the page (sdadm must not collide with scsd)
+LAYER_CODE = {"unsd": "u", "elsd": "e", "scsd": "s", "sdadm": "v"}
 TOL = 250          # simplification tolerance, meters
 GRID = 50          # coordinate grid, meters
 MIN_PART = 0.05e6  # drop detached parts under 0.05 km2 after simplification (unless it is the only part)
@@ -84,7 +86,7 @@ def main():
         for r in g.itertuples():
             k[yi[r.year]] = int(r.kids_5_17)
             p[yi[r.year]] = int(r.kids_pov)
-        rec[gid] = {"id": gid, "n": names[gid], "s": gid[:2], "l": layer[gid][0], "k": k, "p": p}
+        rec[gid] = {"id": gid, "n": names[gid], "s": gid[:2], "l": LAYER_CODE[layer[gid]], "k": k, "p": p}
     # history notes: earliest year whose value is a sum of several former districts
     multi = xw[xw.components.str.contains(";")]
     for gid, g in multi.groupby("geoid"):

@@ -51,10 +51,12 @@ then splits each county's total among the school districts in it. Before
 pattern. From 2005 on, the split moves each year with IRS tax records, so a
 district can improve while its county gets worse.
 
-What we do with this: the map and change views use **2000, then 2005 to
-2024**. 1995, 1997, and 2001 to 2004 are left out, because in those years a
-district's change is its county's change. 1999 and 2000 rest on the same
-Census 2000 data; we use 2000.
+What we do with this: the map and change views use **2005 to 2024**. 1995,
+1997, and 2001 to 2004 are left out, because in those years a district's
+change is its county's change. 1999 and 2000 (Census 2000 based) were in the
+first build and were dropped on September 28, 2026 (Eric's call): a lone year
+four years before the rest of the series, on a different method and on
+boundaries with no TIGER file, added more caveats than it added history.
 
 **Changes over time.**
 
@@ -199,8 +201,7 @@ methodology can draw from it.
 4. Splits and partial territory transfers are not estimated. The district's
    history starts in the first year its current shape existed.
 5. Each district gets a "comparable since" year. History length varies by
-   district. Some have 21 years of data points (2000, 2005 to 2024), some have
-   none. Older maps are sparser. This is by design (Eric, September 28, 2026).
+   district. Some have 20 years (2005 to 2024), some only the most recent. Older maps are sparser. This is by design (Eric, September 28, 2026).
 
 ### Which boundaries each SAIPE year used (computed September 28, 2026)
 

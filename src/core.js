@@ -101,10 +101,10 @@
 
   // ---------- state ----------
   const S = { mode: "year", yi: NY - 1, from: null, to: null, st: "", sel: null, hover: null, rankTab: 0 };
-  // change windows: 2000 alone, then 3-year windows ending each year from 2007
-  const WINDOWS = [{ label: "2000", idx: [0] }];
-  for (let i = 0; i < NY; i++) {
-    if (YEARS[i] >= 2007) WINDOWS.push({ label: `${YEARS[i] - 2}-${YEARS[i]}`, idx: [i - 2, i - 1, i] });
+  // change windows: every 3-year window of consecutive map years
+  const WINDOWS = [];
+  for (let i = 2; i < NY; i++) {
+    if (YEARS[i] - YEARS[i - 2] === 2) WINDOWS.push({ label: `${YEARS[i] - 2}-${YEARS[i]}`, idx: [i - 2, i - 1, i] });
   }
   const defaultFrom = WINDOWS.findIndex((w) => w.label === "2005-2007");
   const defaultTo = WINDOWS.length - 1;
@@ -287,10 +287,16 @@
   cv.addEventListener("pointercancel", endPtr);
   cv.addEventListener("pointerleave", () => { if (!drag) { S.hover = null; hideTip(); showDetail(S.sel); drawOverlay(); } });
 
+  let clearT = 0;
   function pick(sx, sy) { return hitTest((sx - view.tx) / view.k, (sy - view.ty) / view.k); }
   function hoverAt(sx, sy) {
     const d = pick(sx, sy);
-    if (d !== S.hover) { S.hover = d; if (d) showDetail(d); drawOverlay(); }
+    if (d !== S.hover) {
+      S.hover = d; drawOverlay();
+      clearTimeout(clearT);
+      // crossing a border or a gap briefly hits nothing; only clear the panel if the pointer stays off a district
+      if (d) showDetail(d); else clearT = setTimeout(() => { if (!S.hover) showDetail(S.sel); }, 250);
+    }
     if (d) showTip(d, sx, sy); else hideTip();
   }
 
@@ -335,7 +341,7 @@
     for (let i = 0; i < NY; i++) if (d.k[i] !== null && d.k[i] > 0) pts2.push([YEARS[i], (100 * d.p[i]) / d.k[i], i]);
     if (!pts2.length) return "";
     const w = 300, h = 92, l = 30, r = 16, t = 8, b = 18;
-    const xs = (y) => l + ((y - 2000) / 24) * (w - l - r);
+    const xs = (y) => l + ((y - YEARS[0]) / (YEARS[NY - 1] - YEARS[0])) * (w - l - r);
     const hiV = Math.max(10, Math.ceil(Math.max(...pts2.map((p) => p[1])) / 10) * 10);
     const ys = (v) => t + (1 - v / hiV) * (h - t - b);
     let path = "", prev = null;
@@ -345,7 +351,7 @@
       prev = p;
     }
     const grid = [0, hiV / 2, hiV].map((v) => `<line x1="${l}" x2="${w - r}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--grid)"/><text x="${l - 4}" y="${ys(v) + 3.5}" text-anchor="end" font-size="10" fill="var(--ink-3)">${v}%</text>`).join("");
-    const xl = [2000, 2005, 2010, 2015, 2020, 2024].map((y) => `<text x="${xs(y)}" y="${h - 4}" text-anchor="middle" font-size="10" fill="var(--ink-3)">${y}</text>`).join("");
+    const xl = [YEARS[0], 2010, 2015, 2020, YEARS[NY - 1]].map((y) => `<text x="${xs(y)}" y="${h - 4}" text-anchor="middle" font-size="10" fill="var(--ink-3)">${y}</text>`).join("");
     const cur = S.mode === "year" ? pts2.find((p) => p[2] === S.yi) : null;
     const dots = pts2.map((p) => `<circle cx="${xs(p[0]).toFixed(1)}" cy="${ys(p[1]).toFixed(1)}" r="${p === cur ? 4 : 2.2}" fill="var(--accent)"${p === cur ? ' stroke="var(--panel)" stroke-width="1.5"' : ""}/>`).join("");
     return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Child poverty rate by year, ${esc(d.n)}">${grid}${xl}<path d="${path}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>${dots}</svg>`;
@@ -358,14 +364,13 @@
     if (v.cls !== "nohist" && v.cls !== "small") big = S.mode === "year" ? pct(v.v) : pts(v.v);
     const since = d.first >= 0 ? YEARS[d.first] : null;
     const notes = [];
-    if (since !== null) notes.push(since === 2000 ? "Comparable history back to 2000." : `Comparable history since ${since}. Before that, the district's boundaries were different.`);
+    if (since !== null) notes.push(since === YEARS[0] ? `Comparable history back to ${YEARS[0]}.` : `Comparable history since ${since}. Before that, the district's boundaries were different.`);
     if (d.m) notes.push(`Figures through ${d.m} add up the former districts that make up today's district.`);
     if (d.hs && byId.get(d.hs)) {
       const h = byId.get(d.hs), hv = vals.get(h.id);
       const hvTxt = hv.cls === "nohist" || hv.cls === "small" ? "" : ` (${S.mode === "year" ? pct(hv.v) : pts(hv.v)})`;
       notes.push(`High school grades are served by ${h.n}${hvTxt}, outlined in gray.`);
     }
-    notes.push("The chart has a gap from 2001 to 2004. Those years are left out; see the methodology.");
     el.innerHTML = `<h2>District</h2><div class="name">${esc(d.n)}</div><div class="meta">${DATA.states[d.s][1]} &middot; ${LAYER_NAME[d.l]}</div>`
       + (big ? `<div class="big">${big}</div>` : "") + `<div class="counts">${esc(valueText(d, v))}</div>` + spark(d)
       + `<div class="hist">${notes.map(esc).join(" ")}</div>`;
@@ -375,15 +380,13 @@
   function legend() {
     const el = $("legend");
     const title = S.mode === "year" ? `Child poverty rate, ages 5 to 17, ${YEARS[S.yi]}`
-      : `Change in pooled rate, ${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}`;
+      : `Change in points, ${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}`;
     const cols = S.mode === "year" ? C.rate : C.chg;
     const edges = S.mode === "year" ? RATE_BINS.map((b) => b + "%") : CHG_BINS.map((b) => (b > 0 ? "+" : b < 0 ? "\u2212" : "") + Math.abs(b));
     let h = `<h2>${esc(title)}</h2><div class="strip">${cols.map((c) => `<span style="background:${c}"></span>`).join("")}</div>`;
     h += `<div class="ticks">${edges.map((t, i) => `<span style="left:${((i + 1) / cols.length) * 100}%">${t}</span>`).join("")}</div>`;
-    if (S.mode === "change") h += `<div class="unit">Percentage points. Blue: fewer children in poverty.</div>`;
     h += `<div class="row"><span class="sw" style="background:${C.small}"></span>Fewer than ${MAP_FLOOR} children${S.mode === "change" ? " a year" : ""}</div>`;
     h += `<div class="row"><span class="sw" style="background:repeating-linear-gradient(135deg,${C.nohist} 0 3px,${C.hatch} 3px 4.5px)"></span>No comparable figure (boundaries changed)</div>`;
-    if (S.mode === "change") h += `<div class="note">Pooled rate: three years of children in poverty over three years of children (our calculation). 2000 stands alone.</div>`;
     el.innerHTML = h;
   }
 
@@ -434,7 +437,8 @@
     rows.sort((a, b) => sign * (a[1].v - b[1].v) || a[0].n.localeCompare(b[0].n));
     let h = `<h2>Rankings</h2><div class="tabs">${tabs.map((t, i) => `<button type="button" data-t="${i}" aria-pressed="${i === S.rankTab}">${t}</button>`).join("")}</div>`;
     const what = S.mode === "year" ? `${YEARS[S.yi]}, districts with ${RANK_FLOOR} or more children` : `${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}, districts with ${RANK_FLOOR} or more children a year in both periods`;
-    h += `<p class="scope">${esc(scope)}: ${esc(what)}. ${nf.format(rows.length)} qualify.</p>`;
+    h += `<p class="scope">${esc(scope)}: ${esc(what)}. ${nf.format(rows.length)} qualify.`
+      + (S.mode === "change" ? " Each period's rate is pooled: three years of children in poverty divided by three years of children (our calculation from the Census figures). Blue on the map means fewer children in poverty." : "") + `</p>`;
     if (rows.length < 5) {
       h += `<p class="msg">Not enough qualifying districts to rank here.</p>`;
     } else {
@@ -480,14 +484,25 @@
   const yr = $("year");
   yr.max = NY - 1; yr.value = S.yi;
   yr.oninput = () => { S.yi = +yr.value; update(); };
-  let playT = null;
+  let playT = null, speed = 1;
+  const STEP_MS = 900;
   function stopPlay() { if (playT) { clearInterval(playT); playT = null; $("play").textContent = "Play"; } }
+  function startTimer() {
+    clearInterval(playT);
+    playT = setInterval(() => { if (S.yi >= NY - 1) return stopPlay(); S.yi++; yr.value = S.yi; update(); }, STEP_MS / speed);
+  }
   $("play").onclick = () => {
     if (playT) return stopPlay();
     if (S.yi === NY - 1) S.yi = 0;
     $("play").textContent = "Pause";
     yr.value = S.yi; update();
-    playT = setInterval(() => { if (S.yi >= NY - 1) return stopPlay(); S.yi++; yr.value = S.yi; update(); }, 900);
+    startTimer();
+  };
+  $("speed").onclick = () => {
+    speed = speed === 3 ? 1 : speed + 1;
+    $("speed").textContent = speed + "x";
+    $("speed").setAttribute("aria-label", `Play speed ${speed} times`);
+    if (playT) startTimer();
   };
   const fromSel = $("from"), toSel = $("to");
   WINDOWS.forEach((w, i) => { fromSel.add(new Option(w.label, i)); toSel.add(new Option(w.label, i)); });

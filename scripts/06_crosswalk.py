@@ -130,7 +130,7 @@ def main():
                 rows.append((gid, tlayer, y, k, p))
                 xw.append((gid, tlayer, y, v, kind, ";".join(f"{l}:{i}" for (l, _), i in zip(r[0], ids)),
                            round(r[1], 4), round(r[2], 4)))
-        print(f"{tlayer}: {len(targets):,} targets; with 2000 history: {len(alive):,}", flush=True)
+        print(f"{tlayer}: {len(targets):,} targets; with history back to {years[-1]}: {len(alive):,}", flush=True)
     pd.DataFrame(rows, columns=["geoid", "layer", "year", "kids_5_17", "kids_pov"]).to_csv(
         PROC / "district_series.csv", index=False)
     pd.DataFrame(xw, columns=["geoid", "layer", "year", "vintage", "kind", "components", "coverage",
