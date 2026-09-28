@@ -5,8 +5,8 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 
 ## Current
 
-Post: none yet
-Step: 2a (waiting for slug and draft)
+Post: child-poverty-by-school-district
+Step: 2a (waiting for Eric's draft)
 Since: 2026-09-28
 
 ## Steps
@@ -38,3 +38,4 @@ None.
 - 2026-09-28 SAIPE error: no per-district margins; Census publishes typical error by district size (table in DATASETS.md). Eric: cover it in the post's common questions and limits, not on the map.
 - 2026-09-28 ACS below-200% view removed from the viz (Eric): SAIPE and ACS disagree below the poverty line in some districts (Monte Alto, TX). Scripts and CSVs parked. Viz back to SAIPE only; tie-out passes.
 - 2026-09-28 Step 1 re-confirmed by Eric. Next: 2a, needs the slug.
+- 2026-09-28 Step 2a opened. Slug: child-poverty-by-school-district. posts/child-poverty-by-school-district/ created.
