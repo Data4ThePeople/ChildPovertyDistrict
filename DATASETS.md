@@ -319,3 +319,10 @@ filing on reservations may have shifted after the 2021 expanded Child Tax
 Credit. We have not established that; it is a question, not a finding. The
 post should not present these drops as real change without a check against
 another source (for example the ACS 5-year school district tables).
+
+### Poverty definition
+
+SAIPE uses the official poverty measure (pretax cash income against national
+thresholds, $31,812 for two parents and two children in 2024). Full
+assessment, including the SPM comparison and near-poverty shares:
+`analysis/saipe-poverty-definition.md`.
