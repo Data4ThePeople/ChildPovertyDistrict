@@ -109,7 +109,38 @@ much finer than the real accuracy, especially for small districts.
 - A district ID can change type (for example, elementary to unified after a
   merger) while keeping the same number.
 
-**Uncertainty.** The Census Bureau does not publish margins of error for school
+**Uncertainty.** The Census Bureau does not publish a margin of error for each
+school district. It does publish typical relative error by district size
+("Quantifying Relative Error in the School District Estimates",
+census.gov/programs-surveys/saipe/guidance/district-estimates.html): the median
+coefficient of variation of the count of poor children 5 to 17, measured on
+the 2009 estimates, which the Bureau says to treat as an approximate upper
+bound for 2010 on. A 90% range is about 1.645 times the CV, as a share of the
+estimate:
+
+| District total population | Median CV | Approx. 90% range, share of estimate | 2024 districts | Share of 2024 children | Median range on the 2024 rate |
+|---|---|---|---|---|---|
+| Under 2,500 | 0.67 | ±110% | 22.8% | 1.1% | ±15.1 points |
+| 2,500 to 5,000 | 0.42 | ±69% | 15.0% | 2.1% | ±8.6 points |
+| 5,000 to 10,000 | 0.35 | ±58% | 18.1% | 4.9% | ±7.1 points |
+| 10,000 to 20,000 | 0.28 | ±46% | 17.3% | 9.0% | ±5.5 points |
+| 20,000 to 65,000 | 0.23 | ±38% | 18.5% | 23.5% | ±4.3 points |
+| 65,000 and up | 0.15 | ±25% | 8.3% | 59.4% | ±3.0 points |
+
+These are typical values for a size class, not district-specific. Applied to
+the rate they are approximate (they describe the count; the 5-to-17
+population also carries some error), and a symmetric range stops making
+sense near 0% or 100%. Examples for 2024: New York City 23.4% (about 17.6%
+to 29.2%); Los Angeles 18.9% (about 14.2% to 23.6%); Helena-West Helena 66.5%
+(about ±38 points: its rank as the highest-poverty large district is not
+precise). Among districts with 500+ children the median range is about ±5.6
+points; 18% exceed ±10. The 25 highest 2024 rates carry ranges of ±11.6 to
+±59.5 points. Decision (Eric, September 28, 2026): explain this in the post's
+common questions and limits; the map does not show it. For the change view,
+no range can be derived (errors in two years are partly shared through the
+model), which is one reason for the pooled 3-year rates.
+
+Earlier notes: the Census Bureau publishes no margins of error for school
 district estimates. The 1995 documentation reports average errors up to 60%
 for small districts and 16% for large ones. Later documentation gives no error
 figures for districts. We cannot test whether a change in one district is
