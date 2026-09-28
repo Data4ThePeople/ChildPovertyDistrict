@@ -202,5 +202,82 @@ methodology can draw from it.
    district. Some have 21 years of data points (2000, 2005 to 2024), some have
    none. Older maps are sparser. This is by design (Eric, September 28, 2026).
 
-Results, match tables, and coverage by year get added here as they are
-computed.
+### Which boundaries each SAIPE year used (computed September 28, 2026)
+
+For each SAIPE year we compared its district IDs with every TIGER release
+(Vermont and TIGER placeholder codes 999xx left out). From 2007 on, each year
+lines up with one release to within a single ID:
+
+| SAIPE years | TIGER release | IDs in SAIPE missing from TIGER / in TIGER missing from SAIPE |
+|---|---|---|
+| 2000 | Census 2000 (school year 1999-2000) | 39 / 227, approximate |
+| 2005, 2006 | 2008 | 271 / 81, approximate |
+| 2007, 2008 | 2009 | 1 / 40 |
+| 2009, 2010 | 2011 (same as Census 2010) | 1 / 61 |
+| 2011, 2012 | 2013 | 1 / 63 |
+| 2013, 2014 | 2015 | 1 / 75 |
+| 2015, 2016 | 2017 | 1 / 80 |
+| 2017 | 2018 | 1 / 86 |
+| 2018 to 2024 | 2019 to 2025 (one year later each) | 1 / 82 to 84 |
+
+SAIPE 2024 is on the **2025** TIGER boundaries, not 2024. The published June
+2026 map used 2024 TIGER, which may account for a few of its 58 unmatched
+districts.
+
+SAIPE 2000 used 2001-02 boundaries and 2005-06 used 2005-06 boundaries. Neither
+school year has a TIGER file. For those years a district must pass the test
+at the nearest release **and** at the 2009 release with the same component
+districts, so it only counts if its shape held steady across the gap.
+
+The TIGER 2017 New Jersey unified file is rejected by the www2.census.gov
+firewall ("Request Rejected"); the pipeline falls back to the FTP mirror
+(ftp2.census.gov), which serves the same file.
+
+### Results
+
+- 2024: 13,126 of 13,131 SAIPE districts placed on 2025 TIGER geometry,
+  covering all but 24 of 54,531,695 children. The five left out have 0 to 24
+  children (three Maine unorganized territories and plantations, one Ohio
+  island district, one Montana elementary district). All 52 Vermont
+  supervisory unions are placed, using the TIGER administrative district
+  layer (SDADM). The published map missed 58 districts, mostly Vermont.
+- Vermont before 2021 is reported by member districts, not unions. A union's
+  history is the sum of its member districts when they fit inside it. 16 of
+  52 unions reach back to 2000, 21 to 2005, all 52 by 2023.
+
+Comparable history, by year (share of 2024 districts and of 2024 children
+ages 5 to 17):
+
+| Year | Districts | Share of districts | Share of children | Built by adding districts |
+|---|---|---|---|---|
+| 2024 | 13,126 | 100.0% | 100.0% | 0 |
+| 2020 | 13,048 | 99.4% | 99.7% | 28 |
+| 2015 | 12,826 | 97.7% | 98.2% | 75 |
+| 2010 | 12,430 | 94.7% | 96.8% | 201 |
+| 2005 | 12,209 | 93.0% | 95.2% | 233 |
+| 2000 | 11,510 | 87.7% | 88.8% | 206 |
+
+Full year-by-year table: `data/processed/` (built by `scripts/06_crosswalk.py`).
+
+Check on merges: across a merger (the year a district's history switches from
+a sum of several districts to one), the year-to-year change in the rate looks
+like any other year's change (middle 90%: -3.8 to +5.3 points, against -4.3
+to +4.1 in years with no change). Adding the counts does not create jumps.
+
+### Year-to-year noise (important for the change view)
+
+Among districts with 500 or more children, the rate moves by a median of
+about 1.3 percentage points from one year to the next, and 1 in 20 districts
+moves 5 to 6 points, with no boundary change. Example: Helena-West Helena,
+Arkansas, 44.5% in 2023 and 66.5% in 2024 (the 2024 figure matches the
+published map). Single-year changes in one district should not be read as
+real without a longer run behind them.
+
+Two years move more than the rest:
+
+- 2009 to 2010: rates move a median of 2.0 points (99th percentile 14.4). The
+  recession and the method switch (IRS plus ACS shares, 2010 Census
+  population base) both land here.
+- District child counts reset in 2010 (median change 6.5%) and 2021 (5.0%),
+  when the population base moved to the 2010 and 2020 Censuses. Counts are
+  not a measure of district growth across those years.
