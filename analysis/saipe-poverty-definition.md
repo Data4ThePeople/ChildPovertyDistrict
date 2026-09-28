@@ -195,10 +195,9 @@ published below the state.
   one in three children (33.6%) lived below twice that line in 2024.
 - If the post should show "near poverty" by district, the source is not
   SAIPE but the ACS 5-year school district tables, which report children by
-  ratio of income to poverty (including below 200%). That would be a second
-  layer with its own margins of error. One recommendation if you want it:
-  add it as a separate toggle for the most recent 5-year period only, not as
-  history.
+  ratio of income to poverty (including below 200%). Built September 28,
+  2026 as the "Below 200% (ACS)" view, 2020-2024 only, with its own margins
+  of error; see DATASETS.md.
 
 ## Sources
 
