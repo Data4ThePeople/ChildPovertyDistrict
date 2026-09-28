@@ -16,8 +16,6 @@
   const CHG_LABELS = ["Down 10 points or more", "Down 5 to 10", "Down 2 to 5", "Within 2 points", "Up 2 to 5", "Up 5 to 10", "Up 10 points or more"];
   const CHG_VARS = ["--dn3", "--dn2", "--dn1", "--mid", "--up1", "--up2", "--up3"];
   const RATE_VARS = ["--s0", "--s1", "--s2", "--s3", "--s4", "--s5", "--s6"];
-  const ACS_BINS = [15, 25, 35, 45, 55, 65];                   // percent below 200% of poverty; 7 classes
-  const ACS_VARS = ["--a0", "--a1", "--a2", "--a3", "--a4", "--a5", "--a6"];
   const LAYER_NAME = { u: "Unified district", e: "Elementary district", s: "Secondary district", v: "Supervisory union (Vermont)" };
 
   // ---------- data ----------
@@ -27,7 +25,7 @@
     return JSON.parse(await new Response(stream).text());
   }
   const DATA = await loadData();
-  const YEARS = DATA.years, NY = YEARS.length, GRID = DATA.grid, ACS = DATA.acs;
+  const YEARS = DATA.years, NY = YEARS.length, GRID = DATA.grid;
   const D = DATA.d;
   const byId = new Map();
   for (const d of D) {
@@ -118,14 +116,7 @@
     return k > 0 ? { k, p, rate: (100 * p) / k, avgK: k / w.idx.length } : null;
   }
   // value of a district in the current view: {v, cls, k, p} or {cls:"small"|"nohist"}
-  function acsVal(d) {
-    if (!d.a) return { cls: "nohist" };
-    const [r10, m10, k, b, shade] = d.a, v = r10 / 10, moe = m10 / 10;
-    if (!shade) return { cls: "small", v, moe, k, b };  // too few children or margin of error too wide (decided in the build)
-    return { v, moe, k, b, cls: binOf(v, ACS_BINS) };
-  }
   function value(d) {
-    if (S.mode === "acs") return acsVal(d);
     if (S.mode === "year") {
       const k = d.k[S.yi], p = d.p[S.yi];
       if (k === null) return { cls: "nohist" };
@@ -146,7 +137,7 @@
   function readColors() {
     const cs = getComputedStyle(root);
     const g = (n) => cs.getPropertyValue(n).trim();
-    C = { rate: RATE_VARS.map(g), chg: CHG_VARS.map(g), acs: ACS_VARS.map(g), small: g("--small"), unc: g("--unc"), nohist: g("--nohist"), hatch: g("--hatch"),
+    C = { rate: RATE_VARS.map(g), chg: CHG_VARS.map(g), small: g("--small"), nohist: g("--nohist"), hatch: g("--hatch"),
       edge: g("--edge"), state: g("--state"), hi: g("--hi"), panel: g("--panel"), ink3: g("--ink-3"), accent: g("--accent") };
     const pc = document.createElement("canvas"); pc.width = pc.height = 8;
     const x = pc.getContext("2d");
@@ -156,8 +147,8 @@
   }
   function colorOf(val) {
     if (val.cls === "nohist") return C.hatchPat;
-    if (val.cls === "small") return S.mode === "acs" ? C.unc : C.small;
-    return S.mode === "year" ? C.rate[val.cls] : S.mode === "acs" ? C.acs[val.cls] : C.chg[val.cls];
+    if (val.cls === "small") return C.small;
+    return S.mode === "year" ? C.rate[val.cls] : C.chg[val.cls];
   }
 
   // ---------- canvas & view ----------
@@ -315,13 +306,7 @@
   const pts = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(1) + " points";
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const stAbbr = (s) => DATA.states[s][0];
-  function acsText(v) {
-    if (v.cls === "nohist") return "No ACS figure: the district's boundaries changed between the 2024 and 2025 boundary files.";
-    const line = `${nf.format(v.b)} of ${nf.format(v.k)} children ages 6 to 17 below twice the poverty line (ACS ${ACS.period}, margin of error \u00b1${v.moe.toFixed(1)} points)`;
-    return v.cls === "small" ? `Too uncertain to shade: ${pct(v.v)}, ${line}.` : line + ".";
-  }
   function valueText(d, v) {
-    if (S.mode === "acs") return acsText(v);
     if (v.cls === "nohist") return S.mode === "year"
       ? `No comparable figure for ${YEARS[S.yi]}. The district's boundaries were different then.`
       : "No comparable figures for both periods. The district's boundaries changed in between.";
@@ -339,7 +324,7 @@
   function showTip(d, sx, sy) {
     const v = vals.get(d.id);
     let head = "";
-    if (v.cls !== "nohist" && v.cls !== "small") head = S.mode === "year" ? pct(v.v) : S.mode === "acs" ? `${pct(v.v)} \u00b1${v.moe.toFixed(1)}` : pts(v.v);
+    if (v.cls !== "nohist" && v.cls !== "small") head = S.mode === "year" ? pct(v.v) : pts(v.v);
     tip.innerHTML = `<b>${esc(d.n)}, ${stAbbr(d.s)}</b>${head ? `<span class="v">${head}</span><br>` : ""}<span>${esc(valueText(d, v))}</span>`;
     tip.hidden = false;
     const tw = tip.offsetWidth, th = tip.offsetHeight;
@@ -371,48 +356,37 @@
     const dots = pts2.map((p) => `<circle cx="${xs(p[0]).toFixed(1)}" cy="${ys(p[1]).toFixed(1)}" r="${p === cur ? 4 : 2.2}" fill="var(--accent)"${p === cur ? ' stroke="var(--panel)" stroke-width="1.5"' : ""}/>`).join("");
     return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Child poverty rate by year, ${esc(d.n)}">${grid}${xl}<path d="${path}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>${dots}</svg>`;
   }
-  function acsLine(d) {
-    const a = acsVal(d);
-    if (a.cls === "nohist") return "Below twice the poverty line (ACS): no figure for this district.";
-    return `Below twice the poverty line, ages 6 to 17 (ACS ${ACS.period}): ${pct(a.v)} \u00b1${a.moe.toFixed(1)} points${a.cls === "small" ? ", too uncertain to shade" : ""}.`;
-  }
   function showDetail(d) {
     const el = $("detail");
     if (!d) { el.innerHTML = `<h2>District</h2><div class="empty">Hover over or tap a district to see its numbers and its history.</div>`; return; }
     const v = vals.get(d.id);
     let big = "";
-    if (v.cls !== "nohist" && v.cls !== "small") big = S.mode === "year" ? pct(v.v) : S.mode === "acs" ? `${pct(v.v)} <small>\u00b1${v.moe.toFixed(1)}</small>` : pts(v.v);
+    if (v.cls !== "nohist" && v.cls !== "small") big = S.mode === "year" ? pct(v.v) : pts(v.v);
     const since = d.first >= 0 ? YEARS[d.first] : null;
     const notes = [];
     if (since !== null) notes.push(since === YEARS[0] ? `Comparable history back to ${YEARS[0]}.` : `Comparable history since ${since}. Before that, the district's boundaries were different.`);
     if (d.m) notes.push(`Figures through ${d.m} add up the former districts that make up today's district.`);
     if (d.hs && byId.get(d.hs)) {
       const h = byId.get(d.hs), hv = vals.get(h.id);
-      const hvTxt = hv.cls === "nohist" || hv.cls === "small" ? "" : ` (${S.mode === "change" ? pts(hv.v) : pct(hv.v)})`;
+      const hvTxt = hv.cls === "nohist" || hv.cls === "small" ? "" : ` (${S.mode === "year" ? pct(hv.v) : pts(hv.v)})`;
       notes.push(`High school grades are served by ${h.n}${hvTxt}, outlined in gray.`);
     }
     el.innerHTML = `<h2>District</h2><div class="name">${esc(d.n)}</div><div class="meta">${DATA.states[d.s][1]} &middot; ${LAYER_NAME[d.l]}</div>`
-      + (big ? `<div class="big">${big}</div>` : "") + `<div class="counts">${esc(valueText(d, v))}</div>`
-      + (S.mode !== "acs" ? `<div class="acsline">${esc(acsLine(d))}</div>` : "")
-      + (S.mode === "acs" ? ""   // the ACS view is a single 2020-2024 period: no SAIPE history chart or history notes
-        : `<div class="cap">Official poverty rate, ages 5 to 17 (SAIPE)</div>` + spark(d) + `<div class="hist">${notes.map(esc).join(" ")}</div>`);
+      + (big ? `<div class="big">${big}</div>` : "") + `<div class="counts">${esc(valueText(d, v))}</div>` + spark(d)
+      + `<div class="hist">${notes.map(esc).join(" ")}</div>`;
   }
 
   // ---------- legend ----------
   function legend() {
     const el = $("legend");
     const title = S.mode === "year" ? `Child poverty rate, ages 5 to 17, ${YEARS[S.yi]}`
-      : S.mode === "acs" ? `Ages 6 to 17 below twice the poverty line, ${ACS.period} (ACS)`
       : `Change in points, ${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}`;
-    const cols = S.mode === "year" ? C.rate : S.mode === "acs" ? C.acs : C.chg;
-    const edges = S.mode === "year" ? RATE_BINS.map((b) => b + "%") : S.mode === "acs" ? ACS_BINS.map((b) => b + "%")
-      : CHG_BINS.map((b) => (b > 0 ? "+" : b < 0 ? "\u2212" : "") + Math.abs(b));
+    const cols = S.mode === "year" ? C.rate : C.chg;
+    const edges = S.mode === "year" ? RATE_BINS.map((b) => b + "%") : CHG_BINS.map((b) => (b > 0 ? "+" : b < 0 ? "\u2212" : "") + Math.abs(b));
     let h = `<h2>${esc(title)}</h2><div class="strip">${cols.map((c) => `<span style="background:${c}"></span>`).join("")}</div>`;
     h += `<div class="ticks">${edges.map((t, i) => `<span style="left:${((i + 1) / cols.length) * 100}%">${t}</span>`).join("")}</div>`;
-    const smallTxt = S.mode === "acs" ? `Too uncertain: margin of error over \u00b1${ACS.moe_max} points` : `Fewer than ${MAP_FLOOR} children${S.mode === "change" ? " a year" : ""}`;
-    const noTxt = S.mode === "acs" ? "No ACS figure (boundaries changed)" : "No comparable figure (boundaries changed)";
-    h += `<div class="row"><span class="sw" style="background:${S.mode === "acs" ? C.unc : C.small}"></span>${smallTxt}</div>`;
-    h += `<div class="row"><span class="sw" style="background:repeating-linear-gradient(135deg,${C.nohist} 0 3px,${C.hatch} 3px 4.5px)"></span>${noTxt}</div>`;
+    h += `<div class="row"><span class="sw" style="background:${C.small}"></span>Fewer than ${MAP_FLOOR} children${S.mode === "change" ? " a year" : ""}</div>`;
+    h += `<div class="row"><span class="sw" style="background:repeating-linear-gradient(135deg,${C.nohist} 0 3px,${C.hatch} 3px 4.5px)"></span>No comparable figure (boundaries changed)</div>`;
     el.innerHTML = h;
   }
 
@@ -432,17 +406,6 @@
       const y = YEARS[S.yi];
       const cover = n === all ? `all ${nf.format(n)} districts` : `the ${nf.format(n)} of ${nf.format(all)} districts with a comparable figure`;
       $("sub").textContent = k ? `${S.st ? where : "United States"}, ${y}: ${pct((100 * p) / k)} of children ages 5 to 17 in ${cover} lived in families in poverty (${nf.format(p)} of ${nf.format(k)}).` : "";
-    } else if (S.mode === "acs") {
-      // unified, elementary and Vermont unions tile the map; secondary districts overlap elementary ones
-      let k = 0, b = 0, n = 0, all = 0;
-      for (const d of D) {
-        if (!inState(d) || d.l === "s") continue;
-        all++;
-        if (d.a) { k += d.a[2]; b += d.a[3]; }
-        const v = vals.get(d.id);
-        if (v.cls !== "nohist" && v.cls !== "small") n++;
-      }
-      $("sub").textContent = k ? `${S.st ? where : "United States"}, ${ACS.period}: ${pct((100 * b) / k)} of children ages 6 to 17 lived below twice the poverty line (ACS estimate). ${nf.format(n)} of ${nf.format(all)} districts have a margin of error small enough to shade.` : "";
     } else {
       let n = 0, down = 0, up = 0, all = 0;
       for (const d of D) {
@@ -460,30 +423,28 @@
   // ---------- rankings ----------
   function rankings() {
     const el = $("rank");
-    const tabs = S.mode === "change" ? ["Largest drops", "Largest increases"] : ["Highest", "Lowest"];
+    const tabs = S.mode === "year" ? ["Highest", "Lowest"] : ["Largest drops", "Largest increases"];
     const scope = S.st ? DATA.states[S.st][1] : "All states";
     const rows = [];
     for (const d of fillList.concat(secList)) {
       if (S.st && d.s !== S.st) continue;
       const v = vals.get(d.id);
       if (v.cls === "nohist" || v.cls === "small") continue;
-      if (S.mode === "change" ? (v.a.avgK < RANK_FLOOR || v.b.avgK < RANK_FLOOR) : v.k < RANK_FLOOR) continue;
+      if (S.mode === "year" ? v.k < RANK_FLOOR : (v.a.avgK < RANK_FLOOR || v.b.avgK < RANK_FLOOR)) continue;
       rows.push([d, v]);
     }
-    const sign = S.mode === "change" ? (S.rankTab === 0 ? 1 : -1) : (S.rankTab === 0 ? -1 : 1);
+    const sign = (S.mode === "year" ? (S.rankTab === 0 ? -1 : 1) : (S.rankTab === 0 ? 1 : -1));
     rows.sort((a, b) => sign * (a[1].v - b[1].v) || a[0].n.localeCompare(b[0].n));
     let h = `<h2>Rankings</h2><div class="tabs">${tabs.map((t, i) => `<button type="button" data-t="${i}" aria-pressed="${i === S.rankTab}">${t}</button>`).join("")}</div>`;
-    const what = S.mode === "year" ? `${YEARS[S.yi]}, districts with ${RANK_FLOOR} or more children`
-      : S.mode === "acs" ? `ACS ${ACS.period}, districts with ${RANK_FLOOR} or more children ages 6 to 17 and a margin of error of \u00b1${ACS.moe_max} points or less. Read ranks as rough: most margins are several points wide`
-      : `${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}, districts with ${RANK_FLOOR} or more children a year in both periods`;
+    const what = S.mode === "year" ? `${YEARS[S.yi]}, districts with ${RANK_FLOOR} or more children` : `${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}, districts with ${RANK_FLOOR} or more children a year in both periods`;
     h += `<p class="scope">${esc(scope)}: ${esc(what)}. ${nf.format(rows.length)} qualify.`
       + (S.mode === "change" ? " Each period's rate is pooled: three years of children in poverty divided by three years of children (our calculation from the Census figures). Blue on the map means fewer children in poverty." : "") + `</p>`;
     if (rows.length < 5) {
       h += `<p class="msg">Not enough qualifying districts to rank here.</p>`;
     } else {
       h += "<table>" + rows.slice(0, TOP_N).map(([d, v], i) => {
-        const val = S.mode === "year" ? pct(v.v) : S.mode === "acs" ? `${pct(v.v)}<br><small>\u00b1${v.moe.toFixed(1)}</small>` : pts(v.v);
-        const sub = S.mode === "year" ? `${nf.format(v.p)} of ${nf.format(v.k)}` : S.mode === "acs" ? `${nf.format(v.b)} of ${nf.format(v.k)}` : `${pct(v.a.rate)} to ${pct(v.b.rate)}`;
+        const val = S.mode === "year" ? pct(v.v) : pts(v.v);
+        const sub = S.mode === "year" ? `${nf.format(v.p)} of ${nf.format(v.k)}` : `${pct(v.a.rate)} to ${pct(v.b.rate)}`;
         return `<tr data-id="${d.id}"${S.sel === d ? ' class="sel"' : ""}><td class="r">${i + 1}</td><td>${esc(d.n)}${S.st ? "" : `, ${stAbbr(d.s)}`}<br><small>${sub}</small></td><td class="n">${val}</td></tr>`;
       }).join("") + "</table>";
     }
@@ -509,7 +470,6 @@
     S.mode = m; S.rankTab = 0;
     $("vYear").setAttribute("aria-pressed", m === "year");
     $("vChange").setAttribute("aria-pressed", m === "change");
-    $("vAcs").setAttribute("aria-pressed", m === "acs");
     $("yearCtl").hidden = m !== "year";
     $("fromCtl").hidden = $("toCtl").hidden = m !== "change";
     update();
@@ -521,7 +481,6 @@
   }
   $("vYear").onclick = () => { stopPlay(); setMode("year"); };
   $("vChange").onclick = () => { stopPlay(); setMode("change"); };
-  $("vAcs").onclick = () => { stopPlay(); setMode("acs"); };
   const yr = $("year");
   yr.max = NY - 1; yr.value = S.yi;
   yr.oninput = () => { S.yi = +yr.value; update(); };
@@ -592,7 +551,7 @@
   $("loading").remove();
   new ResizeObserver(resize).observe(wrap);
   const hs = new URLSearchParams(location.hash.slice(1));
-  if (hs.get("view") === "change" || hs.get("view") === "acs") setMode(hs.get("view")); else update();
+  if (hs.get("view") === "change") setMode("change"); else update();
   if (hs.get("debug") === "1") window.__cpdbg = { hoverAt, render, renderBase, W: () => W, H: () => H };
   if (hs.get("d") && byId.get(hs.get("d"))) { pendingSel = byId.get(hs.get("d")); if (W) { select(pendingSel, true); pendingSel = null; } }
 })().catch((e) => {

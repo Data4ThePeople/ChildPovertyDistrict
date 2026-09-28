@@ -200,9 +200,11 @@ published below the state.
   one in three children (33.6%) lived below twice that line in 2024.
 - If the post should show "near poverty" by district, the source is not
   SAIPE but the ACS 5-year school district tables, which report children by
-  ratio of income to poverty (including below 200%). Built September 28,
-  2026 as the "Below 200% (ACS)" view, 2020-2024 only, with its own margins
-  of error; see DATASETS.md.
+  ratio of income to poverty (including below 200%). A "Below 200% (ACS)" view
+  was built and then removed on September 28, 2026: in some districts the ACS
+  and SAIPE disagree about the share below the poverty line itself (Monte
+  Alto, TX: ACS 67%, SAIPE 40% pooled over the same years). Parked until
+  that is understood; see DATASETS.md.
 
 ## Sources
 
