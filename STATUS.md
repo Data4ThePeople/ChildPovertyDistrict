@@ -5,7 +5,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 
 ## Current
 
-Post: child-poverty-by-school-district
+Post: children-poverty-viz
 Step: 2a (waiting for Eric's draft)
 Since: 2026-09-28
 
@@ -40,3 +40,4 @@ None.
 - 2026-09-28 Step 1 re-confirmed by Eric. Next: 2a, needs the slug.
 - 2026-09-28 Step 2a opened. Slug: child-poverty-by-school-district. posts/child-poverty-by-school-district/ created.
 - 2026-09-28 2a: Claude-drafted POST.md at Eric's request (visualization page, modeled on lorenz-chart-viz); every number checked against the data. Waiting on Eric's edits.
+- 2026-09-28 Eric: replace the June page in place. Slug changed to children-poverty-viz (Prismic document aib90RcAAC0A-Wcs, read from the live page); published and updated dates both September 30, 2026, 7:00 pm EDT; June method PDF archived in the repo and linked from the Updated blurb.

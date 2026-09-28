@@ -5,3 +5,4 @@ __pycache__/
 data/raw/
 *.pdf
 data/*.log
+!Child Poverty by School District, 2024.pdf
