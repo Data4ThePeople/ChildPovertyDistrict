@@ -360,7 +360,16 @@ assessment, including the SPM comparison and near-poverty shares:
 
 ---
 
-## ACS 5-year 2020-2024, table B17024 (U.S. Census Bureau)
+## ACS 5-year 2020-2024, table B17024 (U.S. Census Bureau): PARKED, not in the viz
+
+Removed from the map September 28, 2026 (Eric): SAIPE and the ACS disagree
+about who is below the poverty line in some districts, not only about near
+poverty, and Eric wants to understand that before mixing the two. Example:
+Monte Alto ISD, TX. SAIPE 2024 26.4% (2020-2024 pooled 40.5%; single years
+from 31.8% to 52.9%); ACS 2020-2024: 67.1% ±12.9 below the poverty line,
+92.3% ±6.2 below twice it. `scripts/10_fetch_acs.py`, `scripts/11_build_acs.py`,
+and `data/processed/acs_*.csv` are kept for later; nothing reads them now.
+
 
 **What it is.** Age by ratio of income to poverty level. We use children 6
 to 11 and 12 to 17 (the table has no 5-year-old break), total and below 2.00

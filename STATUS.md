@@ -36,3 +36,4 @@ None.
 - 2026-09-28 Step 1 reopened: adding an ACS 2020-2024 below-200%-of-poverty toggle. No later steps were confirmed, so nothing is stale.
 - 2026-09-28 ACS below-200% view added (2020-2024, B17024): shaded only where the margin of error is 10 points or less (4,939 districts, 86.1% of children). Tie-out passes. Waiting on Eric to re-confirm Step 1.
 - 2026-09-28 SAIPE error: no per-district margins; Census publishes typical error by district size (table in DATASETS.md). Eric: cover it in the post's common questions and limits, not on the map.
+- 2026-09-28 ACS below-200% view removed from the viz (Eric): SAIPE and ACS disagree below the poverty line in some districts (Monte Alto, TX). Scripts and CSVs parked. Viz back to SAIPE only; tie-out passes.
