@@ -19,7 +19,7 @@ STATES = ["01", "02", "04", "05", "06", "08", "09", "10", "11", "12", "13", "15"
           "47", "48", "49", "50", "51", "53", "54", "55", "56"]
 
 # SAIPE years used in the map (see DATASETS.md, method eras)
-MAP_YEARS = [2000] + list(range(2005, 2025))
+MAP_YEARS = list(range(2005, 2025))
 ALL_SAIPE_YEARS = [1995, 1997] + list(range(1999, 2025))
 
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Child Poverty by School District</title>
-<meta name="description" content="Interactive map of the share of school-age children in poverty in every U.S. school district, 2000 and 2005 to 2024, with change over time, from the Census Bureau's Small Area Income and Poverty Estimates. Built by Data 4 The People.">
+<meta name="description" content="Interactive map of the share of school-age children in poverty in every U.S. school district, 2005 to 2024, with change over time, from the Census Bureau's Small Area Income and Poverty Estimates. Built by Data 4 The People.">
 <style>
   :root{ color-scheme: light; }
   .cp{
@@ -165,7 +165,7 @@
     </label>
     <label id="yearCtl">Year
       <span class="yr"><input type="range" id="year" min="0" max="20" step="1" value="20" aria-label="Year"><output id="yearOut">2024</output>
-      <button type="button" class="btn" id="play" aria-label="Play through the years">Play</button></span>
+      <button type="button" class="btn" id="play" aria-label="Play through the years">Play</button><button type="button" class="btn" id="speed" aria-label="Play speed 1 times" title="Play speed">1x</button></span>
     </label>
     <label id="fromCtl" hidden>From <select id="from"></select></label>
     <label id="toCtl" hidden>To <select id="to"></select></label>
@@ -194,7 +194,7 @@
   </div>
 
   <div class="foot">
-    <span>Source: U.S. Census Bureau, Small Area Income and Poverty Estimates (school districts), 2000 and 2005 to 2024. Boundaries: 2025 TIGER/Line and cartographic files. Albers USA projection.</span>
+    <span>Source: U.S. Census Bureau, Small Area Income and Poverty Estimates (school districts), 2005 to 2024. Boundaries: 2025 TIGER/Line and cartographic files. Albers USA projection.</span>
     <span>Built by Data 4 The People</span>
   </div>
 </div>
