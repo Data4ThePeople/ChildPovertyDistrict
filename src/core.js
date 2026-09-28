@@ -143,7 +143,7 @@
     const x = pc.getContext("2d");
     x.fillStyle = C.nohist; x.fillRect(0, 0, 8, 8);
     x.strokeStyle = C.hatch; x.lineWidth = 1.2; x.beginPath(); x.moveTo(-2, 10); x.lineTo(10, -2); x.moveTo(-2, 2); x.lineTo(2, -2); x.moveTo(6, 10); x.lineTo(10, 6); x.stroke();
-    C.hatchPat = ctx.createPattern(pc, "repeat");
+    C.hatchPat = bctx.createPattern(pc, "repeat");
   }
   function colorOf(val) {
     if (val.cls === "nohist") return C.hatchPat;
@@ -152,7 +152,7 @@
   }
 
   // ---------- canvas & view ----------
-  const cv = $("map"), wrap = $("mapwrap");
+  const cv = $("map"), wrap = $("mapbox");
   const ctx = cv.getContext("2d");
   let W = 0, H = 0, dpr = 1;
   const view = { k: 1, tx: 0, ty: 0 };
@@ -182,36 +182,57 @@
   let vals = new Map();
   function computeVals() { vals = new Map(); for (const d of D) vals.set(d.id, value(d)); }
 
-  let frame = 0;
-  function draw() {
-    if (!W) return;
-    cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(render);
+  // Two layers: the district fills are rendered once into an offscreen "base" bitmap at a known view;
+  // hover and selection outlines are drawn on top of a copy of it, so moving the mouse never repaints
+  // 13,000 districts. While panning or zooming, the base bitmap is moved and scaled, and a sharp
+  // re-render happens once the gesture settles.
+  const base = document.createElement("canvas"), bctx = base.getContext("2d");
+  let frame = 0, baseDirty = true, baseView = null, settleT = 0;
+  function schedule() { if (!W) return; cancelAnimationFrame(frame); frame = requestAnimationFrame(render); }
+  function draw() { baseDirty = true; schedule(); }          // data, colors or size changed
+  function drawOverlay() { schedule(); }                      // only hover / selection changed
+  function interact() {                                       // view moving: reuse the bitmap now, re-render when it settles
+    if (!baseView) baseDirty = true;
+    schedule(); clearTimeout(settleT); settleT = setTimeout(draw, 160);
   }
   function render() {
+    if (baseDirty) { renderBase(); baseDirty = false; }
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.fillStyle = C.panel; ctx.fillRect(0, 0, cv.width, cv.height);
+    const r = view.k / baseView.k;
+    ctx.setTransform(r, 0, 0, r, dpr * (view.tx - baseView.tx * r), dpr * (view.ty - baseView.ty * r));
+    ctx.drawImage(base, 0, 0);
     ctx.setTransform(dpr * view.k, 0, 0, dpr * view.k, dpr * view.tx, dpr * view.ty);
-    const x0 = -view.tx / view.k, y0 = -view.ty / view.k, x1 = (W - view.tx) / view.k, y1 = (H - view.ty) / view.k;
     const lw = 1 / view.k;
     ctx.lineJoin = "round";
-    ctx.strokeStyle = C.edge; ctx.lineWidth = 0.6 * lw;
-    const dim = S.st;
-    for (const d of fillList) {
-      if (d.bb[2] < x0 || d.bb[0] > x1 || d.bb[3] < y0 || d.bb[1] > y1) continue;
-      ctx.globalAlpha = dim && d.s !== dim ? 0.3 : 1;
-      ctx.fillStyle = colorOf(vals.get(d.id));
-      ctx.fill(d.path, "evenodd");
-      if (view.k * GRID > 30) ctx.stroke(d.path); // district edges once zoomed in enough to see them
-    }
-    ctx.globalAlpha = 1;
-    ctx.strokeStyle = C.state; ctx.lineWidth = 0.9 * lw;
-    for (const b of borders) ctx.stroke(b);
     const outline = (d, w, color) => { if (!d || !d.path) return; ctx.strokeStyle = color; ctx.lineWidth = w * lw; ctx.stroke(d.path); };
     const focus = S.hover || S.sel;
     if (focus && focus.l === "e" && focus.hs) outline(byId.get(focus.hs), 1.6, C.ink3);
     if (S.sel) outline(S.sel, 2.4, C.hi);
     if (S.hover && S.hover !== S.sel) outline(S.hover, 1.6, C.hi);
+  }
+  function renderBase() {
+    if (base.width !== cv.width || base.height !== cv.height) { base.width = cv.width; base.height = cv.height; }
+    const c = bctx;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.fillStyle = C.panel; c.fillRect(0, 0, base.width, base.height);
+    c.setTransform(dpr * view.k, 0, 0, dpr * view.k, dpr * view.tx, dpr * view.ty);
+    const x0 = -view.tx / view.k, y0 = -view.ty / view.k, x1 = (W - view.tx) / view.k, y1 = (H - view.ty) / view.k;
+    const lw = 1 / view.k;
+    c.lineJoin = "round";
+    c.strokeStyle = C.edge; c.lineWidth = 0.6 * lw;
+    const dim = S.st;
+    for (const d of fillList) {
+      if (d.bb[2] < x0 || d.bb[0] > x1 || d.bb[3] < y0 || d.bb[1] > y1) continue;
+      c.globalAlpha = dim && d.s !== dim ? 0.3 : 1;
+      c.fillStyle = colorOf(vals.get(d.id));
+      c.fill(d.path, "evenodd");
+      if (view.k * GRID > 30) c.stroke(d.path); // district edges once zoomed in enough to see them
+    }
+    c.globalAlpha = 1;
+    c.strokeStyle = C.state; c.lineWidth = 0.9 * lw;
+    for (const b of borders) c.stroke(b);
+    baseView = { k: view.k, tx: view.tx, ty: view.ty };
   }
 
   // pan & zoom
@@ -219,7 +240,7 @@
     const k = Math.max(homeK * 0.8, Math.min(homeK * 400, view.k * f));
     const gx = (sx - view.tx) / view.k, gy = (sy - view.ty) / view.k;
     view.k = k; view.tx = sx - gx * k; view.ty = sy - gy * k;
-    draw();
+    interact();
   }
   cv.addEventListener("wheel", (e) => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0015), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
   $("zin").onclick = () => zoomAt(1.6, W / 2, H / 2);
@@ -244,7 +265,7 @@
     if (drag) {
       const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
       if (Math.abs(dx) + Math.abs(dy) > 3) { moved = true; cv.classList.add("drag"); }
-      if (moved) { view.tx = drag.tx + dx; view.ty = drag.ty + dy; hideTip(); draw(); return; }
+      if (moved) { view.tx = drag.tx + dx; view.ty = drag.ty + dy; hideTip(); interact(); return; }
     }
     if (e.pointerType === "mouse") hoverAt(e.clientX - r.left, e.clientY - r.top);
   });
@@ -264,12 +285,12 @@
   };
   cv.addEventListener("pointerup", endPtr);
   cv.addEventListener("pointercancel", endPtr);
-  cv.addEventListener("pointerleave", () => { if (!drag) { S.hover = null; hideTip(); showDetail(S.sel); draw(); } });
+  cv.addEventListener("pointerleave", () => { if (!drag) { S.hover = null; hideTip(); showDetail(S.sel); drawOverlay(); } });
 
   function pick(sx, sy) { return hitTest((sx - view.tx) / view.k, (sy - view.ty) / view.k); }
   function hoverAt(sx, sy) {
     const d = pick(sx, sy);
-    if (d !== S.hover) { S.hover = d; showDetail(d || S.sel); draw(); }
+    if (d !== S.hover) { S.hover = d; if (d) showDetail(d); drawOverlay(); }
     if (d) showTip(d, sx, sy); else hideTip();
   }
 
@@ -354,13 +375,15 @@
   function legend() {
     const el = $("legend");
     const title = S.mode === "year" ? `Child poverty rate, ages 5 to 17, ${YEARS[S.yi]}`
-      : `Change in pooled child poverty rate, ${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}`;
-    const cols = S.mode === "year" ? C.rate : C.chg, labs = S.mode === "year" ? RATE_LABELS : CHG_LABELS;
-    let h = `<h2>${esc(title)}</h2>`;
-    h += cols.map((c, i) => `<div class="row"><span class="sw" style="background:${c}"></span>${labs[i]}</div>`).join("");
-    h += `<div class="row"><span class="sw" style="background:${C.small}"></span>Fewer than ${MAP_FLOOR} children${S.mode === "change" ? " a year" : ""}: too few to shade</div>`;
+      : `Change in pooled rate, ${WINDOWS[S.from].label} to ${WINDOWS[S.to].label}`;
+    const cols = S.mode === "year" ? C.rate : C.chg;
+    const edges = S.mode === "year" ? RATE_BINS.map((b) => b + "%") : CHG_BINS.map((b) => (b > 0 ? "+" : b < 0 ? "\u2212" : "") + Math.abs(b));
+    let h = `<h2>${esc(title)}</h2><div class="strip">${cols.map((c) => `<span style="background:${c}"></span>`).join("")}</div>`;
+    h += `<div class="ticks">${edges.map((t, i) => `<span style="left:${((i + 1) / cols.length) * 100}%">${t}</span>`).join("")}</div>`;
+    if (S.mode === "change") h += `<div class="unit">Percentage points. Blue: fewer children in poverty.</div>`;
+    h += `<div class="row"><span class="sw" style="background:${C.small}"></span>Fewer than ${MAP_FLOOR} children${S.mode === "change" ? " a year" : ""}</div>`;
     h += `<div class="row"><span class="sw" style="background:repeating-linear-gradient(135deg,${C.nohist} 0 3px,${C.hatch} 3px 4.5px)"></span>No comparable figure (boundaries changed)</div>`;
-    if (S.mode === "change") h += `<div class="note">A pooled rate adds up three years of children in poverty and divides by three years of children. Our calculation from the Census figures. 2000 stands alone.</div>`;
+    if (S.mode === "change") h += `<div class="note">Pooled rate: three years of children in poverty over three years of children (our calculation). 2000 stands alone.</div>`;
     el.innerHTML = h;
   }
 
@@ -435,7 +458,7 @@
       fitBox([d.bb[0] - pad, d.bb[1] - pad, d.bb[2] + pad, d.bb[3] + pad], 0.05, homeK * 300);
     }
     rankings();
-    draw();
+    if (d && zoom && d.bb) draw(); else drawOverlay();
   }
 
   // ---------- controls ----------
@@ -514,6 +537,7 @@
   new ResizeObserver(resize).observe(wrap);
   const hs = new URLSearchParams(location.hash.slice(1));
   if (hs.get("view") === "change") setMode("change"); else update();
+  if (hs.get("debug") === "1") window.__cpdbg = { hoverAt, render, renderBase, W: () => W, H: () => H };
   if (hs.get("d") && byId.get(hs.get("d"))) { pendingSel = byId.get(hs.get("d")); if (W) { select(pendingSel, true); pendingSel = null; } }
 })().catch((e) => {
   const s = document.getElementById("sub");
