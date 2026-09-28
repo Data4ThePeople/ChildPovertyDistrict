@@ -163,8 +163,13 @@ published below the state.
 
 ## 3. Limits specific to SAIPE district estimates
 
-1. **Model estimates, no error bars.** The Census Bureau publishes no margins
-   of error for school districts. The 1995 method papers reported average
+1. **Model estimates, no district error bars.** The Census Bureau publishes
+   no margin of error for each district, only typical error by district size
+   (details and a table in DATASETS.md): roughly ±25% of the estimate for
+   districts of 65,000+ people, up to about ±110% under 2,500. For 2024 that
+   means New York City's 23.4% is about 17.6% to 29.2%, and Helena-West
+   Helena's 66.5% is about ±38 points. This goes in the post's common
+   questions and limits, not on the map. The 1995 method papers reported average
    errors up to 60% for small districts. Year-to-year movement of 5 or more
    points is common in small districts with no real change behind it
    (see DATASETS.md).
