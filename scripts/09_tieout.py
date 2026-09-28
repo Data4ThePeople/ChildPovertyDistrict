@@ -86,6 +86,23 @@ def main():
     check("fell 2+ (viz shows 3,551)", int((chg <= -2).sum()), 3551)
     check("rose 2+ (viz shows 2,385)", int((chg >= 2).sum()), 2385)
 
+    print("== ACS below-200% view (2020-2024)")
+    acs = pd.read_csv(PROC / "acs_map.csv", dtype={"geoid": str})
+    raw_acs = pd.read_csv(PROC / "acs_below200_2020_2024.csv", dtype={"geoid": str}).set_index(["layer", "geoid"])
+    same = acs[acs.how == "same"]
+    diff = sum(abs(r.kids_6_17 - raw_acs.loc[(r.layer, r.geoid), "kids_6_17"]) + abs(r.below200 - raw_acs.loc[(r.layer, r.geoid), "below200"])
+               for r in same.itertuples())
+    check("same-shape districts equal the raw ACS rows", int(diff), 0)
+    tile = acs[acs.layer != "scsd"]
+    rate = round(100 * tile.below200.sum() / tile.kids_6_17.sum(), 1)
+    print(f"     national (unified + elementary + Vermont unions): {rate}%")
+    check("ACS headline rate (viz shows 35.4%)", rate, 35.4)
+    check("ACS districts shaded, excluding secondary (viz shows 4,939)", int(tile.shade.sum()), 4939)
+    check("ACS districts ranked, 500+ children and shaded (viz shows 5,091)", int((acs.shade & (acs.kids_6_17 >= 500)).sum()), 5091)
+    ad = {d["id"]: d.get("a") for d in md["d"]}
+    bad = sum(1 for r in acs[acs.rate.notna()].itertuples() if not ad.get(r.geoid) or ad[r.geoid][0] != int(round(r.rate * 10)))
+    check("map_data ACS rates equal acs_map", bad, 0)
+
     if fails:
         print(f"\n{len(fails)} FAILED: {fails}")
         sys.exit(1)

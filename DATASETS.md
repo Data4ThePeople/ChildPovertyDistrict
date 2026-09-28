@@ -326,3 +326,53 @@ SAIPE uses the official poverty measure (pretax cash income against national
 thresholds, $31,812 for two parents and two children in 2024). Full
 assessment, including the SPM comparison and near-poverty shares:
 `analysis/saipe-poverty-definition.md`.
+
+---
+
+## ACS 5-year 2020-2024, table B17024 (U.S. Census Bureau)
+
+**What it is.** Age by ratio of income to poverty level. We use children 6
+to 11 and 12 to 17 (the table has no 5-year-old break), total and below 2.00
+times their official poverty threshold (the eight bands under 2.00). Same
+official thresholds and income definition as SAIPE; see
+`analysis/saipe-poverty-definition.md`.
+
+**Where it comes from.** api.census.gov/data/2024/acs/acs5, `group(B17024)`
+for school district (unified), (elementary), and (secondary) in every state.
+`scripts/10_fetch_acs.py`. Pulled September 28, 2026.
+
+**Coverage.** One period, 2020-2024, pooled survey responses from five
+years. Not a series, and not comparable with single-year SAIPE numbers.
+Universe is people whose poverty status is determined, which includes some
+children SAIPE leaves out of its numerator (unrelated children 6 and older).
+
+**Geography.** ACS 2020-2024 is tabulated on the 2024 TIGER boundaries; the
+map uses 2025. `scripts/11_build_acs.py` reuses the crosswalk: 13,039
+districts are the same shape and take their row directly; 4 are sums of
+former districts; the 52 Vermont unions are sums of their member unified and
+elementary districts (ACS has no union geography); 29 districts changed
+boundaries between the 2024 and 2025 files and get no ACS figure; 2 had no
+ACS row. Where elementary and secondary districts overlap, ACS counts every
+child 6 to 17 in each, so sums use only the elementary pieces.
+
+**Uncertainty.** Every estimate has a 90% margin of error. Sums use the
+Census Bureau's root-sum-of-squares approximation; the rate's margin uses its
+formula for a derived proportion. Typical rate margins: about ±5 points for
+districts with 5,000+ children, ±10 for 1,000 to 5,000, ±21 for 100 to 500.
+**The map shades a district only when the margin is ±10 points or less and
+it has at least 100 children 6 to 17**: 4,939 of 12,738 map districts,
+86.1% of children. Others show as "too uncertain." Rankings add a floor of
+500 children (5,091 districts) and show each margin.
+
+**Check.** ACS children 6 to 17 against SAIPE children 5 to 17 in unified
+districts: median ratio 0.917 (about 12/13, as expected). Gaps in large
+single-county districts (Los Angeles, New York City, Miami-Dade), whose
+boundaries cannot differ, show that the remaining differences come from the
+5-year pooling and sampling, not boundaries.
+
+**National figure.** 35.4% of children 6 to 17 below twice the poverty line
+(sum over unified, elementary, and Vermont union districts). The CPS figure
+for all children under 18 in 2024 is 33.6% (P60-287, Table B-5); different
+survey, ages, and period.
+
+**License.** Public domain.
