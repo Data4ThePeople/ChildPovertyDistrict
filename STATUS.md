@@ -6,14 +6,14 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: none yet
-Step: 1 (reopened)
+Step: 2a (waiting for slug and draft)
 Since: 2026-09-28
 
 ## Steps
 
 | Step | What | Confirmed | Notes |
 |---|---|---|---|
-| 1  | Exploration and analysis | 2026-09-28 | Map 2005-2024, crosswalk to 2025 boundaries, tie-out passes |
+| 1  | Exploration and analysis | 2026-09-28 | Map 2005-2024 (SAIPE only), crosswalk to 2025 boundaries, tie-out passes; ACS parked |
 | 2a | Draft with brackets resolved | | |
 | 2b | Eric's edit, Claude's look-over | | |
 | 2c | Slice markup | | |
@@ -37,3 +37,4 @@ None.
 - 2026-09-28 ACS below-200% view added (2020-2024, B17024): shaded only where the margin of error is 10 points or less (4,939 districts, 86.1% of children). Tie-out passes. Waiting on Eric to re-confirm Step 1.
 - 2026-09-28 SAIPE error: no per-district margins; Census publishes typical error by district size (table in DATASETS.md). Eric: cover it in the post's common questions and limits, not on the map.
 - 2026-09-28 ACS below-200% view removed from the viz (Eric): SAIPE and ACS disagree below the poverty line in some districts (Monte Alto, TX). Scripts and CSVs parked. Viz back to SAIPE only; tie-out passes.
+- 2026-09-28 Step 1 re-confirmed by Eric. Next: 2a, needs the slug.
