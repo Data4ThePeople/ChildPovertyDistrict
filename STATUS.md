@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2e
+Step: 2f
 Since: 2026-09-30
 
 ## Steps
@@ -18,7 +18,7 @@ Since: 2026-09-30
 | 2b | Eric's edit, Claude's look-over | 2026-09-30 | No edits to the Claude draft; confirmed as written |
 | 2c | Slice markup | 2026-09-30 | 91 slices, 15 FAQ entries; ACS common question added |
 | 2d | Hero 1680x1080 + alt text | 2026-09-30 | 2024 map at hero scale, dark palette; alt 476 characters |
-| 2e | SEO | | |
+| 2e | SEO | 2026-09-30 | Meta title 56, description 147, 8 keywords; Dataset + WebApplication + FAQPage (16) schema; proposals 1-4 accepted |
 | 2f | Pushed to Prismic (draft) | | |
 | 2g | Mailchimp teaser | | |
 
@@ -50,3 +50,4 @@ None.
 - 2026-09-30 Step 2d confirmed by Eric.
 - 2026-09-30 2e: keyword analysis by search results; meta title (56), description (147), 8 keywords, dataset + app schema written. Four text proposals sent to Eric.
 - 2026-09-30 2e: Eric accepted proposals 1-4 (FAQ retitled to 'How has child poverty changed over time?', rankings heading retitled, 'How do I find...' FAQ added, Frozen in 1963 link). 16 FAQ entries.
+- 2026-09-30 Step 2e confirmed by Eric.
