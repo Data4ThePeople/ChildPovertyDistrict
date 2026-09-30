@@ -51,3 +51,4 @@ None.
 - 2026-09-30 2e: keyword analysis by search results; meta title (56), description (147), 8 keywords, dataset + app schema written. Four text proposals sent to Eric.
 - 2026-09-30 2e: Eric accepted proposals 1-4 (FAQ retitled to 'How has child poverty changed over time?', rankings heading retitled, 'How do I find...' FAQ added, Frozen in 1963 link). 16 FAQ entries.
 - 2026-09-30 Step 2e confirmed by Eric.
+- 2026-09-30 2f: dry run then publish. Updated draft aib90RcAAC0A-Wcs (uid children-poverty-viz) in the Migration Release; 93 slices; hero uploaded as IA-rk3tY1ANitlBz. Before publishing in Prismic: set author (Eric Pachman) and the Visualization tag, which the update does not carry. Not verified by read-back (no PRISMIC_READ_TOKEN).
