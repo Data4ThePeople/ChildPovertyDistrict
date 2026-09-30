@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2f
+Step: 2g
 Since: 2026-09-30
 
 ## Steps
@@ -19,7 +19,7 @@ Since: 2026-09-30
 | 2c | Slice markup | 2026-09-30 | 91 slices, 15 FAQ entries; ACS common question added |
 | 2d | Hero 1680x1080 + alt text | 2026-09-30 | 2024 map at hero scale, dark palette; alt 476 characters |
 | 2e | SEO | 2026-09-30 | Meta title 56, description 147, 8 keywords; Dataset + WebApplication + FAQPage (16) schema; proposals 1-4 accepted |
-| 2f | Pushed to Prismic (draft) | | |
+| 2f | Pushed to Prismic (draft) | 2026-09-30 | Updated aib90RcAAC0A-Wcs in place (uid children-poverty-viz), Migration Release, 93 slices; published/updated 2026-09-30 6:00 pm EDT |
 | 2g | Mailchimp teaser | | |
 
 ## Stale
@@ -55,3 +55,4 @@ None.
 - 2026-09-30 2f: published and updated time changed to 6:00 pm EDT (Eric); draft aib90RcAAC0A-Wcs re-pushed.
 - 2026-09-30 2f: Eric's replacement sentence in 'Read this first' ("counts as in poverty"); draft re-pushed.
 - 2026-09-30 2f: SAIPE definition verified against Census sources; Eric accepted precision edits 1-3 in 'Read this first' (threshold depends on family size and number of children; 'The Census Bureau's 2024 line'; CPS labeled). Draft re-pushed.
+- 2026-09-30 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and the Visualization tag.
