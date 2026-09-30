@@ -8,7 +8,7 @@ updated: 2026-09-30
 prismic_id: aib90RcAAC0A-Wcs
 section: Visualization
 hero: images/children-poverty-viz-hero-1680x1080.png
-hero_alt:
+hero_alt: Map of the child poverty rate in every U.S. school district in 2024, on a dark background. Districts run from dark red (under 5%) to pale peach (30% or more). The palest areas are in the Mississippi Delta, the Deep South, Navajo Nation lands in Arizona and New Mexico, the Texas border and western Alaska. Small districts are gray. Beside the map: Child Poverty by School District, 14.4% of school-age children lived in families in poverty in 2024. Built by Data 4 The People.
 meta_title:
 description:
 keywords:
