@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2c
+Step: 2d
 Since: 2026-09-30
 
 ## Steps
@@ -16,7 +16,7 @@ Since: 2026-09-30
 | 1  | Exploration and analysis | 2026-09-28 | Map 2005-2024 (SAIPE only), crosswalk to 2025 boundaries, tie-out passes; ACS parked |
 | 2a | Draft with brackets resolved | 2026-09-30 | Claude-drafted at Eric's request; replaces the June page in place (aib90RcAAC0A-Wcs) |
 | 2b | Eric's edit, Claude's look-over | 2026-09-30 | No edits to the Claude draft; confirmed as written |
-| 2c | Slice markup | | |
+| 2c | Slice markup | 2026-09-30 | 91 slices, 15 FAQ entries; ACS common question added |
 | 2d | Hero 1680x1080 + alt text | | |
 | 2e | SEO | | |
 | 2f | Pushed to Prismic (draft) | | |
@@ -45,3 +45,4 @@ None.
 - 2026-09-30 Step 2b confirmed by Eric with no changes to POST.md.
 - 2026-09-30 Step 2c opened: slice markup check and convert-only run.
 - 2026-09-30 2c: added a common question on how the ACS tells a different story (near poverty; Monte Alto), at Eric's request. Converted again: 91 slices, 15 FAQ entries.
+- 2026-09-30 Step 2c confirmed by Eric.
