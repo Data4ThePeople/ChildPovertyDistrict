@@ -9,10 +9,25 @@ prismic_id: aib90RcAAC0A-Wcs
 section: Visualization
 hero: images/children-poverty-viz-hero-1680x1080.png
 hero_alt: Map of the child poverty rate in every U.S. school district in 2024, on a dark background. Districts run from dark red (under 5%) to pale peach (30% or more). The palest areas are in the Mississippi Delta, the Deep South, Navajo Nation lands in Arizona and New Mexico, the Texas border and western Alaska. Small districts are gray. Beside the map: Child Poverty by School District, 14.4% of school-age children lived in families in poverty in 2024. Built by Data 4 The People.
-meta_title:
-description:
-keywords:
+meta_title: "Child Poverty by School District: Map & Trends 2005-2024"
+description: "Free interactive map of child poverty in every U.S. school district, 2005 to 2024: yearly rates, which districts got better or worse, and rankings."
+keywords: child poverty by school district, child poverty rate by school district, school district poverty rate map, child poverty rate map, child poverty trends by school district, school districts with the highest child poverty rates, child poverty rate visualization, how has child poverty changed over time
 schema_type: dataset
+dataset_name: Child poverty rates for every U.S. school district, 2005 to 2024, on 2025 district boundaries
+dataset_description: "Share of children ages 5 to 17 in families below the official poverty line, for 13,126 U.S. school districts, each year from 2005 to 2024, from the Census Bureau's Small Area Income and Poverty Estimates. Each district's history is tied to its 2025 boundaries: districts that merged are summed from their former districts, and years before a split or redrawing are left out. Includes three-year pooled rates for comparing periods."
+temporal: 2005/2024
+spatial: United States
+measured: Share of children ages 5 to 17 in families below the official poverty line|percent; Number of children ages 5 to 17|count; Number of children ages 5 to 17 in families in poverty|count; Change in three-year pooled child poverty rate|percentage points
+sources: https://www.census.gov/programs-surveys/saipe.html|https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html|https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+distribution: text/html|https://data4thepeople.github.io/ChildPovertyDistrict/;text/csv|https://github.com/Data4ThePeople/ChildPovertyDistrict/tree/main/data/processed
+measurement_technique: SAIPE school district estimates matched to the TIGER boundary file each year used; each 2024 district tied to earlier years with 2020 Census blocks weighted by residents under 18, requiring 95% overlap both ways; merged districts summed exactly; rate is children in poverty divided by children ages 5 to 17; change compares three-year pooled rates.
+credit: Data 4 The People, from the U.S. Census Bureau
+license: https://www.data4thepeople.com/terms-of-use
+app_url: https://data4thepeople.github.io/ChildPovertyDistrict/
+app_name: "Child Poverty by School District: interactive map, 2005 to 2024"
+app_category: EducationalApplication
+app_description: Free interactive map of the child poverty rate in every U.S. school district, each year from 2005 to 2024, with change over time and rankings.
+app_features: Every U.S. school district, 2005 to 2024|Play through the years at 1x, 2x or 3x|Change between any two three-year periods|Hover or tap any district|History chart for each district|Search any district by name|Filter to one state|Rankings of highest, lowest and largest changes
 drop_cap: false
 heading_spacer: 20px
 caption_spacer: 20px
