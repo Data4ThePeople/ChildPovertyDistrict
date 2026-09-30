@@ -46,3 +46,4 @@ None.
 - 2026-09-30 Step 2c opened: slice markup check and convert-only run.
 - 2026-09-30 2c: added a common question on how the ACS tells a different story (near poverty; Monte Alto), at Eric's request. Converted again: 91 slices, 15 FAQ entries.
 - 2026-09-30 Step 2c confirmed by Eric.
+- 2026-09-30 2d: hero rendered from the 2024 map at hero scale (scripts/12_hero.py, dark house palette, viz dark-mode ramp), padded with hero pad; alt text 476 characters; hero check ok.
