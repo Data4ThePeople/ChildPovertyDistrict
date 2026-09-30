@@ -101,7 +101,7 @@ Across districts, the change was mixed. Comparing 2005 to 2007 with 2022 to 2024
 
 By state, adding up the districts with comparable figures, the pooled rate fell in 40 states and the District of Columbia, and rose in 10. The largest drops were in Montana (4.9 points), Texas (4.0) and the District of Columbia (3.7). The largest increases were in Connecticut (2.3 points), Nevada (1.7) and New Jersey (1.4).
 
-### Highest and lowest
+### School districts with the highest and lowest child poverty rates
 
 These rankings use 2024 and include only districts with 500 or more children ages 5 to 17. Read them as "near the top" or "near the bottom," not as exact ranks. The estimates for districts this size can be off by many points (see "Honest notes and limitations").
 
@@ -224,7 +224,7 @@ The Census Bureau releases a new year of school district estimates each winter. 
 
 ::: spacer
 
-**The official poverty line is narrow.** It counts pretax cash income against a line set in the 1960s and raised only for inflation since, the same in every part of the country. It does not count SNAP, housing aid or tax credits, and it does not subtract rent, child care or medical costs. The Census Bureau's broader measure, the Supplemental Poverty Measure, counts all of these. For children in 2024 it found fewer below the line (13.4%, against 14.3% on the official measure), because tax credits and food aid lift many families over it. It found many more just above it: 49.1% of children had resources below twice their line, against 33.6% on the official measure ([Census Bureau](https://www2.census.gov/library/publications/2025/demo/p60-287.pdf)). This map shows the official line only.
+**The official poverty line is narrow.** It counts pretax cash income against a line set in the 1960s and raised only for inflation since, the same in every part of the country. It does not count SNAP, housing aid or tax credits, and it does not subtract rent, child care or medical costs. The Census Bureau's broader measure, the Supplemental Poverty Measure, counts all of these. For children in 2024 it found fewer below the line (13.4%, against 14.3% on the official measure), because tax credits and food aid lift many families over it. It found many more just above it: 49.1% of children had resources below twice their line, against 33.6% on the official measure ([Census Bureau](https://www2.census.gov/library/publications/2025/demo/p60-287.pdf)). This map shows the official line only. We wrote about how that line was built, and why it has fallen behind, in [Frozen in 1963](https://www.data4thepeople.com/p/frozen-in-1963/).
 
 **These are model estimates without district error bars.** The Census Bureau publishes typical error by district size, measured on its 2009 estimates, which it says to treat as an upper bound for 2010 on ([Census Bureau](https://www.census.gov/programs-surveys/saipe/guidance/district-estimates.html)). For districts of 65,000 people or more, which hold 59% of children, a 90% range is about 25% of the estimate either way: New York City's 23.4% is roughly 17.6% to 29.2%. For districts of 5,000 to 10,000 people, it is about 58% either way. Helena-West Helena's 66.5% could be off by about 38 points. Small differences between neighboring districts, and exact ranks, should not be read as real.
 
@@ -274,6 +274,10 @@ It is a model estimate, and the Census Bureau does not publish a margin of error
 
 Its boundaries in those years were different from today's. We only compare a district with itself when at least 95% of its children lived inside the same boundaries. Districts that merged still have history, because we add up the districts that merged. Districts that were split or redrawn do not.
 
+### How do I find the child poverty rate for my school district?
+
+Type its name in "Find a district" above the map and pick it from the list. The map zooms to it, and the District panel shows its rate and its history back to 2005, or to the year its current boundaries began.
+
 ### Why does my district's rate jump from one year to the next?
 
 Small districts' estimates move a lot from year to year, often with no real change behind them. The change view pools three years at a time to smooth this out.
@@ -282,7 +286,7 @@ Small districts' estimates move a lot from year to year, often with no real chan
 
 Before 2005, the Census Bureau split each county's total among its districts using fixed shares, so a district's change was simply its county's change. From 2005 on, the split follows each year's tax returns.
 
-### Is child poverty going down?
+### How has child poverty changed over time?
 
 Nationally, the official rate for children 5 to 17 was 16.5% in 2005, peaked at 20.6% in 2012, and was 14.4% in 2024. Across districts it is mixed: comparing 2005 to 2007 with 2022 to 2024, the rate fell by 2 points or more in 3,551 districts and rose by 2 points or more in 2,385.
 
