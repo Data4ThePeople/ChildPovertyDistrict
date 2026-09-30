@@ -44,3 +44,4 @@ None.
 - 2026-09-30 Step 2a confirmed by Eric.
 - 2026-09-30 Step 2b confirmed by Eric with no changes to POST.md.
 - 2026-09-30 Step 2c opened: slice markup check and convert-only run.
+- 2026-09-30 2c: added a common question on how the ACS tells a different story (near poverty; Monte Alto), at Eric's request. Converted again: 91 slices, 15 FAQ entries.
