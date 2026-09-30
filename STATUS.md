@@ -53,3 +53,4 @@ None.
 - 2026-09-30 Step 2e confirmed by Eric.
 - 2026-09-30 2f: dry run then publish. Updated draft aib90RcAAC0A-Wcs (uid children-poverty-viz) in the Migration Release; 93 slices; hero uploaded as IA-rk3tY1ANitlBz. Before publishing in Prismic: set author (Eric Pachman) and the Visualization tag, which the update does not carry. Not verified by read-back (no PRISMIC_READ_TOKEN).
 - 2026-09-30 2f: published and updated time changed to 6:00 pm EDT (Eric); draft aib90RcAAC0A-Wcs re-pushed.
+- 2026-09-30 2f: Eric's replacement sentence in 'Read this first' ("counts as in poverty"); draft re-pushed.
