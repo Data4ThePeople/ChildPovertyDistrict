@@ -194,11 +194,11 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "This map uses the federal government's official poverty line. A child counts as poor when their family's income before taxes is below a threshold that depends on family size. In 2024 that line was $31,812 a year for two parents and two children, and $25,273 for one parent and two children. The line is the same everywhere in the country, and the income it counts leaves out food stamps (SNAP), housing aid and tax credits. So the map shows children below a bare-bones line, not every child in a family that is struggling to get by. In 2024, 14.3% of all U.S. children under 18 were below the line, and 33.6% were below twice the line (Census Bureau).",
+            "text": "This map uses the federal government's official poverty line. A child counts as in poverty when their family's income before taxes is below a threshold that depends on family size. In 2024 that line was $31,812 a year for two parents and two children, and $25,273 for one parent and two children. The line is the same everywhere in the country, and the income it counts leaves out food stamps (SNAP), housing aid and tax credits. So the map shows children below a bare-bones line, not every child in a family that is struggling to get by. In 2024, 14.3% of all U.S. children under 18 were below the line, and 33.6% were below twice the line (Census Bureau).",
             "spans": [
               {
-                "start": 636,
-                "end": 649,
+                "start": 642,
+                "end": 655,
                 "type": "hyperlink",
                 "data": {
                   "link_type": "Web",
