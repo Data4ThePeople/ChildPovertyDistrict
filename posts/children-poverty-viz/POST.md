@@ -3,7 +3,7 @@ title: "Child Poverty by School District: An Interactive Map, 2005 to 2024"
 subtitle: A free, interactive map of the share of school-age children in poverty in every U.S. school district, with how each district has changed since 2005.
 slug: children-poverty-viz
 date: 2026-09-30
-time: 19:00:00-04:00
+time: 18:00:00-04:00
 updated: 2026-09-30
 prismic_id: aib90RcAAC0A-Wcs
 section: Visualization
