@@ -247,6 +247,10 @@ The official federal poverty line. A child counts as poor when their family's in
 
 It depends on the standard. By the Census Bureau's broader measure, which counts tax credits, food aid and housing aid as well as rent, child care and medical costs, fewer children were below the line in 2024 than on the official measure (13.4% against 14.3%). But many more were just above it: under that measure, 49.1% of children had resources below twice their line. The official line counts children below a bare-bones standard, not every child in a family that is struggling to get by.
 
+### Do other Census Bureau data tell a different story?
+
+Yes, and the difference can be large, especially just above the poverty line. The Census Bureau's American Community Survey (ACS) also reports children by family income for every school district, averaged over five years. It uses the same official poverty line, but its district figures come straight from the survey rather than from the model behind this map, so they can differ. By the ACS, 35.4% of U.S. children ages 6 to 17 lived below twice the poverty line in 2020 to 2024, against about 14% to 16% below the line itself on this map in those years. In some districts the two sources disagree even below the line. For Monte Alto Independent School District, TX, this map shows 26.4% in 2024 and 40.5% for 2020 to 2024 pooled. The ACS puts 67% of its children below the poverty line (give or take 13 points) and 92% below twice the line (give or take 6 points) for 2020 to 2024. Estimates for small districts are uncertain in both sources. We left the ACS off this map until we understand why the two sources differ in places like this.
+
 ### How accurate is my district's number?
 
 It is a model estimate, and the Census Bureau does not publish a margin of error for each district. For large districts of 65,000 people or more, the typical range is about 25% of the estimate either way. For small districts it is much wider. Treat small differences between districts, and small changes from one year to the next, with caution.
