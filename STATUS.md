@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2b
+Step: 2c
 Since: 2026-09-30
 
 ## Steps
@@ -15,7 +15,7 @@ Since: 2026-09-30
 |---|---|---|---|
 | 1  | Exploration and analysis | 2026-09-28 | Map 2005-2024 (SAIPE only), crosswalk to 2025 boundaries, tie-out passes; ACS parked |
 | 2a | Draft with brackets resolved | 2026-09-30 | Claude-drafted at Eric's request; replaces the June page in place (aib90RcAAC0A-Wcs) |
-| 2b | Eric's edit, Claude's look-over | | |
+| 2b | Eric's edit, Claude's look-over | 2026-09-30 | No edits to the Claude draft; confirmed as written |
 | 2c | Slice markup | | |
 | 2d | Hero 1680x1080 + alt text | | |
 | 2e | SEO | | |
@@ -42,3 +42,4 @@ None.
 - 2026-09-28 2a: Claude-drafted POST.md at Eric's request (visualization page, modeled on lorenz-chart-viz); every number checked against the data. Waiting on Eric's edits.
 - 2026-09-28 Eric: replace the June page in place. Slug changed to children-poverty-viz (Prismic document aib90RcAAC0A-Wcs, read from the live page); published and updated dates both September 30, 2026, 7:00 pm EDT; June method PDF archived in the repo and linked from the Updated blurb.
 - 2026-09-30 Step 2a confirmed by Eric.
+- 2026-09-30 Step 2b confirmed by Eric with no changes to POST.md.
