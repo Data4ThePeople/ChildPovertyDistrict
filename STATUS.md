@@ -48,3 +48,4 @@ None.
 - 2026-09-30 Step 2c confirmed by Eric.
 - 2026-09-30 2d: hero rendered from the 2024 map at hero scale (scripts/12_hero.py, dark house palette, viz dark-mode ramp), padded with hero pad; alt text 476 characters; hero check ok.
 - 2026-09-30 Step 2d confirmed by Eric.
+- 2026-09-30 2e: keyword analysis by search results; meta title (56), description (147), 8 keywords, dataset + app schema written. Four text proposals sent to Eric.
