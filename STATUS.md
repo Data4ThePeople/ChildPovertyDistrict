@@ -43,3 +43,4 @@ None.
 - 2026-09-28 Eric: replace the June page in place. Slug changed to children-poverty-viz (Prismic document aib90RcAAC0A-Wcs, read from the live page); published and updated dates both September 30, 2026, 7:00 pm EDT; June method PDF archived in the repo and linked from the Updated blurb.
 - 2026-09-30 Step 2a confirmed by Eric.
 - 2026-09-30 Step 2b confirmed by Eric with no changes to POST.md.
+- 2026-09-30 Step 2c opened: slice markup check and convert-only run.
