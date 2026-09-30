@@ -49,3 +49,4 @@ None.
 - 2026-09-30 2d: hero rendered from the 2024 map at hero scale (scripts/12_hero.py, dark house palette, viz dark-mode ramp), padded with hero pad; alt text 476 characters; hero check ok.
 - 2026-09-30 Step 2d confirmed by Eric.
 - 2026-09-30 2e: keyword analysis by search results; meta title (56), description (147), 8 keywords, dataset + app schema written. Four text proposals sent to Eric.
+- 2026-09-30 2e: Eric accepted proposals 1-4 (FAQ retitled to 'How has child poverty changed over time?', rankings heading retitled, 'How do I find...' FAQ added, Frozen in 1963 link). 16 FAQ entries.
