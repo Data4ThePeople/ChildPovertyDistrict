@@ -294,3 +294,46 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def hero():
+    """Hero source: chart 1 re-rendered at 1680x1080 with larger type; `hero pad` adds the border."""
+    allg = pd.read_csv(PROC / "takeaway1_county_gaps.csv")
+    extra = allg[allg.county == "Montgomery County, OH"]
+    rank = int(allg.index[allg.county == "Montgomery County, OH"][0]) + 1
+    g = pd.concat([extra, allg.head(10).iloc[::-1]]).reset_index(drop=True)
+    f = plt.figure(figsize=(16.8, 10.8), dpi=100)
+    f.text(0.03, 0.965, "Same county, worlds apart", fontsize=40, fontweight="bold", va="top")
+    f.text(0.03, 0.885, "Child poverty rate, ages 5 to 17, 2024: highest- vs. lowest-poverty school district in the same county",
+           fontsize=19, color=MUTED, va="top")
+    t = f.text(0.03, 0.835, "Highest-poverty district", fontsize=19, fontweight="bold", color=CORAL, va="top")
+    w = t.get_window_extent(renderer=f.canvas.get_renderer()).width / f.bbox.width
+    f.text(0.03 + w + 0.025, 0.835, "Lowest-poverty district", fontsize=19, fontweight="bold", color=BLUE, va="top")
+    ax = f.add_axes([0.205, 0.075, 0.33, 0.72])
+    y = np.array([0] + [i + 1.0 for i in range(1, len(g))], dtype=float)
+    ax.hlines(y, g.lo_rate, g.hi_rate, color=GRID, lw=9, zorder=1)
+    ax.scatter(g.hi_rate, y, s=230, color=CORAL, zorder=3)
+    ax.scatter(g.lo_rate, y, s=230, color=BLUE, zorder=3)
+    ax.axhline(1.0, color=MUTED, lw=1, ls=(0, (3, 3)))
+    ax.set_yticks(y)
+    ax.set_yticklabels(g.county, fontsize=17, fontweight="bold")
+    ax.set_ylim(-0.6, y[-1] + 0.6)
+    ax.set_xlim(0, 60)
+    ax.set_xticks([0, 20, 40, 60])
+    ax.set_xticklabels(["0%", "20%", "40%", "60%"], fontsize=15)
+    ax.grid(axis="x", color=GRID)
+    for yy, r in zip(y, g.itertuples()):
+        short = lambda n: n.replace(" Public School District", "").replace(" School District", "").replace(" Community School Corporation", "") \
+            .replace(" Community Schools", "").replace(" Public Schools", "").replace(" City", "").replace(" Local", "").replace(" Township Schools", "") \
+            .replace(" Borough", "").replace(" Area", "")
+        ax.text(62, yy + 0.2, f"{r.hi_rate:.1f}%  {short(r.high)}", va="center", fontsize=16, color=CORAL, clip_on=False)
+        ax.text(62, yy - 0.24, f"{r.lo_rate:.1f}%  {short(r.low)}", va="center", fontsize=16, color=BLUE, clip_on=False)
+    ax.text(0.5, 0.62, f"Also: Dayton's county, the {rank}th-widest gap", fontsize=15, color=MUTED, va="center")
+    for s in ("top", "right", "left"):
+        ax.spines[s].set_visible(False)
+    ax.tick_params(length=0)
+    f.text(0.97, 0.03, "Data 4 The People  ·  Source: U.S. Census Bureau, SAIPE", fontsize=15, color=MUTED, ha="right")
+    out = OUT / "six-takeaways-child-poverty-hero-source.png"
+    f.savefig(out, facecolor=BG)
+    plt.close(f)
+    print("wrote", out.name)

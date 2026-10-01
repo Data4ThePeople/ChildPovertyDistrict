@@ -42,3 +42,4 @@ None.
 - 2026-10-01 Step 2c opened.
 - 2026-10-01 2c: convert-only run: 45 slices, 5 FAQ entries, no doubled spacers; embed spacer replaced by divider dots by design (as in the wage takeaways).
 - 2026-10-01 Step 2c confirmed by Eric.
+- 2026-10-01 2d: hero = chart 1 re-rendered at hero scale (scripts/14_takeaways.py hero()), padded; alt text written.
