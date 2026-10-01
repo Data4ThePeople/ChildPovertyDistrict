@@ -1,11 +1,11 @@
 ---
 title: "Child poverty by school district: six takeaways"
-subtitle: Next-door districts worlds apart, the fall of high-poverty districts, big cities and their suburbs, where it rose, the children just above the line, and the Mississippi Delta.
-slug: five-takeaways-child-poverty
+subtitle: Next-door districts worlds apart, the fall of high-poverty districts, big cities and their suburbs, where it rose, the Mississippi Delta, and the children just above the line.
+slug: six-takeaways-child-poverty
 date: 2026-10-02
 time: 18:00:00-04:00
 section: Data 4 Thought
-hero: images/five-takeaways-child-poverty-hero-1680x1080.png
+hero: images/six-takeaways-child-poverty-hero-1680x1080.png
 hero_alt:
 meta_title:
 description:
@@ -19,7 +19,7 @@ dividers: false
 
 # Child poverty by school district: six takeaways
 
-On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six things it shows. All of them use the official poverty line, and the fifth takeaway shows what that line leaves out.
+On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six things it shows. All of them use the official poverty line, and the sixth takeaway shows what that line leaves out.
 
 ## 1. Next-door districts can be worlds apart
 
@@ -61,29 +61,29 @@ Detroit Public Schools Community District, with about 116,000 children, had the 
 
 ::: spacer
 
-## 5. Many more children live just above the line
-
-The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs. The chart below compares the two for all U.S. children.
-
-![Grouped bar chart titled Just above the line, 2024. Children under 18 by family resources compared with their poverty line. Under the official measure, 14.3% are below the line and 19.3% more are between the line and twice the line. Under the Supplemental Poverty Measure, 13.7% are below the line and 35.4% more are between the line and twice the line.](images/05-just-above-the-line.png)
-
-The two measures find about the same share of children below the line. They differ just above it. On the official measure, 33.6% of children lived below twice the line in 2024. On the SPM, 49.1% did.
-
-::: spacer
-
-## 6. The Mississippi Delta: high child poverty, every year
+## 5. The Mississippi Delta: high child poverty, every year
 
 The Mississippi Delta is the flat, fertile land between the Mississippi and Yazoo rivers in northwest Mississippi. We used the 10 counties the [Mississippi Encyclopedia](https://mississippiencyclopedia.org/entries/delta/) calls the core of the Delta: Bolivar, Coahoma, Humphreys, Issaquena, Leflore, Quitman, Sharkey, Sunflower, Tunica and Washington. Thirteen school districts there have comparable figures for every year from 2005 to 2024.
 
-![Line chart titled The Mississippi Delta: high child poverty, every year. Child poverty rate, ages 5 to 17, 2005 to 2024. The 13 Delta school districts together range from 38.6% to 51.4% and are at 43.4% in 2024. Mississippi is at 23.8% in 2024 and the United States at 14.4%.](images/06a-delta-child-poverty.png)
+![Line chart titled The Mississippi Delta: high child poverty, every year. Child poverty rate, ages 5 to 17, 2005 to 2024. The 13 Delta school districts together range from 38.6% to 51.4% and are at 43.4% in 2024. Mississippi is at 23.8% in 2024 and the United States at 14.4%.](images/05a-delta-child-poverty.png)
 
 Twelve of the 13 districts were at 30% or more in all 20 years, and Western Line School District was in 17 of them. Five districts, including Greenwood-Leflore Consolidated and Humphreys County, were above 60% in at least one year.
 
 Our [labor force map](https://data4thepeople.github.io/laus/), built from the Bureau of Labor Statistics' county data, tells a similar story with different data. It sorts every U.S. county by how much its labor force has changed against the same month 20 years earlier. In July 2026, all 10 core Delta counties were in its lowest band, "Structural Loss," down more than 10%.
 
-![Line chart titled The Delta's workforce has been shrinking for decades. Change in civilian labor force since 1990, annual average. The United States grew 35.7%, Mississippi grew 10.3%, and the 10 core Delta counties fell 38.8%, from 101,004 people in 1990 to 61,828 in 2025.](images/06b-delta-labor-force.png)
+![Line chart titled The Delta's workforce has been shrinking for decades. Change in civilian labor force since 1990, annual average. The United States grew 35.7%, Mississippi grew 10.3%, and the 10 core Delta counties fell 38.8%, from 101,004 people in 1990 to 61,828 in 2025.](images/05b-delta-labor-force.png)
 
 Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other.
+
+::: spacer
+
+## 6. Many more children live just above the line
+
+The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs. The chart below compares the two for all U.S. children.
+
+![Grouped bar chart titled Just above the line, 2024. Children under 18 by family resources compared with their poverty line. Under the official measure, 14.3% are below the line and 19.3% more are between the line and twice the line. Under the Supplemental Poverty Measure, 13.7% are below the line and 35.4% more are between the line and twice the line.](images/06-just-above-the-line.png)
+
+The two measures find about the same share of children below the line. They differ just above it. On the official measure, 33.6% of children lived below twice the line in 2024. On the SPM, 49.1% did.
 
 ::: spacer
 

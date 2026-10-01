@@ -1,6 +1,6 @@
-"""Charts and numbers for the Day 2 post, six takeaways from the child poverty map.
+"""Charts and numbers for the Day 2 post, six takeaways from the child poverty map (six-takeaways-child-poverty).
 
-Writes PNGs to posts/five-takeaways-child-poverty/images/ in the dark house palette, and the
+Writes PNGs to posts/six-takeaways-child-poverty/images/ in the dark house palette, and the
 numbers behind them to data/processed/takeaways_*.csv for the tie-out. Inputs:
   - data/processed/saipe_all_years.csv, district_series.csv, takeaway1_county_gaps.csv (this repo)
   - data/processed/p60_287_children_income_to_poverty.csv: Census P60-287 Table B-5, children,
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 from common import PROC, ROOT  # noqa: E402
 
-OUT = ROOT / "posts" / "five-takeaways-child-poverty" / "images"
+OUT = ROOT / "posts" / "six-takeaways-child-poverty" / "images"
 BG, INK, MUTED, GRID = "#181A1B", "#BBBDC0", "#8C9094", "#2A2E31"
 CORAL, BLUE, GOLD, GREEN = "#f37952", "#5598e7", "#eda100", "#1baf7a"
 DELTA = {"28011": "Bolivar", "28027": "Coahoma", "28053": "Humphreys", "28055": "Issaquena", "28083": "Leflore",
@@ -193,7 +193,7 @@ def t4(p, nm):
     return t
 
 
-# 5. Official line vs SPM
+# 6. Official line vs SPM
 def t5():
     d = pd.read_csv(PROC / "p60_287_children_income_to_poverty.csv")
     f, top = fig("Just above the line",
@@ -211,11 +211,11 @@ def t5():
     ax.set_yticks([])
     ax.axvline(1.5, color=MUTED, ls=(0, (3, 3)), lw=1)
     ax.text(1.55, 38, "the poverty line", color=MUTED, fontsize=10.5)
-    finish(f, ax, "05-just-above-the-line.png",
+    finish(f, ax, "06-just-above-the-line.png",
            "Data 4 The People  ·  Source: U.S. Census Bureau, Poverty in the United States: 2024 (P60-287), Table B-5")
 
 
-# 6. The Delta
+# 5. The Delta
 def t6(sa, ser, nm):
     ids = ["2800185", "2800186", "2800187", "2800198", "2800750", "2801620", "2801890", "2802040", "2802610",
            "2803810", "2803960", "2804290", "2804680"]   # Delta districts (10 core counties) with history 2005-2024
@@ -241,7 +241,7 @@ def t6(sa, ser, nm):
     ax.set_yticklabels(["0%", "20%", "40%", "60%"])
     ax.set_xticks([2005, 2010, 2015, 2020, 2024])
     ax.grid(axis="y", color=GRID)
-    finish(f, ax, "06a-delta-child-poverty.png")
+    finish(f, ax, "05a-delta-child-poverty.png")
 
     lf = pd.read_parquet(LAUS)
     lf = lf[lf.year.between(1990, 2025)]
@@ -266,7 +266,7 @@ def t6(sa, ser, nm):
     ax.set_yticklabels(["\u221240%", "\u221220%", "0%", "+20%", "+40%"])
     ax.set_xticks([1990, 2000, 2010, 2020, 2025])
     ax.grid(axis="y", color=GRID)
-    finish(f, ax, "06b-delta-labor-force.png",
+    finish(f, ax, "05b-delta-labor-force.png",
            "Data 4 The People  ·  Source: U.S. Bureau of Labor Statistics, Local Area Unemployment Statistics (county labor force, not seasonally adjusted)")
     return t, idx
 
