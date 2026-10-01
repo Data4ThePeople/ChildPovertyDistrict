@@ -27,7 +27,8 @@ The national rate is one number: 14.4% of children ages 5 to 17 lived in familie
 
 ![Dot chart titled Same county, worlds apart, 2024. For the 10 counties with the widest gap, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Below a dotted line, Montgomery County, OH, home to Dayton and the 12th-widest gap: Northridge 37.1% and Oakwood 2.2%](images/01-same-county-worlds-apart.png)
 
-Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%.
+Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which while both in the same city, may as well be in different countries given the lifestyles of their residents. 
+
 
 ::: spacer
 
@@ -79,11 +80,15 @@ Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% an
 
 ## 6. Many more children live just above the line
 
-The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs. The chart below compares the two for all U.S. children.
+The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.
+
+The chart below compares the two for all U.S. children. Each bar is the share of children whose family income falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to 100%.
 
 ![Grouped bar chart titled Just above the line, 2024. Children under 18 by family resources compared with their poverty line. Under the official measure, 14.3% are below the line and 19.3% more are between the line and twice the line. Under the Supplemental Poverty Measure, 13.7% are below the line and 35.4% more are between the line and twice the line.](images/06-just-above-the-line.png)
 
 The two measures find about the same share of children below the line. They differ just above it. On the official measure, 33.6% of children lived below twice the line in 2024. On the SPM, 49.1% did.
+
+In our view, that means the map likely shows the best-case picture: it counts only children below the official line. Many programs set the line higher. Free school meals and SNAP's federal gross income limit are at 130% of the federal poverty guidelines, and reduced-price school meals and WIC are at 185%. A map of children below one of those lines would be much darker. Sadly, we cannot build that map for every school district reliably yet. The Census Bureau survey that reports it by district, the American Community Survey, disagrees with SAIPE in some districts even below the poverty line, and we want to understand why before we map it.
 
 ::: spacer
 
