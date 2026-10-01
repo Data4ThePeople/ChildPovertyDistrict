@@ -45,7 +45,7 @@ The number of districts with 500 or more children and a rate of 30% or more went
 
 The chart below compares the 25 school districts with the most children, using three-year pooled rates for 2005 to 2007 and 2022 to 2024 so a single noisy year does not drive the result.
 
-![Dumbbell chart titled Big cities improved; many suburban districts did not. For the 25 school districts with the most children, gray dots show the pooled child poverty rate in 2005 to 2007 and colored dots show 2022 to 2024. The largest drops are Dallas, down 7.2 points, Philadelphia 5.3, San Diego 5.2, Los Angeles 4.8, Miami-Dade 3.4 and New York City 3.2. The largest increases are Cypress-Fairbanks in the Houston area, up 4.2 points, Baltimore County 3.1, Prince George's County 3.0, Gwinnett County 3.0, Montgomery County, MD 2.7 and Clark County 2.1.](images/03-largest-districts.png)
+![Dumbbell chart titled Big cities improved; many suburban districts did not. Pooled child poverty rate, 2005 to 2007 vs. 2022 to 2024, for the 25 districts with the most children. Largest drops: Dallas 7.2 points, Philadelphia 5.3, San Diego 5.2, Los Angeles 4.8, New York City 3.2. Largest increases: Cypress-Fairbanks, Houston area, 4.2 points, Baltimore County 3.1, Prince George's County 3.0, Gwinnett County 3.0, Montgomery County, MD 2.7, Clark County 2.1](images/03-largest-districts.png)
 
 The big-city districts are still among the higher-poverty districts on the list. Philadelphia (26.7%) and Houston (27.3%) remain above every suburban district that rose. The data shows where the rates moved. It does not show why.
 
