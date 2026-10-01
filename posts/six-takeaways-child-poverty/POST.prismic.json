@@ -15,7 +15,7 @@
         "drop_cap_text": [
           {
             "type": "paragraph",
-            "text": "On Wednesday we rebuilt our map of child poverty by school district, which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and imporved tool.",
+            "text": "On Wednesday we rebuilt our map of child poverty by school district, which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and improved tool.",
             "spans": [
               {
                 "start": 28,
@@ -59,7 +59,7 @@
           },
           {
             "type": "paragraph",
-            "text": "The national rate is one number: 14.4% of children ages 5 to 17 lived in families in poverty in 2024. Inside a single county, the rate can run from a few percent to more than half. The chart below shows the 10 counties with the widest gap between their highest- and lowest-poverty school districts.",
+            "text": "The national rate is one number: 14.4% of children ages 5 to 17 lived in families in poverty in 2024. Inside a single county, the rate can run from a few percent to more than half. The chart below shows the 10 counties with the widest gap between their highest- and lowest-poverty school districts, plus Montgomery County, OH.",
             "spans": [],
             "direction": "ltr"
           }
@@ -90,7 +90,7 @@
         "paragraph_text": [
           {
             "type": "paragraph",
-            "text": "Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which while both in the same city, may as well be in different countries given the lifestyles of their residents.",
+            "text": "Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which, though both are in the Dayton area, may as well be in different countries given the lifestyles of their residents.",
             "spans": [],
             "direction": "ltr"
           }
@@ -405,7 +405,7 @@
         "paragraph_text": [
           {
             "type": "paragraph",
-            "text": "Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. Both show that America has ignored the plight of the [xx] million people living in this region",
+            "text": "Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. In our view, together they describe a region that has been left behind for decades: roughly 172,000 people living with that hardship year after year.",
             "spans": [],
             "direction": "ltr"
           }
@@ -444,7 +444,7 @@
           },
           {
             "type": "paragraph",
-            "text": "The chart below compares the two for all U.S. children. Each bar is the share of children whose family income falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to 100%.",
+            "text": "The chart below compares the two for all U.S. children. Each bar is the share of children whose family income (for the SPM, income plus benefits minus key costs) falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to about 100%.",
             "spans": [],
             "direction": "ltr"
           }
@@ -481,8 +481,29 @@
           },
           {
             "type": "paragraph",
-            "text": "In our view, that means the map likely shows the best-case picture: it counts only children below the official line. Many programs set the line higher. Free school meals and SNAP's federal gross income limit are at 130% of the federal poverty guidelines, and reduced-price school meals and WIC are at 185%. A map of children below one of those lines would be much darker. Sadly, we cannot build that map for every school district reliably yet. The Census Bureau survey that reports it by district, the American Community Survey, disagrees with SAIPE in some districts even below the poverty line, and we want to understand why before we map it.",
-            "spans": [],
+            "text": "In our view, that means the map likely shows the best-case picture: it counts only children below the official line. Many programs set the line higher. Free school meals and SNAP's federal gross income limit are at 130% of the federal poverty guidelines, and reduced-price school meals and WIC are at 185%. A map of children below one of those lines would be much darker. Sadly, we cannot build that map for every school district reliably yet. The Census Bureau survey that reports it by district, the American Community Survey, disagrees with SAIPE in some districts even below the poverty line, and we want to understand why before we map it. Newer survey data is also on hold. In June 2026, a Commerce Department order (Departmental Administrative Order 216-26) barred the privacy-protection methods the Census Bureau uses to publish detailed survey tables, and the Bureau has delayed the 2025 American Community Survey release with no new date.",
+            "spans": [
+              {
+                "start": 723,
+                "end": 763,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://tnsdc.utk.edu/2026/08/13/new-rule-pushes-back-2025-american-community-survey-other-census-bureau-product-releases/",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 876,
+                "end": 930,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.census.gov/programs-surveys/acs/news/updates/2026.html",
+                  "target": "_blank"
+                }
+              }
+            ],
             "direction": "ltr"
           }
         ]

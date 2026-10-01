@@ -19,15 +19,15 @@ dividers: false
 
 # Child poverty by school district: six takeaways
 
-On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and imporved tool.
+On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and improved tool.
 
 ## 1. Next-door districts can be worlds apart
 
-The national rate is one number: 14.4% of children ages 5 to 17 lived in families in poverty in 2024. Inside a single county, the rate can run from a few percent to more than half. The chart below shows the 10 counties with the widest gap between their highest- and lowest-poverty school districts.
+The national rate is one number: 14.4% of children ages 5 to 17 lived in families in poverty in 2024. Inside a single county, the rate can run from a few percent to more than half. The chart below shows the 10 counties with the widest gap between their highest- and lowest-poverty school districts, plus Montgomery County, OH.
 
 ![Dot chart titled Same county, worlds apart, 2024. For the 10 counties with the widest gap, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Below a dotted line, Montgomery County, OH, home to Dayton and the 12th-widest gap: Northridge 37.1% and Oakwood 2.2%](images/01-same-county-worlds-apart.png)
 
-Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which while both in the same city, may as well be in different countries given the lifestyles of their residents. 
+Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which, though both are in the Dayton area, may as well be in different countries given the lifestyles of their residents. 
 
 
 ::: spacer
@@ -74,7 +74,7 @@ Our [labor force map](https://data4thepeople.github.io/laus/), built from the Bu
 
 ![Line chart titled The Delta's workforce has been shrinking for decades. Change in civilian labor force since 1990, annual average. The United States grew 35.7%, Mississippi grew 10.3%, and the 10 core Delta counties fell 38.8%, from 101,004 people in 1990 to 61,828 in 2025.](images/05b-delta-labor-force.png)
 
-Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. Both show that America has ignored the plight of the [xx] million people living in this region
+Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. In our view, together they describe a region that has been left behind for decades: roughly 172,000 people living with that hardship year after year.
 
 ::: spacer
 
@@ -82,7 +82,7 @@ Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% an
 
 The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.
 
-The chart below compares the two for all U.S. children. Each bar is the share of children whose family income (for the SPM, income plus benefits minus key costs) falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to 100%.
+The chart below compares the two for all U.S. children. Each bar is the share of children whose family income (for the SPM, income plus benefits minus key costs) falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to about 100%.
 
 ![Grouped bar chart titled Just above the line, 2024. Children under 18 by family resources compared with their poverty line. Under the official measure, 14.3% are below the line and 19.3% more are between the line and twice the line. Under the Supplemental Poverty Measure, 13.7% are below the line and 35.4% more are between the line and twice the line.](images/06-just-above-the-line.png)
 

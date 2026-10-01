@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2b
+Step: 2c
 Since: 2026-10-01
 
 ## Steps
@@ -15,7 +15,7 @@ Since: 2026-10-01
 |---|---|---|---|
 | 1  | Exploration and analysis | 2026-10-01 | Six takeaways, 7 charts (scripts/14_takeaways.py); numbers in data/processed/takeaways_*.csv |
 | 2a | Draft with brackets resolved | 2026-10-01 | Claude-drafted at Eric's request; Montgomery County row, section 6 best-case paragraph and ACS delay added |
-| 2b | Eric's edit, Claude's look-over | | |
+| 2b | Eric's edit, Claude's look-over | 2026-10-01 | Eric's Dayton paragraph and intro; look-over items 1, 2, 4, 5, 6 accepted (4 replaces the [xx] sentence; Delta population 171,757, 2020-2024 ACS) |
 | 2c | Slice markup | | |
 | 2d | Hero 1680x1080 + alt text | | |
 | 2e | SEO | | |
@@ -38,3 +38,4 @@ None.
 - 2026-10-01 2a: section 6 explains the chart before it and adds the best-case point after it (130%/185% program lines; ACS reason the map can't be built yet), at Eric's request. SAIPE confirmed official measure (SAIPE FAQ #8).
 - 2026-10-01 2a: added the ACS delay (Commerce DAO 216-26, June 4, 2026; 2025 ACS 1-year release on hold, no date), verified and worded neutrally; Eric's 'halt county-level estimation' framing corrected.
 - 2026-10-01 Step 2a confirmed by Eric.
+- 2026-10-01 Step 2b confirmed by Eric (items 1, 2, 4, 5, 6 accepted).
