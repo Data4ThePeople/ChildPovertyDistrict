@@ -1,6 +1,7 @@
 """Email images for the Mailchimp teaser (step 2g):
-  - 01-change-map-email.png: the change view (pooled 2005-2007 vs 2022-2024) on the dark house palette
+  - 02-viz-screenshot-email.jpg: a picture of the live tool (embed view, 2x capture scaled to 1200x780)
   - children-poverty-viz-hero-email.jpg: the hero as a JPG under 300 KB
+change_map() is kept but no longer used in the email (Eric: the email opens on 2025 Census figures).
 Same rules as the viz: pooled three-year rates, 100+ children a year in both periods to shade,
 the viz's dark-mode diverging colors (blue = fewer children in poverty)."""
 import json
@@ -106,6 +107,25 @@ def hero_jpg():
     assert out.stat().st_size < 300_000
 
 
+def viz_screenshot():
+    import subprocess
+    import tempfile
+    chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    out = IMG / "02-viz-screenshot-email.jpg"
+    with tempfile.TemporaryDirectory() as d:
+        png = f"{d}/viz.png"
+        subprocess.run([chrome, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=2",
+                        "--virtual-time-budget=15000", "--window-size=1200,780", f"--screenshot={png}",
+                        f"file://{ROOT / 'dist' / 'index.html'}#embed=1"], capture_output=True, timeout=300)
+        im = Image.open(png).convert("RGB").resize((1200, 780), Image.LANCZOS)
+    for q in (90, 85, 80, 75):
+        im.save(out, "JPEG", quality=q, optimize=True, progressive=True)
+        if out.stat().st_size < 300_000:
+            break
+    print("wrote", out, f"{out.stat().st_size / 1000:.0f} KB, quality {q}")
+    assert out.stat().st_size < 300_000
+
+
 if __name__ == "__main__":
-    change_map()
+    viz_screenshot()
     hero_jpg()
