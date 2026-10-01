@@ -42,7 +42,7 @@ The number of districts with 500 or more children and a rate of 30% or more went
 
 ::: spacer
 
-## 3. Big cities improved; many suburban districts did not
+## 3. Big cities improved; child poverty rose in many suburban districts
 
 The chart below compares the 25 school districts with the most children, using three-year pooled rates for 2005 to 2007 and 2022 to 2024 so a single noisy year does not drive the result.
 
@@ -70,7 +70,7 @@ The Mississippi Delta is the flat, fertile land between the Mississippi and Yazo
 
 Twelve of the 13 districts were at 30% or more in all 20 years, and Western Line School District was in 17 of them. Five districts, including Greenwood-Leflore Consolidated and Humphreys County, were above 60% in at least one year.
 
-Our [labor force map](https://data4thepeople.github.io/laus/), built from the Bureau of Labor Statistics' county data, tells a similar story with different data. It sorts every U.S. county by how much its labor force has changed against the same month 20 years earlier. In July 2026, all 10 core Delta counties were in its lowest band, "Structural Loss," down more than 10%.
+Our [labor force map](https://data4thepeople.github.io/laus/), built from the Bureau of Labor Statistics' county data, tells a similar story with different data. It sorts every U.S. county by how much its labor force has changed against the same month 20 years earlier. In July 2026, all 10 core Delta counties were in its lowest band, "Structural Loss," down more than 10%. How we built that map is on its [methodology page](https://www.data4thepeople.com/p/labor-force-history-viz).
 
 ![Line chart titled The Delta's workforce has been shrinking for decades. Change in civilian labor force since 1990, annual average. The United States grew 35.7%, Mississippi grew 10.3%, and the 10 core Delta counties fell 38.8%, from 101,004 people in 1990 to 61,828 in 2025.](images/05b-delta-labor-force.png)
 
@@ -80,7 +80,7 @@ Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% an
 
 ## 6. Many more children live just above the line
 
-The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.
+The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. We wrote about how that line was set, and why it has fallen behind, in [Frozen in 1963](https://www.data4thepeople.com/p/frozen-in-1963/). The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.
 
 The chart below compares the two for all U.S. children. Each bar is the share of children whose family income (for the SPM, income plus benefits minus key costs) falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to about 100%.
 
@@ -127,6 +127,10 @@ Among districts with 5,000 or more children, the largest increases were in the i
 ### Why is child poverty so high in the Mississippi Delta?
 
 The data shows how high it is, not why. The 13 Delta districts with full history were between 38.6% and 51.4% in every year from 2005 to 2024, and the region's labor force fell 38.8% since 1990.
+
+### Is child poverty in the Mississippi Delta getting better?
+
+Only slightly. In the 13 Delta school districts with full history, the rate was 44.8% in 2005, peaked at 51.4% in 2013, and was 43.4% in 2024. It never fell below 38.6% in any year.
 
 ### What poverty line does this use?
 
