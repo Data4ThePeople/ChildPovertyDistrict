@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2c
+Step: 2d
 Since: 2026-10-01
 
 ## Steps
@@ -16,7 +16,7 @@ Since: 2026-10-01
 | 1  | Exploration and analysis | 2026-10-01 | Six takeaways, 7 charts (scripts/14_takeaways.py); numbers in data/processed/takeaways_*.csv |
 | 2a | Draft with brackets resolved | 2026-10-01 | Claude-drafted at Eric's request; Montgomery County row, section 6 best-case paragraph and ACS delay added |
 | 2b | Eric's edit, Claude's look-over | 2026-10-01 | Eric's Dayton paragraph and intro; look-over items 1, 2, 4, 5, 6 accepted (4 replaces the [xx] sentence; Delta population 171,757, 2020-2024 ACS) |
-| 2c | Slice markup | | |
+| 2c | Slice markup | 2026-10-01 | 45 slices, 5 FAQ entries; drop cap on the intro; divider before the blurb |
 | 2d | Hero 1680x1080 + alt text | | |
 | 2e | SEO | | |
 | 2f | Pushed to Prismic (draft) | | |
@@ -41,3 +41,4 @@ None.
 - 2026-10-01 Step 2b confirmed by Eric (items 1, 2, 4, 5, 6 accepted).
 - 2026-10-01 Step 2c opened.
 - 2026-10-01 2c: convert-only run: 45 slices, 5 FAQ entries, no doubled spacers; embed spacer replaced by divider dots by design (as in the wage takeaways).
+- 2026-10-01 Step 2c confirmed by Eric.
