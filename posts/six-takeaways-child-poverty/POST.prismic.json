@@ -90,7 +90,7 @@
         "paragraph_text": [
           {
             "type": "paragraph",
-            "text": "Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%.",
+            "text": "Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%. Dayton is my hometown, so this stat hits home, and it completely resonates with the experience of visiting these two communities, which while both in the same city, may as well be in different countries given the lifestyles of their residents.",
             "spans": [],
             "direction": "ltr"
           }
@@ -438,7 +438,13 @@
           },
           {
             "type": "paragraph",
-            "text": "The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs. The chart below compares the two for all U.S. children.",
+            "text": "The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "The chart below compares the two for all U.S. children. Each bar is the share of children whose family income falls in a band measured against their own poverty line. Left of the dashed line are children below the line: under 50% of it is deep poverty, and 50% to 99% is the rest. Right of the dashed line are children above it, starting with families at 100% to 149% and 150% to 199% of the line. Coral bars are the official measure, the one the map uses. Blue bars are the SPM. Each color adds up to 100%.",
             "spans": [],
             "direction": "ltr"
           }
@@ -470,6 +476,12 @@
           {
             "type": "paragraph",
             "text": "The two measures find about the same share of children below the line. They differ just above it. On the official measure, 33.6% of children lived below twice the line in 2024. On the SPM, 49.1% did.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "In our view, that means the map likely shows the best-case picture: it counts only children below the official line. Many programs set the line higher. Free school meals and SNAP's federal gross income limit are at 130% of the federal poverty guidelines, and reduced-price school meals and WIC are at 185%. A map of children below one of those lines would be much darker. Sadly, we cannot build that map for every school district reliably yet. The Census Bureau survey that reports it by district, the American Community Survey, disagrees with SAIPE in some districts even below the poverty line, and we want to understand why before we map it.",
             "spans": [],
             "direction": "ltr"
           }
