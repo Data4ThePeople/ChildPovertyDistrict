@@ -7,9 +7,9 @@ time: 18:00:00-04:00
 section: Data 4 Thought
 hero: images/six-takeaways-child-poverty-hero-1680x1080.png
 hero_alt: Dot chart on a dark background titled Same county, worlds apart: the child poverty rate in 2024 for the highest- and lowest-poverty school district in each of 10 counties. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Set apart below: Montgomery County, OH, home to Dayton: Northridge 37.1% and Oakwood 2.2%. Built by Data 4 The People.
-meta_title:
-description:
-keywords:
+meta_title: "Child Poverty by School District: 6 Takeaways"
+description: "Next-door districts worlds apart, the fall of high-poverty districts, where child poverty rose, and 20 years of hardship in the Mississippi Delta."
+keywords: Mississippi Delta child poverty, child poverty gap between school districts, suburban child poverty, high-poverty school districts, where is child poverty getting worse, Mississippi Delta labor force decline, children near the poverty line, child poverty trends 2005 to 2024
 schema_type: article
 drop_cap: true
 heading_spacer: 20px
