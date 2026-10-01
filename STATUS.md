@@ -5,15 +5,15 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 
 ## Current
 
-Post: five-takeaways-child-poverty (proposed)
-Step: 1
+Post: five-takeaways-child-poverty
+Step: 2a
 Since: 2026-10-01
 
 ## Steps
 
 | Step | What | Confirmed | Notes |
 |---|---|---|---|
-| 1  | Exploration and analysis | | |
+| 1  | Exploration and analysis | 2026-10-01 | Six takeaways, 7 charts (scripts/14_takeaways.py); numbers in data/processed/takeaways_*.csv |
 | 2a | Draft with brackets resolved | | |
 | 2b | Eric's edit, Claude's look-over | | |
 | 2c | Slice markup | | |
@@ -31,3 +31,5 @@ None.
 
 - 2026-10-01 Day 2 post opened: six takeaways from the child poverty map, for Thursday, October 2, 2026. Order (Eric): 1 next-door districts worlds apart; 2 concentrated child poverty fell since the recession; 3 big cities improved, big suburban districts got worse; 4 Detroit and the industrial Midwest; 5 the official line misses most struggling kids; 6 the Mississippi Delta, decades of struggle, paired with the LAUS labor force viz (https://data4thepeople.github.io/laus/). Delta = the 10 core counties per the Mississippi Encyclopedia. The map post's record is in STATUS-children-poverty-viz.md.
 - 2026-10-01 Step 1 charts built (scripts/14_takeaways.py): 7 charts for six takeaways; numbers in data/processed/takeaways_*.csv. Takeaway 1 pairs require 90%+ of each district's children in the county (changed Wayne and Cuyahoga low ends). Correction: Mississippi labor force +10.3% and U.S. +35.7% since 1990 (an earlier quick figure of +1.1% and +24.3% was wrong); Delta -38.8% unchanged.
+- 2026-10-01 Step 1 confirmed by Eric. Step 2a opened: Claude drafts at Eric's request (as with the wage takeaways). Date placeholder Friday, October 2, 2026, 6:00 pm EDT (Eric may change).
+- 2026-10-01 2a: Claude draft of POST.md written; every number checked against the takeaway CSVs (9 of 15 increases in OH/MI/St. Louis, not 10 as first said in chat).
