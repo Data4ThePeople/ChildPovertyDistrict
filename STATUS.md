@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2g
+Step: complete
 Since: 2026-09-30
 
 ## Steps
@@ -20,7 +20,7 @@ Since: 2026-09-30
 | 2d | Hero 1680x1080 + alt text | 2026-09-30 (re-confirmed) | 2024 map at hero scale, dark palette, one ramp (darker = more); alt 474 characters |
 | 2e | SEO | 2026-09-30 (re-confirmed) | Meta title 56, description 147, 8 keywords; Dataset + WebApplication + FAQPage (16) schema; proposals 1-4 accepted |
 | 2f | Pushed to Prismic (draft) | 2026-09-30 (re-confirmed) | Updated aib90RcAAC0A-Wcs in place (uid children-poverty-viz), Migration Release, 93 slices; published/updated 2026-09-30 6:00 pm EDT |
-| 2g | Mailchimp teaser | | |
+| 2g | Mailchimp teaser | 2026-09-30 | Eric's draft with accepted edits; hero JPG 149 KB; live-tool picture 176 KB; every number checked against the post |
 
 ## Stale
 
@@ -66,3 +66,4 @@ None. (2d-2f were stale after /step back 2d on 2026-09-30 for the color ramp fix
 - 2026-09-30 Step 2d re-confirmed by Eric (new hero, one color ramp).
 - 2026-09-30 Step 2e re-confirmed by Eric (no SEO changes).
 - 2026-09-30 Step 2f re-confirmed by Eric. Back on 2g.
+- 2026-09-30 Step 2g confirmed by Eric. children-poverty-viz complete (steps 1 through 2g confirmed). Remaining manual steps in Prismic: set author (Eric Pachman) and the Visualization tag, then publish the draft aib90RcAAC0A-Wcs from the Migration Release.
