@@ -45,3 +45,4 @@ None.
 - 2026-10-01 2d: hero = chart 1 re-rendered at hero scale (scripts/14_takeaways.py hero()), padded; alt text written.
 - 2026-10-01 Step 2d confirmed by Eric.
 - 2026-10-01 2e: search-term analysis; meta title (45), description (147), 8 keywords written; proposals sent.
+- 2026-10-01 2e: Eric accepted proposals 1-4 (Delta FAQ, labor force methodology link, Frozen in 1963 link, section 3 heading). 6 FAQ entries.

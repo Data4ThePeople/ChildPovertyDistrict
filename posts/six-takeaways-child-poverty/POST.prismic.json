@@ -184,7 +184,7 @@
         "paragraph_text": [
           {
             "type": "heading2",
-            "text": "3. Big cities improved; many suburban districts did not",
+            "text": "3. Big cities improved; child poverty rose in many suburban districts",
             "spans": [],
             "direction": "ltr"
           },
@@ -366,7 +366,7 @@
           },
           {
             "type": "paragraph",
-            "text": "Our labor force map, built from the Bureau of Labor Statistics' county data, tells a similar story with different data. It sorts every U.S. county by how much its labor force has changed against the same month 20 years earlier. In July 2026, all 10 core Delta counties were in its lowest band, \"Structural Loss,\" down more than 10%.",
+            "text": "Our labor force map, built from the Bureau of Labor Statistics' county data, tells a similar story with different data. It sorts every U.S. county by how much its labor force has changed against the same month 20 years earlier. In July 2026, all 10 core Delta counties were in its lowest band, \"Structural Loss,\" down more than 10%. How we built that map is on its methodology page.",
             "spans": [
               {
                 "start": 4,
@@ -375,6 +375,16 @@
                 "data": {
                   "link_type": "Web",
                   "url": "https://data4thepeople.github.io/laus/",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 365,
+                "end": 381,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.data4thepeople.com/p/labor-force-history-viz",
                   "target": "_blank"
                 }
               }
@@ -441,8 +451,19 @@
           },
           {
             "type": "paragraph",
-            "text": "The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.",
-            "spans": [],
+            "text": "The map counts children below the official poverty line, $31,812 a year in 2024 for two parents and two children. We wrote about how that line was set, and why it has fallen behind, in Frozen in 1963. The Census Bureau's broader measure, the Supplemental Poverty Measure (SPM), counts tax credits and food aid as income, subtracts taxes, work and child care costs and medical bills, and sets its line by local housing costs.",
+            "spans": [
+              {
+                "start": 185,
+                "end": 199,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.data4thepeople.com/p/frozen-in-1963/",
+                  "target": "_blank"
+                }
+              }
+            ],
             "direction": "ltr"
           },
           {
@@ -807,6 +828,39 @@
         "paragraph_text": [
           {
             "type": "heading3",
+            "text": "Is child poverty in the Mississippi Delta getting better?",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Only slightly. In the 13 Delta school districts with full history, the rate was 44.8% in 2005, peaked at 51.4% in 2013, and was 43.4% in 2024. It never fell below 38.6% in any year.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "slice_type": "spacer",
+      "slice_label": null,
+      "variation": "default",
+      "version": "initial",
+      "items": [],
+      "primary": {
+        "spacer_value": "20px"
+      }
+    },
+    {
+      "slice_type": "paragarph_text",
+      "slice_label": null,
+      "variation": "default",
+      "version": "initial",
+      "items": [],
+      "primary": {
+        "paragraph_text": [
+          {
+            "type": "heading3",
             "text": "What poverty line does this use?",
             "spans": [],
             "direction": "ltr"
@@ -821,5 +875,5 @@
       }
     }
   ],
-  "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Article\",\n      \"headline\": \"Child poverty by school district: six takeaways\",\n      \"description\": \"Next-door districts worlds apart, the fall of high-poverty districts, where child poverty rose, and 20 years of hardship in the Mississippi Delta.\",\n      \"datePublished\": \"2026-10-02T18:00:00-04:00\",\n      \"dateModified\": \"2026-10-02T18:00:00-04:00\",\n      \"articleSection\": \"Data 4 Thought\",\n      \"license\": \"https://www.data4thepeople.com/terms-of-use\",\n      \"inLanguage\": \"en-US\",\n      \"isAccessibleForFree\": true,\n      \"keywords\": [\n        \"Mississippi Delta child poverty\",\n        \"child poverty gap between school districts\",\n        \"suburban child poverty\",\n        \"high-poverty school districts\",\n        \"where is child poverty getting worse\",\n        \"Mississippi Delta labor force decline\",\n        \"children near the poverty line\",\n        \"child poverty trends 2005 to 2024\"\n      ],\n      \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Eric Pachman\",\n        \"url\": \"https://www.data4thepeople.com/authors/eric-pachman\"\n      },\n      \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Data 4 The People\",\n        \"url\": \"https://data4thepeople.com\"\n      },\n      \"mainEntityOfPage\": {\n        \"@type\": \"WebPage\",\n        \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty\"\n      },\n      \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty#article\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty#faq\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Which school district has the highest child poverty rate?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Among districts with 500 or more children, Helena-West Helena School District, AR had the highest estimate in 2024 (66.5%). Estimates for districts this size can be off by many points, so read it as among the highest, not as an exact rank.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is child poverty going down?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Nationally, yes: the official rate for children 5 to 17 was 20.6% in 2012 and 14.4% in 2024, and the share of children living in districts at 30% or more fell from 20.5% to 4.3%. But it rose by 2 points or more in 2,385 school districts between 2005 to 2007 and 2022 to 2024.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Where is child poverty getting worse?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Among districts with 5,000 or more children, the largest increases were in the industrial Midwest: Youngstown and Warren, OH, Riverview Gardens, MO, and Eastpointe, MI. Detroit had the largest increase among districts with 50,000 or more children.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Why is child poverty so high in the Mississippi Delta?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The data shows how high it is, not why. The 13 Delta districts with full history were between 38.6% and 51.4% in every year from 2005 to 2024, and the region's labor force fell 38.8% since 1990.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What poverty line does this use?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The official federal poverty line. In 2024 it was $31,812 a year for two parents and two children, and $25,273 for one parent and two children, counting income before taxes.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+  "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Article\",\n      \"headline\": \"Child poverty by school district: six takeaways\",\n      \"description\": \"Next-door districts worlds apart, the fall of high-poverty districts, where child poverty rose, and 20 years of hardship in the Mississippi Delta.\",\n      \"datePublished\": \"2026-10-02T18:00:00-04:00\",\n      \"dateModified\": \"2026-10-02T18:00:00-04:00\",\n      \"articleSection\": \"Data 4 Thought\",\n      \"license\": \"https://www.data4thepeople.com/terms-of-use\",\n      \"inLanguage\": \"en-US\",\n      \"isAccessibleForFree\": true,\n      \"keywords\": [\n        \"Mississippi Delta child poverty\",\n        \"child poverty gap between school districts\",\n        \"suburban child poverty\",\n        \"high-poverty school districts\",\n        \"where is child poverty getting worse\",\n        \"Mississippi Delta labor force decline\",\n        \"children near the poverty line\",\n        \"child poverty trends 2005 to 2024\"\n      ],\n      \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Eric Pachman\",\n        \"url\": \"https://www.data4thepeople.com/authors/eric-pachman\"\n      },\n      \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Data 4 The People\",\n        \"url\": \"https://data4thepeople.com\"\n      },\n      \"mainEntityOfPage\": {\n        \"@type\": \"WebPage\",\n        \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty\"\n      },\n      \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty#article\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"@id\": \"https://www.data4thepeople.com/p/six-takeaways-child-poverty#faq\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Which school district has the highest child poverty rate?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Among districts with 500 or more children, Helena-West Helena School District, AR had the highest estimate in 2024 (66.5%). Estimates for districts this size can be off by many points, so read it as among the highest, not as an exact rank.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is child poverty going down?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Nationally, yes: the official rate for children 5 to 17 was 20.6% in 2012 and 14.4% in 2024, and the share of children living in districts at 30% or more fell from 20.5% to 4.3%. But it rose by 2 points or more in 2,385 school districts between 2005 to 2007 and 2022 to 2024.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Where is child poverty getting worse?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Among districts with 5,000 or more children, the largest increases were in the industrial Midwest: Youngstown and Warren, OH, Riverview Gardens, MO, and Eastpointe, MI. Detroit had the largest increase among districts with 50,000 or more children.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Why is child poverty so high in the Mississippi Delta?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The data shows how high it is, not why. The 13 Delta districts with full history were between 38.6% and 51.4% in every year from 2005 to 2024, and the region's labor force fell 38.8% since 1990.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is child poverty in the Mississippi Delta getting better?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Only slightly. In the 13 Delta school districts with full history, the rate was 44.8% in 2005, peaked at 51.4% in 2013, and was 43.4% in 2024. It never fell below 38.6% in any year.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What poverty line does this use?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The official federal poverty line. In 2024 it was $31,812 a year for two parents and two children, and $25,273 for one parent and two children, counting income before taxes.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
 }
