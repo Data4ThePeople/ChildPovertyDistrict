@@ -5,7 +5,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 
 ## Current
 
-Post: five-takeaways-child-poverty
+Post: six-takeaways-child-poverty
 Step: 2a
 Since: 2026-10-01
 
@@ -33,3 +33,4 @@ None.
 - 2026-10-01 Step 1 charts built (scripts/14_takeaways.py): 7 charts for six takeaways; numbers in data/processed/takeaways_*.csv. Takeaway 1 pairs require 90%+ of each district's children in the county (changed Wayne and Cuyahoga low ends). Correction: Mississippi labor force +10.3% and U.S. +35.7% since 1990 (an earlier quick figure of +1.1% and +24.3% was wrong); Delta -38.8% unchanged.
 - 2026-10-01 Step 1 confirmed by Eric. Step 2a opened: Claude drafts at Eric's request (as with the wage takeaways). Date placeholder Friday, October 2, 2026, 6:00 pm EDT (Eric may change).
 - 2026-10-01 2a: Claude draft of POST.md written; every number checked against the takeaway CSVs (9 of 15 increases in OH/MI/St. Louis, not 10 as first said in chat).
+- 2026-10-01 2a: slug changed to six-takeaways-child-poverty (Eric); takeaways 5 and 6 swapped (Delta now 5, just above the line now 6); chart files renamed to match.
