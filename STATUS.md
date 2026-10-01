@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2g
+Step: 2d (back from 2g)
 Since: 2026-09-30
 
 ## Steps
@@ -24,7 +24,7 @@ Since: 2026-09-30
 
 ## Stale
 
-None.
+- 2d, 2e, 2f: stale as of 2026-09-30. Reason (Eric): the map's color ramp ran in opposite directions in dark mode (standalone) and light mode (embed). Fix: one ramp, darker = more, everywhere; hero and email map re-rendered; Detroit sentence (proposal 9) added to the post. Re-run 2d, 2e, 2f in order and re-confirm each; then 2g.
 
 ## Log
 
@@ -58,3 +58,4 @@ None.
 - 2026-09-30 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and the Visualization tag.
 - 2026-09-30 2g: Eric's email draft placed in EMAIL.md verbatim (placeholders filled from the post); change map rendered for email (01-change-map-email, 155 KB JPG); hero JPG 148 KB; opening claim verified (Census P60-290, official rate 10.2% in 2025, lowest since 1959). Edits proposed in chat.
 - 2026-09-30 2g: Eric accepted email edits 1-8; Detroit (DPSCD, 115,752 children, 37.6% to 46.0% pooled) replaces Harper Woods (1,825 children). Detroit numbers not yet in POST.md; proposed adding them.
+- 2026-09-30 /step back 2d: unify the color ramp across light and dark modes (Eric). 2d, 2e, 2f stale.
