@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: children-poverty-viz
-Step: 2f (stale, re-confirm)
+Step: 2g
 Since: 2026-09-30
 
 ## Steps
@@ -19,12 +19,12 @@ Since: 2026-09-30
 | 2c | Slice markup | 2026-09-30 | 91 slices, 15 FAQ entries; ACS common question added |
 | 2d | Hero 1680x1080 + alt text | 2026-09-30 (re-confirmed) | 2024 map at hero scale, dark palette, one ramp (darker = more); alt 474 characters |
 | 2e | SEO | 2026-09-30 (re-confirmed) | Meta title 56, description 147, 8 keywords; Dataset + WebApplication + FAQPage (16) schema; proposals 1-4 accepted |
-| 2f | Pushed to Prismic (draft) | 2026-09-30 | Updated aib90RcAAC0A-Wcs in place (uid children-poverty-viz), Migration Release, 93 slices; published/updated 2026-09-30 6:00 pm EDT |
+| 2f | Pushed to Prismic (draft) | 2026-09-30 (re-confirmed) | Updated aib90RcAAC0A-Wcs in place (uid children-poverty-viz), Migration Release, 93 slices; published/updated 2026-09-30 6:00 pm EDT |
 | 2g | Mailchimp teaser | | |
 
 ## Stale
 
-- 2f: stale as of 2026-09-30 (2d and 2e re-confirmed). Reason (Eric): the map's color ramp ran in opposite directions in dark mode (standalone) and light mode (embed). Fix: one ramp, darker = more, everywhere; hero and email map re-rendered; Detroit sentence (proposal 9) added to the post. Re-run 2d, 2e, 2f in order and re-confirm each; then 2g.
+None. (2d-2f were stale after /step back 2d on 2026-09-30 for the color ramp fix; re-run and re-confirmed the same day.)
 
 ## Log
 
@@ -65,3 +65,4 @@ Since: 2026-09-30
 - 2026-09-30 2g: Eric's food-diet sentence fact-checked (Census P60-287: three times the cost of a minimum food diet in 1963); accepted version 1 in EMAIL.md.
 - 2026-09-30 Step 2d re-confirmed by Eric (new hero, one color ramp).
 - 2026-09-30 Step 2e re-confirmed by Eric (no SEO changes).
+- 2026-09-30 Step 2f re-confirmed by Eric. Back on 2g.
