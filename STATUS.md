@@ -34,3 +34,4 @@ None.
 - 2026-10-01 Step 1 confirmed by Eric. Step 2a opened: Claude drafts at Eric's request (as with the wage takeaways). Date placeholder Friday, October 2, 2026, 6:00 pm EDT (Eric may change).
 - 2026-10-01 2a: Claude draft of POST.md written; every number checked against the takeaway CSVs (9 of 15 increases in OH/MI/St. Louis, not 10 as first said in chat).
 - 2026-10-01 2a: slug changed to six-takeaways-child-poverty (Eric); takeaways 5 and 6 swapped (Delta now 5, just above the line now 6); chart files renamed to match.
+- 2026-10-01 2a: chart 1 adds Montgomery County, OH (Dayton, 12th-widest gap) as a set-apart row at Eric's request; Eric plans to add personal experience there in 2b.

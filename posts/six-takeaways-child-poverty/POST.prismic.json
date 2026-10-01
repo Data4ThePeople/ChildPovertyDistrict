@@ -15,7 +15,7 @@
         "drop_cap_text": [
           {
             "type": "paragraph",
-            "text": "On Wednesday we rebuilt our map of child poverty by school district, which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six things it shows. All of them use the official poverty line, and the sixth takeaway shows what that line leaves out.",
+            "text": "On Wednesday we rebuilt our map of child poverty by school district, which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and imporved tool.",
             "spans": [
               {
                 "start": 28,
@@ -74,7 +74,7 @@
       "items": [],
       "primary": {
         "image": {
-          "alt": "Dot chart titled Same county, worlds apart, 2024. For each of 10 counties, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Cuyahoga County, OH: East Cleveland 43.8% and Bay Village 2.6%. Camden County, NJ: Camden 36.8% and Haddonfield 1.8%.",
+          "alt": "Dot chart titled Same county, worlds apart, 2024. For the 10 counties with the widest gap, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Below a dotted line, Montgomery County, OH, home to Dayton and the 12th-widest gap: Northridge 37.1% and Oakwood 2.2%",
           "copyright": null
         },
         "source_text": []
@@ -405,7 +405,7 @@
         "paragraph_text": [
           {
             "type": "paragraph",
-            "text": "Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other.",
+            "text": "Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. Both show that America has ignored the plight of the [xx] million people living in this region",
             "spans": [],
             "direction": "ltr"
           }
