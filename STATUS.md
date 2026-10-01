@@ -57,3 +57,4 @@ None.
 - 2026-09-30 2f: SAIPE definition verified against Census sources; Eric accepted precision edits 1-3 in 'Read this first' (threshold depends on family size and number of children; 'The Census Bureau's 2024 line'; CPS labeled). Draft re-pushed.
 - 2026-09-30 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and the Visualization tag.
 - 2026-09-30 2g: Eric's email draft placed in EMAIL.md verbatim (placeholders filled from the post); change map rendered for email (01-change-map-email, 155 KB JPG); hero JPG 148 KB; opening claim verified (Census P60-290, official rate 10.2% in 2025, lowest since 1959). Edits proposed in chat.
+- 2026-09-30 2g: Eric accepted email edits 1-8; Detroit (DPSCD, 115,752 children, 37.6% to 46.0% pooled) replaces Harper Woods (1,825 children). Detroit numbers not yet in POST.md; proposed adding them.
