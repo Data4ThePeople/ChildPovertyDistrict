@@ -1,8 +1,8 @@
 """Hero source image: the 2024 child poverty map rendered at hero scale (1680x1080) in the dark
 house palette, with the title and the national figure beside it. `hero pad` then adds the padding.
 
-Same data, bins and floor as the viz's 2024 view, using the viz's dark-mode ramp (brighter = more
-children in poverty) so the highest-poverty districts stay visible on the dark background."""
+Same data, bins, floor and color ramp as the viz's 2024 view (darker = more children in poverty, in
+both light and dark mode; the deepest step clears 2:1 contrast on the dark background)."""
 import json
 import os
 
@@ -17,7 +17,7 @@ from common import PROC, ROOT  # noqa: E402
 
 OUT = ROOT / "posts" / "children-poverty-viz" / "images" / "children-poverty-viz-hero-source.png"
 BG, INK, MUTED = "#181A1B", "#BBBDC0", "#8C9094"
-RAMP = ["#a33f1e", "#c24d25", "#df5f35", "#f37952", "#fe9979", "#ffbaa3", "#ffdacd"]   # viz dark mode, --s0..--s6
+RAMP = ["#ffdacd", "#ffbaa3", "#fe9979", "#f37952", "#df5f35", "#c24d25", "#a33f1e"]   # viz --s0..--s6, same in light and dark mode
 SMALL, EDGE, STATE = "#50565A", "#181A1B", "#9AA5A1"
 BINS, FLOOR = [5, 10, 15, 20, 25, 30], 100
 
@@ -75,7 +75,7 @@ def main():
         fig.patches.append(plt.Rectangle((lx + i * lw / 7, ly), lw / 7, lh, transform=fig.transFigure, color=c, figure=fig))
     for i, b in enumerate(BINS):
         fig.text(lx + (i + 1) * lw / 7, ly - 0.012, f"{b}%", fontsize=17, color=INK, ha="center", va="top")
-    fig.text(lx, ly + lh + 0.012, "Brighter = more children in poverty", fontsize=16, color=MUTED, va="bottom")
+    fig.text(lx, ly + lh + 0.012, "Darker = more children in poverty", fontsize=16, color=MUTED, va="bottom")
     fig.patches.append(plt.Rectangle((lx + lw + 0.02, ly), 0.022, lh, transform=fig.transFigure, color=SMALL, figure=fig))
     fig.text(lx + lw + 0.047, ly + lh / 2, "Fewer than\n100 children", fontsize=14, color=MUTED, va="center", linespacing=1.1)
 
