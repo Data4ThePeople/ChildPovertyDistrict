@@ -17,7 +17,7 @@ from common import PROC, ROOT  # noqa: E402
 
 IMG = ROOT / "posts" / "children-poverty-viz" / "images"
 BG, INK, MUTED = "#181A1B", "#BBBDC0", "#8C9094"
-DIV = ["#b7d3f6", "#5598e7", "#1c5cab", "#383835", "#a52a24", "#e0604c", "#f6b8a8"]   # viz dark mode --dn3..--up3
+DIV = ["#1c5cab", "#5598e7", "#b7d3f6", "#383835", "#f6b8a8", "#e0604c", "#a52a24"]   # viz --dn3..--up3 (dark-mode neutral)
 LABELS = ["−10", "−5", "−2", "+2", "+5", "+10"]
 BINS = [-10, -5, -2, 2, 5, 10]
 SMALL, NOHIST, STATE = "#6B7175", "#181A1B", "#9AA5A1"   # no comparable figure = left blank

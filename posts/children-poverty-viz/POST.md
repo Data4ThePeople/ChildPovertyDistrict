@@ -8,7 +8,7 @@ updated: 2026-09-30
 prismic_id: aib90RcAAC0A-Wcs
 section: Visualization
 hero: images/children-poverty-viz-hero-1680x1080.png
-hero_alt: Map of the child poverty rate in every U.S. school district in 2024, on a dark background. Districts run from dark red (under 5%) to pale peach (30% or more). The palest areas are in the Mississippi Delta, the Deep South, Navajo Nation lands in Arizona and New Mexico, the Texas border and western Alaska. Small districts are gray. Beside the map: Child Poverty by School District, 14.4% of school-age children lived in families in poverty in 2024. Built by Data 4 The People.
+hero_alt: Map of the child poverty rate in every U.S. school district in 2024, on a dark background. Districts run from pale peach (under 5%) to deep red (30% or more). The deepest red is in the Mississippi Delta, the Deep South, Navajo Nation lands in Arizona and New Mexico, the Texas border and western Alaska. Small districts are gray. Beside the map: Child Poverty by School District, 14.4% of school-age children lived in families in poverty in 2024. Built by Data 4 The People.
 meta_title: "Child Poverty by School District: Map & Trends 2005-2024"
 description: "Free interactive map of child poverty in every U.S. school district, 2005 to 2024: yearly rates, which districts got better or worse, and rankings."
 keywords: child poverty by school district, child poverty rate by school district, school district poverty rate map, child poverty rate map, child poverty trends by school district, school districts with the highest child poverty rates, child poverty rate visualization, how has child poverty changed over time
@@ -36,7 +36,7 @@ dividers: false
 
 # Child Poverty by School District: An Interactive Map, 2005 to 2024
 
-<iframe src="https://data4thepeople.github.io/ChildPovertyDistrict/?v=20260930#embed=1" width="100%" height="780" loading="lazy" style="border:0" title="Child poverty by school district: interactive map, 2005 to 2024"></iframe>
+<iframe src="https://data4thepeople.github.io/ChildPovertyDistrict/?v=20260930b#embed=1" width="100%" height="780" loading="lazy" style="border:0" title="Child poverty by school district: interactive map, 2005 to 2024"></iframe>
 
 ::: spacer 40px
 
@@ -120,7 +120,7 @@ Districts with the highest child poverty rates in 2024:
 
 At the other end, 11 districts had rates of 1.2% or less, eight of them in New Jersey and New York, led by Chesterfield Township School District, NJ (0.9%).
 
-The largest pooled increases from 2005 to 2007 to 2022 to 2024, among districts with 500 or more children a year in both periods, were in Harper Woods City Schools, MI (13.6% to 34.5%), Lanett City School District, AL (23.7% to 40.7%), and Melvindale-North Allen Park School District, MI (19.1% to 34.0%). Several of the largest increases are in older suburbs next to Detroit and Birmingham and in the Youngstown, OH area.
+The largest pooled increases from 2005 to 2007 to 2022 to 2024, among districts with 500 or more children a year in both periods, were in Harper Woods City Schools, MI (13.6% to 34.5%), Lanett City School District, AL (23.7% to 40.7%), and Melvindale-North Allen Park School District, MI (19.1% to 34.0%). Several of the largest increases are in older suburbs next to Detroit and Birmingham and in the Youngstown, OH area. Among districts with 50,000 or more children, the largest increase was in Detroit Public Schools Community District, MI (37.6% to 46.0%), and the largest drops, each close to 10 points, were in Atlanta City School District, GA, Socorro Independent School District, TX, Long Beach Unified School District, CA, and El Paso Independent School District, TX.
 
 The largest pooled drops were in Indian Oasis-Baboquivari Unified District, AZ (47.4% to 9.7%), Santa Maria Independent School District, TX (64.2% to 26.5%), and Los Fresnos Consolidated Independent School District, TX (55.0% to 22.0%). Six of the ten largest drops are in districts along the Texas border, in the Rio Grande Valley and near El Paso. We treat some of the largest drops with caution. See "Large drops in some places" under "Honest notes and limitations."
 
@@ -200,7 +200,7 @@ Each district's history runs back from 2024 and stops at the first year that fai
 
 ### Step 5: Draw the map
 
-The colors use the same seven fixed steps as the first version: under 5%, then every 5 points up to 30% or more. They do not rescale to what is on screen, so a 60% district and a 6% district never share a color. On the light map, darker means more children in poverty (in dark mode, brighter means more). Districts with fewer than 100 children are gray, as before.
+The colors use the same seven fixed steps as the first version: under 5%, then every 5 points up to 30% or more. They do not rescale to what is on screen, so a 60% district and a 6% district never share a color. Darker means more children in poverty, in both light and dark mode. Districts with fewer than 100 children are gray, as before.
 
 The shapes come from the Census Bureau's 2025 cartographic files. Vermont's supervisory unions come from its administrative district layer, trimmed to the same shoreline. We simplified every shape so the map loads in a browser, and removed the tiny slivers that simplifying leaves behind. The projection is Albers USA, which moves Alaska and Hawaii into the lower left.
 

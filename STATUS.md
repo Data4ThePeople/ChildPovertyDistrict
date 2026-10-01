@@ -59,3 +59,4 @@ Since: 2026-09-30
 - 2026-09-30 2g: Eric's email draft placed in EMAIL.md verbatim (placeholders filled from the post); change map rendered for email (01-change-map-email, 155 KB JPG); hero JPG 148 KB; opening claim verified (Census P60-290, official rate 10.2% in 2025, lowest since 1959). Edits proposed in chat.
 - 2026-09-30 2g: Eric accepted email edits 1-8; Detroit (DPSCD, 115,752 children, 37.6% to 46.0% pooled) replaces Harper Woods (1,825 children). Detroit numbers not yet in POST.md; proposed adding them.
 - 2026-09-30 /step back 2d: unify the color ramp across light and dark modes (Eric). 2d, 2e, 2f stale.
+- 2026-09-30 One color ramp in both themes (darker = more; dark mode keeps only its neutral midpoint); viz rebuilt, tie-out passes; hero and email change map re-rendered; hero alt rewritten (474); Step 5 text updated; proposal 9 (Detroit and big-district drops) added to the post; embed cache-buster bumped.
