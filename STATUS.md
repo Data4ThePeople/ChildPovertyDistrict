@@ -44,3 +44,4 @@ None.
 - 2026-10-01 Step 2c confirmed by Eric.
 - 2026-10-01 2d: hero = chart 1 re-rendered at hero scale (scripts/14_takeaways.py hero()), padded; alt text written.
 - 2026-10-01 Step 2d confirmed by Eric.
+- 2026-10-01 2e: search-term analysis; meta title (45), description (147), 8 keywords written; proposals sent.
