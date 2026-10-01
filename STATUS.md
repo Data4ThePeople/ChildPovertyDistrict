@@ -56,3 +56,4 @@ None.
 - 2026-09-30 2f: Eric's replacement sentence in 'Read this first' ("counts as in poverty"); draft re-pushed.
 - 2026-09-30 2f: SAIPE definition verified against Census sources; Eric accepted precision edits 1-3 in 'Read this first' (threshold depends on family size and number of children; 'The Census Bureau's 2024 line'; CPS labeled). Draft re-pushed.
 - 2026-09-30 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and the Visualization tag.
+- 2026-09-30 2g: Eric's email draft placed in EMAIL.md verbatim (placeholders filled from the post); change map rendered for email (01-change-map-email, 155 KB JPG); hero JPG 148 KB; opening claim verified (Census P60-290, official rate 10.2% in 2025, lowest since 1959). Edits proposed in chat.
