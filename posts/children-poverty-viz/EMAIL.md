@@ -32,7 +32,7 @@ Earlier this month the Census Bureau released data saying that the official pove
 ## 4. Body, part two
 
 ```
-Now, today we are not going to address the elephant in the room: the official poverty measure is still based on a formula designed in 1963. Nope, not going to mention that at all… But if you missed it, you can read our coverage of that here: https://www.data4thepeople.com/p/frozen-in-1963/
+Now, today we are not going to address the elephant in the room: the official poverty measure is still based on a formula designed in 1963 that multiplied the cost of a minimum food diet by three to set the poverty line. Nope, not going to mention that at all… But if you missed it, you can read our coverage of that here: https://www.data4thepeople.com/p/frozen-in-1963/
 
 For argument's sake, let's just take the Census's word on this. The poverty rate is in decline for America.
 

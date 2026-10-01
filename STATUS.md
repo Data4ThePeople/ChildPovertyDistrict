@@ -62,3 +62,4 @@ Since: 2026-09-30
 - 2026-09-30 One color ramp in both themes (darker = more; dark mode keeps only its neutral midpoint); viz rebuilt, tie-out passes; hero and email change map re-rendered; hero alt rewritten (474); Step 5 text updated; proposal 9 (Detroit and big-district drops) added to the post; embed cache-buster bumped.
 - 2026-09-30 Re-pushed to Prismic: draft aib90RcAAC0A-Wcs updated (Migration Release); new hero uploaded; Detroit sentence and ramp text included. Waiting on Eric to re-confirm 2d, 2e, 2f.
 - 2026-09-30 2g: email chart after part one removed (Eric: email opens on 2025 Census figures, chart was 2024 SAIPE); a picture of the live tool (02-viz-screenshot-email.jpg, 176 KB) added before the call to action, linked to the post.
+- 2026-09-30 2g: Eric's food-diet sentence fact-checked (Census P60-287: three times the cost of a minimum food diet in 1963); accepted version 1 in EMAIL.md.
