@@ -39,3 +39,5 @@ None.
 - 2026-10-01 2a: added the ACS delay (Commerce DAO 216-26, June 4, 2026; 2025 ACS 1-year release on hold, no date), verified and worded neutrally; Eric's 'halt county-level estimation' framing corrected.
 - 2026-10-01 Step 2a confirmed by Eric.
 - 2026-10-01 Step 2b confirmed by Eric (items 1, 2, 4, 5, 6 accepted).
+- 2026-10-01 Step 2c opened.
+- 2026-10-01 2c: convert-only run: 45 slices, 5 FAQ entries, no doubled spacers; embed spacer replaced by divider dots by design (as in the wage takeaways).
