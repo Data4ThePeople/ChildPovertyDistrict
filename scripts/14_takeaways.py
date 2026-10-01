@@ -81,25 +81,33 @@ def pooled():
 
 # 1. Same county, worlds apart
 def t1():
-    g = pd.read_csv(PROC / "takeaway1_county_gaps.csv").head(10).iloc[::-1]
-    f, top = fig("Same county, worlds apart",
-                 "Child poverty rate, ages 5 to 17, 2024: the highest- and lowest-poverty school district in each county.\n"
-                 "Districts with 1,000+ children and 90%+ of them in the county.", h=9,
-                 legend=[("Highest-poverty district", CORAL), ("Lowest-poverty district", BLUE)])
-    ax = f.add_axes([0.20, 0.09, 0.36, top - 0.09])
-    y = np.arange(len(g))
+    allg = pd.read_csv(PROC / "takeaway1_county_gaps.csv")
+    top = allg.head(10)
+    extra = allg[allg.county == "Montgomery County, OH"]   # Dayton, set apart below the top 10 (Eric's county)
+    assert len(extra) == 1
+    rank = int(allg.index[allg.county == "Montgomery County, OH"][0]) + 1
+    g = pd.concat([extra, top.iloc[::-1]]).reset_index(drop=True)   # row 0 (bottom) = Montgomery; widest gap at the top
+    f, top_y = fig("Same county, worlds apart",
+                   "Child poverty rate, ages 5 to 17, 2024: the highest- and lowest-poverty school district in each county.\n"
+                   "Districts with 1,000+ children and 90%+ of them in the county. The 10 widest gaps, plus Montgomery County, OH.", h=9.6,
+                   legend=[("Highest-poverty district", CORAL), ("Lowest-poverty district", BLUE)])
+    ax = f.add_axes([0.20, 0.09, 0.36, top_y - 0.09])
+    y = np.array([0] + [i + 1.0 for i in range(1, len(g))], dtype=float)   # extra gap below the top 10
     ax.hlines(y, g.lo_rate, g.hi_rate, color=GRID, lw=6, zorder=1)
     ax.scatter(g.hi_rate, y, s=110, color=CORAL, zorder=3)
     ax.scatter(g.lo_rate, y, s=110, color=BLUE, zorder=3)
+    ax.axhline(1.0, color=MUTED, lw=0.8, ls=(0, (3, 3)))
     ax.set_yticks(y)
     ax.set_yticklabels(g.county, fontsize=11.5, fontweight="bold")
+    ax.set_ylim(-0.6, y[-1] + 0.6)
     ax.set_xlim(0, 60)
     ax.set_xticks([0, 20, 40, 60])
     ax.set_xticklabels(["0%", "20%", "40%", "60%"])
     ax.grid(axis="x", color=GRID)
-    for i, r in enumerate(g.itertuples()):
-        ax.text(62, i + 0.17, f"{r.hi_rate:.1f}%  {r.high}", va="center", fontsize=10, color=CORAL, clip_on=False)
-        ax.text(62, i - 0.2, f"{r.lo_rate:.1f}%  {r.low}", va="center", fontsize=10, color=BLUE, clip_on=False)
+    for yy, r in zip(y, g.itertuples()):
+        ax.text(62, yy + 0.17, f"{r.hi_rate:.1f}%  {r.high}", va="center", fontsize=10, color=CORAL, clip_on=False)
+        ax.text(62, yy - 0.2, f"{r.lo_rate:.1f}%  {r.low}", va="center", fontsize=10, color=BLUE, clip_on=False)
+    ax.text(-0.5, 0.62, f"Also: Montgomery County, OH (Dayton), the {rank}th-widest gap", fontsize=10, color=MUTED, va="center")
     finish(f, ax, "01-same-county-worlds-apart.png")
 
 

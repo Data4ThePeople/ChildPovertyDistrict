@@ -19,13 +19,13 @@ dividers: false
 
 # Child poverty by school district: six takeaways
 
-On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six things it shows. All of them use the official poverty line, and the sixth takeaway shows what that line leaves out.
+On Wednesday we rebuilt our [map of child poverty by school district](https://www.data4thepeople.com/p/children-poverty-viz/), which shows the share of school-age children in poverty in every U.S. school district for every year from 2005 to 2024. Here are six of our key takeaways from studying our new and imporved tool.
 
 ## 1. Next-door districts can be worlds apart
 
 The national rate is one number: 14.4% of children ages 5 to 17 lived in families in poverty in 2024. Inside a single county, the rate can run from a few percent to more than half. The chart below shows the 10 counties with the widest gap between their highest- and lowest-poverty school districts.
 
-![Dot chart titled Same county, worlds apart, 2024. For each of 10 counties, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Cuyahoga County, OH: East Cleveland 43.8% and Bay Village 2.6%. Camden County, NJ: Camden 36.8% and Haddonfield 1.8%.](images/01-same-county-worlds-apart.png)
+![Dot chart titled Same county, worlds apart, 2024. For the 10 counties with the widest gap, a coral dot marks the highest-poverty school district and a blue dot the lowest. Wayne County, MI: Hamtramck 52.3% and Grosse Ile 3.9%. Muskegon County, MI: Muskegon Heights 57.0% and Mona Shores 11.1%. Mahoning County, OH: Youngstown 50.0% and Canfield 5.4%. Below a dotted line, Montgomery County, OH, home to Dayton and the 12th-widest gap: Northridge 37.1% and Oakwood 2.2%](images/01-same-county-worlds-apart.png)
 
 Eight of the 10 counties are in Michigan, Ohio, Indiana and Illinois. In most of them, the highest-poverty district is an older city or inner suburb, and the lowest-poverty district is a suburb in the same county. In Montgomery County, OH, home to Dayton, Northridge Local School District is at 37.1% and Oakwood City School District is at 2.2%.
 
@@ -73,7 +73,7 @@ Our [labor force map](https://data4thepeople.github.io/laus/), built from the Bu
 
 ![Line chart titled The Delta's workforce has been shrinking for decades. Change in civilian labor force since 1990, annual average. The United States grew 35.7%, Mississippi grew 10.3%, and the 10 core Delta counties fell 38.8%, from 101,004 people in 1990 to 61,828 in 2025.](images/05b-delta-labor-force.png)
 
-Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other.
+Since 1990, the Delta's labor force fell 38.8% while Mississippi's grew 10.3% and the nation's grew 35.7%. Child poverty and a shrinking workforce are two measures of the same region. Neither one shows that it caused the other. Both show that America has ignored the plight of the [xx] million people living in this region
 
 ::: spacer
 
