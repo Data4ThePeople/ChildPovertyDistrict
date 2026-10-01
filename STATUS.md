@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2a
+Step: 2b
 Since: 2026-10-01
 
 ## Steps
@@ -14,7 +14,7 @@ Since: 2026-10-01
 | Step | What | Confirmed | Notes |
 |---|---|---|---|
 | 1  | Exploration and analysis | 2026-10-01 | Six takeaways, 7 charts (scripts/14_takeaways.py); numbers in data/processed/takeaways_*.csv |
-| 2a | Draft with brackets resolved | | |
+| 2a | Draft with brackets resolved | 2026-10-01 | Claude-drafted at Eric's request; Montgomery County row, section 6 best-case paragraph and ACS delay added |
 | 2b | Eric's edit, Claude's look-over | | |
 | 2c | Slice markup | | |
 | 2d | Hero 1680x1080 + alt text | | |
@@ -37,3 +37,4 @@ None.
 - 2026-10-01 2a: chart 1 adds Montgomery County, OH (Dayton, 12th-widest gap) as a set-apart row at Eric's request; Eric plans to add personal experience there in 2b.
 - 2026-10-01 2a: section 6 explains the chart before it and adds the best-case point after it (130%/185% program lines; ACS reason the map can't be built yet), at Eric's request. SAIPE confirmed official measure (SAIPE FAQ #8).
 - 2026-10-01 2a: added the ACS delay (Commerce DAO 216-26, June 4, 2026; 2025 ACS 1-year release on hold, no date), verified and worded neutrally; Eric's 'halt county-level estimation' framing corrected.
+- 2026-10-01 Step 2a confirmed by Eric.
