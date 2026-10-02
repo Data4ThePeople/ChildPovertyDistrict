@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2g
+Step: complete
 Since: 2026-10-02
 
 ## Steps
@@ -20,7 +20,7 @@ Since: 2026-10-02
 | 2d | Hero 1680x1080 + alt text | 2026-10-01 | Same-county chart at hero scale; alt 469 characters |
 | 2e | SEO | 2026-10-02 | Meta title 45, description 146, 8 keywords; Article + FAQPage (6); proposals 1-4 accepted |
 | 2f | Pushed to Prismic (draft) | 2026-10-02 | Created ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty), Migration Release, 47 slices, 8 images; dated 2026-10-02 12:30 am EDT |
-| 2g | Mailchimp teaser | | |
+| 2g | Mailchimp teaser | 2026-10-02 | Hero only; six one-line takeaways; Eric's '7 charts in today's D4T' click-through; hero JPG 117 KB |
 
 ## Stale
 
@@ -52,3 +52,4 @@ None.
 - 2026-10-02 2f: date set to 2026-10-02 12:30 am EDT (Eric); draft ar8zIBEAACsAQfLT re-pushed.
 - 2026-10-02 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and tags.
 - 2026-10-02 2g: EMAIL.md drafted on the wage takeaways model (hero only, six takeaways numbered, Eric's click-through line, 7 charts); hero JPG 117 KB; every number checked against the post.
+- 2026-10-02 Step 2g confirmed by Eric. six-takeaways-child-poverty complete (steps 1 through 2g confirmed). In Prismic: set author and tags, then publish draft ar8zIBEAACsAQfLT from the Migration Release.
