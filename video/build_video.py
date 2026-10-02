@@ -3,7 +3,7 @@
 Drives the built viz (dist/index.html, embed view, light theme) in headless Chrome through the
 DevTools protocol: real mouse moves, clicks and typing, so tooltips and outlines behave as they do
 for readers. Each frame is composited with a drawn cursor, click ripples and a caption band, between
-an intro card and a logo card that switches off like a television. Frames are piped to ffmpeg with
+an intro card and a logo card that fades to black. Captions type in over the picture, near the action. Frames are piped to ffmpeg with
 video/build/music.wav (video/music.py).
 
   .venv/bin/python video/music.py                  # render the music first -> video/build/music.wav
@@ -31,8 +31,7 @@ BUILD = ROOT / "video" / "build"
 OUT = ROOT / "video" / "child-poverty-map-tutorial.mp4"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 FPS, W, H = 30, 1920, 1080
-VW, VH, DSF = 1600, 780, 1.2            # viz viewport (CSS px) and scale -> 1920 x 936
-BAND = H - int(VH * DSF)                 # caption band height: 144 px
+VW, VH, DSF = 1600, 900, 1.2            # viz viewport (CSS px) and scale -> the full 1920 x 1080 frame
 INK, PAPER, CORAL, GREEN, DARK, MUTED = "#1F2A27", "#F7F5EF", "#f37952", "#085041", "#181A1B", "#8C9094"
 DAYTON, OAKWOOD = "3904384", "3904458"
 SANS = "/System/Library/Fonts/SFNS.ttf"
@@ -165,29 +164,50 @@ def draw_cursor(img, x, y, ripples, t):
     d.line(pts + [pts[0]], fill=(20, 20, 20, 255), width=2)
 
 
-def caption_band(text, alpha, step, nsteps):
-    band = Image.new("RGB", (W, BAND), INK)
-    d = ImageDraw.Draw(band)
-    d.rectangle([0, 0, 10, BAND], fill=CORAL)
-    f = font(36)
+def wrap(text, f, maxw, d):
     words, lines, cur = text.split(), [], ""
     for w_ in words:
         trial = (cur + " " + w_).strip()
-        if d.textlength(trial, font=f) > W - 330 and cur:
+        if d.textlength(trial, font=f) > maxw and cur:
             lines.append(cur)
             cur = w_
         else:
             cur = trial
-    lines.append(cur)
-    y0 = (BAND - len(lines) * 46) // 2 - 2
-    col = tuple(int(c1 * alpha + c0 * (1 - alpha)) for c0, c1 in zip((31, 42, 39), (247, 245, 239)))
-    for i, line in enumerate(lines):
-        d.text((54, y0 + i * 46), line, font=f, fill=col)
-    if step:
-        sc = tuple(int(c1 * alpha + c0 * (1 - alpha)) for c0, c1 in zip((31, 42, 39), (140, 144, 148)))
-        d.text((W - 210, BAND // 2 - 16), f"{step} of {nsteps}", font=font(28), fill=sc)
-        d.text((W - 210, BAND // 2 + 18), "Data 4 The People", font=font(18), fill=sc)
-    return band
+    return lines + [cur]
+
+
+def draw_caption(img, text, t, t0, t1, anchor, step, nsteps):
+    """IG-style caption: types in near the action on a dark rounded box, fades out at the end."""
+    f, fs = font(46, bold=True), font(24, bold=True)
+    d = ImageDraw.Draw(img, "RGBA")
+    lines = wrap(text, f, 860, d)              # wrap the full text so lines never reflow while typing
+    shown = int(max(0, t - t0 - 0.15) * 40)    # 40 characters a second
+    alpha = min(1.0, (t - t0) / 0.2, max(0.0, (t1 - t) / 0.35))
+    if alpha <= 0:
+        return
+    typed, left = [], shown
+    for ln in lines:
+        typed.append(ln[:max(0, left)])
+        left -= len(ln) + 1
+    typing = shown < len(text)
+    lh, px, py = 58, 30, 22
+    boxw = max(d.textlength(ln, font=f) for ln in lines) + 2 * px
+    boxh = 34 + len(lines) * lh + 2 * py - 8
+    x, y, align = anchor
+    if align == "right":
+        x -= boxw
+    x, y = max(28, min(W - boxw - 28, x)), max(28, min(H - boxh - 28, y))
+    a = int(225 * alpha)
+    d.rounded_rectangle([x + 4, y + 6, x + boxw + 4, y + boxh + 6], 20, fill=(0, 0, 0, int(60 * alpha)))
+    d.rounded_rectangle([x, y, x + boxw, y + boxh], 20, fill=(24, 26, 27, a))
+    d.text((x + px, y + py - 4), f"{step} / {nsteps}", font=fs, fill=(243, 121, 82, int(255 * alpha)))
+    for k, ln in enumerate(typed):
+        d.text((x + px, y + py + 30 + k * lh), ln, font=f, fill=(247, 245, 239, int(255 * alpha)))
+    if typing and int(t * 3) % 2 == 0:          # caret while typing
+        k = max(0, min(len(typed) - 1, next((i for i, ln in enumerate(typed) if len(ln) < len(lines[i])), len(typed) - 1)))
+        cx = x + px + d.textlength(typed[k], font=f) + 4
+        cy = y + py + 30 + k * lh
+        d.rectangle([cx, cy + 6, cx + 4, cy + 50], fill=(243, 121, 82, int(255 * alpha)))
 
 
 def ease(a):
@@ -195,46 +215,19 @@ def ease(a):
     return a * a * (3 - 2 * a)
 
 
-def tv_off(card, a):
-    """Old-TV switch-off on `card`, a in 0..1: squash to a bright line, shrink to a dot, fade."""
-    out = Image.new("RGB", (W, H), "black")
-    if a < 0.45:
-        k = ease(a / 0.45)
-        h = max(4, int(H * (1 - k)))
-        im = card.resize((W, h))
-        im = Image.blend(im, Image.new("RGB", im.size, "white"), 0.75 * k)
-        out.paste(im, (0, (H - h) // 2))
-    elif a < 0.78:
-        k = ease((a - 0.45) / 0.33)
-        w = max(6, int(W * (1 - k)))
-        d = ImageDraw.Draw(out)
-        d.rectangle([(W - w) // 2, H // 2 - 3, (W + w) // 2, H // 2 + 3], fill="white")
-        glow = out.filter(ImageFilter.GaussianBlur(8))
-        out = Image.blend(out, glow, 0.5)
-        d = ImageDraw.Draw(out)
-        d.rectangle([(W - w) // 2, H // 2 - 2, (W + w) // 2, H // 2 + 2], fill="white")
-    else:
-        k = (a - 0.78) / 0.22
-        r = max(0, 7 * (1 - k))
-        v = int(255 * (1 - k))
-        d = ImageDraw.Draw(out)
-        if r > 0:
-            d.ellipse([W // 2 - r, H // 2 - r, W // 2 + r, H // 2 + r], fill=(v, v, v))
-    return out
-
-
 # ---------- the tour ----------
 def main():
     sheet = "--sheet" in sys.argv
     BUILD.mkdir(parents=True, exist_ok=True)
     day, oak = rates()
+    TOPLEFT = lambda: (48, 168, "left")
     steps = [
-        (4.0, 10.0, "Press Play to watch every school district from 2005 to 2024. Darker means more children in poverty."),
-        (10.0, 17.0, "Type a district's name to find it. The panel shows its child poverty rate and its history back to 2005."),
-        (17.0, 22.0, f"Point at any district for its numbers. Dayton is at {day:.1f}%. Oakwood, next door, is at {oak:.1f}%."),
-        (22.0, 28.0, "Pick a state to zoom in. The rankings update to match."),
-        (28.0, 35.0, "Switch to Change to see where child poverty rose or fell since 2005. Blue means fewer children in poverty."),
-        (35.0, 40.0, "Click any name in the rankings to jump to that district."),
+        (4.0, 10.0, "Press Play to watch 2005 to 2024. Darker means more children in poverty.", TOPLEFT),
+        (10.0, 17.0, "Search any district by name", TOPLEFT),
+        (17.0, 22.0, f"Point at a district: Dayton {day:.1f}%, Oakwood {oak:.1f}%", "cursor"),
+        (22.0, 28.0, "Pick a state to zoom in", TOPLEFT),
+        (28.0, 35.0, "Switch to Change: blue fell, red rose", TOPLEFT),
+        (35.0, 40.0, "Click a ranking to jump there", "ranking"),
     ]
     ch = Chrome()
     cards = render_cards(ch)
@@ -247,7 +240,8 @@ def main():
                 break
         except Exception:
             pass
-    time.sleep(0.5)
+    ch.js("document.getElementById('cp').style.height = '900px'")   # recording only: let the map fill the frame
+    time.sleep(1.0)
     rect = lambda sel: ch.js(f"(() => {{ const r = document.querySelector({json.dumps(sel)}).getBoundingClientRect(); return [r.x + r.width / 2, r.y + r.height / 2]; }})()")
     mapxy = lambda gid: ch.js(f"(() => {{ const m = document.getElementById('mapbox').getBoundingClientRect(); const p = __cpdbg.pointIn({json.dumps(gid)}); return p && [m.x + p[0], m.y + p[1]]; }})()")
     set_year = lambda i: ch.js(f"(() => {{ const y = document.getElementById('year'); y.value = {i}; y.dispatchEvent(new Event('input')); }})()")
@@ -309,8 +303,22 @@ def main():
     click(35.25)
     move(36.4, 37.4, lambda: rect("#detail .name"))
     events.sort(key=lambda e: e[0])
+    anchors = {}
 
-    stills = {4.6: None, 7.5: None, 12.0: None, 15.0: None, 19.8: None, 25.0: None, 31.0: None, 37.5: None}
+    def anchor_for(i, spec):
+        if i not in anchors:
+            if spec == "cursor":           # above and to the left of the cursor's next stop (Dayton)
+                cx, cy = mapxy(DAYTON)
+                anchors[i] = (cx * DSF - 120, cy * DSF - 290, "right")
+            elif spec == "ranking":        # beside the rankings panel, level with the first row
+                rx, ry = rect("#rank tr[data-id]")
+                left = ch.js("document.getElementById('rank').getBoundingClientRect().x")
+                anchors[i] = (left * DSF - 30, ry * DSF - 70, "right")
+            else:
+                anchors[i] = spec()
+        return anchors[i]
+
+    stills = {5.0: None, 7.5: None, 11.3: None, 15.0: None, 19.8: None, 25.0: None, 31.0: None, 37.5: None}
     ff = None
     if not sheet:
         ff = subprocess.Popen([imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-loglevel", "error",
@@ -351,26 +359,19 @@ def main():
                 last_viz = viz
             else:
                 viz = last_viz
-            frame = Image.new("RGB", (W, H), INK)
-            frame.paste(viz, (0, 0))
+            frame = viz.copy()
             draw_cursor(frame, pos[0] * DSF, pos[1] * DSF, ripples, t)
-            cap = [(i, s) for i, s in enumerate(steps) if s[0] <= t < s[1]]
-            if cap:
-                i, (s0, s1, text) = cap[0]
-                alpha = min(1, (t - s0) / 0.35, (s1 - t) / 0.35)
-                frame.paste(caption_band(text, max(0, alpha), i + 1, len(steps)), (0, H - BAND))
-            else:
-                frame.paste(caption_band("", 0, None, None), (0, H - BAND))
+            for k_, (s0, s1, text, spec) in enumerate(steps):
+                if s0 <= t < s1:
+                    draw_caption(frame, text, t, s0, s1, anchor_for(k_, spec), k_ + 1, len(steps))
             if t < 4.0:                            # crossfade from the intro card
                 frame = Image.blend(cards["intro"], frame, ease((t - 3.6) / 0.4))
             if t >= 40.0:                          # crossfade to the logo card
                 frame = Image.blend(frame, cards["outro"], ease((t - 40.0) / 0.8))
-        elif t < 44.2:
+        elif t < 44.5:
             frame = cards["outro"]
-        elif t < 45.2:
-            frame = tv_off(cards["outro"], (t - 44.2) / 1.0)
-        else:
-            frame = Image.new("RGB", (W, H), "black")
+        else:                                      # minimal ending: fade to black
+            frame = Image.blend(cards["outro"], Image.new("RGB", (W, H), "black"), ease((t - 44.5) / 1.4))
         for st in stills:
             if stills[st] is None and abs(t - st) < 0.5 / FPS:
                 stills[st] = frame.copy()
