@@ -66,6 +66,10 @@ This map uses the federal government's official poverty line. A child counts as 
 
 ::: spacer
 
+<iframe src="https://www.youtube-nocookie.com/embed/56VZbRf5EBA?rel=0" width="100%" height="440" loading="lazy" style="border:0" title="How to use the Child Poverty by School District map (46-second video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+::: spacer
+
 **1. Pick a view.** "One year" colors every district by its child poverty rate in the year you pick. "Change" colors every district by how much its rate went up or down between two periods.
 
 **2. Pick a year.** In the one-year view, drag the Year slider, or click Play to move through every year from 2005 to 2024. The button next to Play sets the speed: 1x, 2x or 3x.
