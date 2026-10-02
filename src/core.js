@@ -552,7 +552,23 @@
   new ResizeObserver(resize).observe(wrap);
   const hs = new URLSearchParams(location.hash.slice(1));
   if (hs.get("view") === "change") setMode("change"); else update();
-  if (hs.get("debug") === "1") window.__cpdbg = { hoverAt, render, renderBase, W: () => W, H: () => H };
+  if (hs.get("debug") === "1") window.__cpdbg = {
+    hoverAt, render, renderBase, W: () => W, H: () => H,
+    // a point inside district `id`, in CSS pixels relative to the map canvas (used by the tutorial video script)
+    pointIn(id) {
+      const d = byId.get(id);
+      if (!d || !d.bb) return null;
+      const [x0, y0, x1, y1] = d.bb, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+      let best = null, bd = Infinity;
+      for (let i = 0; i < 30; i++) for (let j = 0; j < 30; j++) {
+        const gx = x0 + (x1 - x0) * (i + 0.5) / 30, gy = y0 + (y1 - y0) * (j + 0.5) / 30;
+        if (hitTest(gx, gy) !== d) continue;
+        const dd = (gx - cx) ** 2 + (gy - cy) ** 2;
+        if (dd < bd) { bd = dd; best = [gx, gy]; }
+      }
+      return best && [best[0] * view.k + view.tx, best[1] * view.k + view.ty];
+    },
+  };
   if (hs.get("d") && byId.get(hs.get("d"))) { pendingSel = byId.get(hs.get("d")); if (W) { select(pendingSel, true); pendingSel = null; } }
 })().catch((e) => {
   const s = document.getElementById("sub");
