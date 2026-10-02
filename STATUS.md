@@ -49,3 +49,4 @@ None.
 - 2026-10-02 Step 2e confirmed by Eric.
 - 2026-10-02 Step 2f opened.
 - 2026-10-02 2f: dry run then publish. Created draft ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty) in the Migration Release; 47 slices; 8 images uploaded. Date 2026-10-02 6:00 pm EDT (placeholder). Before publishing: set author and tags in Prismic.
+- 2026-10-02 2f: date set to 2026-10-02 12:30 am EDT (Eric); draft ar8zIBEAACsAQfLT re-pushed.
