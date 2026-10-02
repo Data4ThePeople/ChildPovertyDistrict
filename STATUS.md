@@ -47,3 +47,5 @@ None.
 - 2026-10-01 2e: search-term analysis; meta title (45), description (147), 8 keywords written; proposals sent.
 - 2026-10-01 2e: Eric accepted proposals 1-4 (Delta FAQ, labor force methodology link, Frozen in 1963 link, section 3 heading). 6 FAQ entries.
 - 2026-10-02 Step 2e confirmed by Eric.
+- 2026-10-02 Step 2f opened.
+- 2026-10-02 2f: dry run then publish. Created draft ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty) in the Migration Release; 47 slices; 8 images uploaded. Date 2026-10-02 6:00 pm EDT (placeholder). Before publishing: set author and tags in Prismic.
