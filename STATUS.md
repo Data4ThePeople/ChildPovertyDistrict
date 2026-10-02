@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2f
+Step: 2g
 Since: 2026-10-02
 
 ## Steps
@@ -19,7 +19,7 @@ Since: 2026-10-02
 | 2c | Slice markup | 2026-10-01 | 45 slices, 5 FAQ entries; drop cap on the intro; divider before the blurb |
 | 2d | Hero 1680x1080 + alt text | 2026-10-01 | Same-county chart at hero scale; alt 469 characters |
 | 2e | SEO | 2026-10-02 | Meta title 45, description 146, 8 keywords; Article + FAQPage (6); proposals 1-4 accepted |
-| 2f | Pushed to Prismic (draft) | | |
+| 2f | Pushed to Prismic (draft) | 2026-10-02 | Created ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty), Migration Release, 47 slices, 8 images; dated 2026-10-02 12:30 am EDT |
 | 2g | Mailchimp teaser | | |
 
 ## Stale
@@ -50,3 +50,4 @@ None.
 - 2026-10-02 Step 2f opened.
 - 2026-10-02 2f: dry run then publish. Created draft ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty) in the Migration Release; 47 slices; 8 images uploaded. Date 2026-10-02 6:00 pm EDT (placeholder). Before publishing: set author and tags in Prismic.
 - 2026-10-02 2f: date set to 2026-10-02 12:30 am EDT (Eric); draft ar8zIBEAACsAQfLT re-pushed.
+- 2026-10-02 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and tags.
