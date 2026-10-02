@@ -54,13 +54,13 @@ def main():
         html = f"""<!doctype html><html><head><meta charset="utf-8"><style>
         html,body{{margin:0;width:{TW}px;height:{TH}px;overflow:hidden;background:{PAPER};color:{INK};
           font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}}
-        .map{{position:absolute;right:-70px;top:50%;transform:translateY(-50%);height:800px;width:auto;mix-blend-mode:multiply}}
-        .shade{{position:absolute;inset:0;background:linear-gradient(90deg,{PAPER} 0%,{PAPER} 38%,rgba(247,245,239,.85) 46%,rgba(247,245,239,0) 60%)}}
-        .txt{{position:absolute;left:64px;top:0;bottom:0;width:640px;display:flex;flex-direction:column;justify-content:center}}
+        .map{{position:absolute;right:-110px;top:50%;transform:translateY(-50%);height:800px;width:auto;mix-blend-mode:multiply}}
+        .shade{{position:absolute;inset:0;background:linear-gradient(90deg,{PAPER} 0%,{PAPER} 44%,rgba(247,245,239,.85) 53%,rgba(247,245,239,0) 66%)}}
+        .txt{{position:absolute;left:64px;top:0;bottom:0;width:760px;display:flex;flex-direction:column;justify-content:center}}
         .logo{{height:44px;width:auto;display:block;margin-bottom:40px;align-self:flex-start}}
         .kicker{{display:inline-block;align-self:flex-start;background:{CORAL};color:#fff;font-weight:800;font-size:30px;
           letter-spacing:.12em;text-transform:uppercase;padding:8px 18px 6px;border-radius:8px;margin-bottom:26px}}
-        h1{{font-size:92px;line-height:.98;margin:0;font-weight:800;letter-spacing:-.01em}}
+        h1{{font-size:118px;line-height:.98;margin:0;font-weight:800;letter-spacing:-.01em}}
         .sub{{font-size:30px;color:#5F6B67;margin-top:26px;font-weight:600}}
         </style></head><body>
         <img class="map" src="file://{BUILD / 'thumb-map.png'}">
