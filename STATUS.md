@@ -6,8 +6,8 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: six-takeaways-child-poverty
-Step: 2e
-Since: 2026-10-01
+Step: 2f
+Since: 2026-10-02
 
 ## Steps
 
@@ -18,7 +18,7 @@ Since: 2026-10-01
 | 2b | Eric's edit, Claude's look-over | 2026-10-01 | Eric's Dayton paragraph and intro; look-over items 1, 2, 4, 5, 6 accepted (4 replaces the [xx] sentence; Delta population 171,757, 2020-2024 ACS) |
 | 2c | Slice markup | 2026-10-01 | 45 slices, 5 FAQ entries; drop cap on the intro; divider before the blurb |
 | 2d | Hero 1680x1080 + alt text | 2026-10-01 | Same-county chart at hero scale; alt 469 characters |
-| 2e | SEO | | |
+| 2e | SEO | 2026-10-02 | Meta title 45, description 146, 8 keywords; Article + FAQPage (6); proposals 1-4 accepted |
 | 2f | Pushed to Prismic (draft) | | |
 | 2g | Mailchimp teaser | | |
 
@@ -46,3 +46,4 @@ None.
 - 2026-10-01 Step 2d confirmed by Eric.
 - 2026-10-01 2e: search-term analysis; meta title (45), description (147), 8 keywords written; proposals sent.
 - 2026-10-01 2e: Eric accepted proposals 1-4 (Delta FAQ, labor force methodology link, Frozen in 1963 link, section 3 heading). 6 FAQ entries.
+- 2026-10-02 Step 2e confirmed by Eric.
