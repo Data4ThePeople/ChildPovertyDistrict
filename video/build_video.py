@@ -6,6 +6,7 @@ for readers. Each frame is composited with a drawn cursor, click ripples and a c
 an intro card and a logo card that switches off like a television. Frames are piped to ffmpeg with
 video/build/music.wav (video/music.py).
 
+  .venv/bin/python video/music.py                  # render the music first -> video/build/music.wav
   .venv/bin/python video/build_video.py            # full render -> video/child-poverty-map-tutorial.mp4
   .venv/bin/python video/build_video.py --sheet    # stills only -> video/build/contact-sheet.png
 """
