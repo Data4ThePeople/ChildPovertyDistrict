@@ -26,17 +26,17 @@ Child poverty by school district: six takeaways
 ```
 On Wednesday we rebuilt our map of child poverty by school district. Here are six things it shows:
 
-1. Next-door districts can be worlds apart. Nationally, 14.4% of school-age children lived in poverty in 2024. Inside one county, the rate can run from a few percent to more than half. In Wayne County, Michigan, it is 52.3% in Hamtramck and 3.9% in Grosse Ile. In Montgomery County, Ohio, home to Dayton, it is 37.1% in Northridge and 2.2% in Oakwood.
+1. Next-door districts can be worlds apart. In Wayne County, Michigan, child poverty is 52.3% in Hamtramck and 3.9% in Grosse Ile.
 
-2. Far fewer children live in high-poverty districts than a decade ago. In 2012, 20.5% of children lived in a school district where 30% or more of children were in poverty. In 2024, 4.3% did, matching 2020 as the lowest in the 20 years on the map.
+2. Far fewer children live in high-poverty districts. The share fell from 20.5% in 2012 to 4.3% in 2024.
 
-3. Big cities improved, but child poverty rose in many suburban districts. Comparing 2005 to 2007 with 2022 to 2024, Dallas fell 7.2 points and Philadelphia 5.3. Among the largest suburban districts, Cypress-Fairbanks near Houston rose 4.2 points, Baltimore County 3.1 and Gwinnett County near Atlanta 3.0.
+3. Big cities improved, but child poverty rose in many suburban districts, from Baltimore County to Gwinnett County near Atlanta.
 
-4. It rose most in the industrial Midwest. Among districts with 5,000 or more children, nine of the 15 largest increases were in Ohio, Michigan and the St. Louis area. Youngstown went from 34.9% to 48.9%, and Detroit from 37.6% to 46.0%.
+4. It rose most in the industrial Midwest. Youngstown went from 34.9% to 48.9%, and Detroit from 37.6% to 46.0%.
 
-5. In the Mississippi Delta, child poverty has stayed high for 20 years. In the 13 Delta school districts with full history, it never fell below 38.6% in any year, and it was 43.4% in 2024. Since 1990, the region's labor force fell 38.8% while the nation's grew 35.7%.
+5. In the Mississippi Delta, child poverty has stayed above 38.6% for 20 years, while the region's labor force fell 38.8% since 1990.
 
-6. Many more children live just above the line. The map counts only children below the official poverty line, $31,812 a year for two parents and two children in 2024. One in three children (33.6%) lived below twice that line, and on the Census Bureau's broader measure, 49.1% did. In our view, the map likely shows the best-case picture.
+6. Many more children live just above the line. One in three lived below twice the official poverty line in 2024.
 ```
 
 ## 4. Chart
