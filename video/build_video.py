@@ -181,7 +181,7 @@ def draw_caption(img, text, t, t0, t1, anchor, step, nsteps):
     f, fs = font(46, bold=True), font(24, bold=True)
     d = ImageDraw.Draw(img, "RGBA")
     lines = wrap(text, f, 860, d)              # wrap the full text so lines never reflow while typing
-    shown = int(max(0, t - t0 - 0.15) * 40)    # 40 characters a second
+    shown = int(max(0, t - t0 - 0.15) * 25)    # 25 characters a second
     alpha = min(1.0, (t - t0) / 0.2, max(0.0, (t1 - t) / 0.35))
     if alpha <= 0:
         return
