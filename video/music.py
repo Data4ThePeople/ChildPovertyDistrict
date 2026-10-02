@@ -1,6 +1,10 @@
 """Original background track for the tutorial video, synthesized in numpy (no samples, no licensing).
-120 BPM, C major, I-V-vi-IV. Pad + arpeggio under the intro; beat from 4 s; drums drop at 42 s;
-fade out by 45.2 s; a TV power-off zip and static blip at the switch-off. Writes video/build/music.wav."""
+
+Reflective, ambient: slow A-minor-leaning pads (Am(add9) - Fmaj7 - C - Gsus) with a long synthetic
+reverb, a faint band of filtered air, and a soft heartbeat pulse (lub-dub, about once a second)
+during the tour. Quiet under the intro card, building gently, a swell into C(add9) as the logo
+appears, then a clean cut with the TV switch-off and a soft power-down. About -24 dBFS RMS.
+Writes video/build/music.wav (46 s, 44.1 kHz stereo)."""
 import wave
 from pathlib import Path
 
@@ -8,121 +12,141 @@ import numpy as np
 
 SR = 44100
 DUR = 46.0
-BPM = 120
-BEAT = 60 / BPM
-BAR = 4 * BEAT
 OUT = Path(__file__).resolve().parent / "build" / "music.wav"
-rng = np.random.default_rng(7)
+rng = np.random.default_rng(11)
 
-# I-V-vi-IV in C: chord tones (MIDI) and bass roots
-CHORDS = [[60, 64, 67, 72], [59, 62, 67, 71], [57, 60, 64, 69], [57, 60, 65, 69]]
-ROOTS = [36, 43, 45, 41]
+CHORD_LEN = 4.5
+CHORDS = [  # MIDI notes, voiced low and open
+    [45, 52, 59, 60, 64],   # Am(add9): A E B C E
+    [41, 48, 52, 57, 64],   # Fmaj7: F C E A E
+    [48, 55, 60, 64, 67],   # C: C G C E G
+    [43, 50, 55, 60, 62],   # Gsus: G D G C D
+]
+LOGO_CHORD = [36, 48, 55, 62, 64, 67]   # C(add9), for the swell into the logo
+T_PULSE_ON, T_PULSE_OFF, T_LOGO, T_CUT = 4.0, 40.0, 40.0, 44.2
 
 
 def hz(m):
     return 440.0 * 2 ** ((m - 69) / 12)
 
 
-def env(n, a, d, sustain=0.0, release=None):
-    t = np.arange(n) / SR
-    e = np.minimum(1, t / max(a, 1e-4)) * (sustain + (1 - sustain) * np.exp(-t / max(d, 1e-4)))
-    if release:
-        r = int(release * SR)
-        e[-r:] *= np.linspace(1, 0, r)
-    return e
-
-
-def lowpass(x, cutoff):
+def onepole(x, cutoff):
     a = np.exp(-2 * np.pi * cutoff / SR)
     y = np.empty_like(x)
     acc = 0.0
-    for i, v in enumerate(x):   # one-pole filter; fine for these lengths
+    for i, v in enumerate(x):
         acc = (1 - a) * v + a * acc
         y[i] = acc
     return y
 
 
-def place(buf, sig, t0):
-    i = int(t0 * SR)
+def pad_voice(notes, start, length, level):
+    """Soft pad: detuned triangle-ish voices, slow swell in and out."""
+    n = int(length * SR)
+    t = np.arange(n) / SR
+    sig = np.zeros(n)
+    for m in notes:
+        for det in (-0.006, 0.0, 0.007):
+            f = hz(m) * (1 + det)
+            ph = (t * f + rng.random()) % 1.0
+            sig += (2 * np.abs(2 * ph - 1) - 1) * (0.7 if m < 50 else 0.45)
+    att, rel = 1.6, 2.2
+    env = np.minimum(1, t / att) * np.minimum(1, np.maximum(0, (length - t) / rel))
+    return start, sig * env * level / len(notes)
+
+
+def place(buf, start, sig):
+    i = int(start * SR)
     j = min(len(buf), i + len(sig))
     if i < len(buf):
         buf[i:j] += sig[: j - i]
 
 
+def reverb(x, seconds=4.2, seed=3):
+    """Convolution with a decaying, darkened noise tail (FFT)."""
+    r = np.random.default_rng(seed)
+    n = int(seconds * SR)
+    t = np.arange(n) / SR
+    ir = r.standard_normal(n) * np.exp(-t * 6.9 / seconds)
+    ir = onepole(ir, 2500)
+    ir[: int(0.012 * SR)] = 0   # short pre-delay
+    ir /= np.sqrt((ir ** 2).sum())
+    m = len(x) + n
+    y = np.fft.irfft(np.fft.rfft(x, m) * np.fft.rfft(ir, m), m)[: len(x)]
+    return y
+
+
 def main():
     n = int(DUR * SR)
-    pad, arp, bass, drums, fx = (np.zeros(n) for _ in range(5))
-    nbars = int(np.ceil(DUR / BAR))
-    for b in range(nbars):
-        t0 = b * BAR
-        ch = CHORDS[b % 4]
-        # pad: detuned saws, soft attack, filtered later
-        m = int(BAR * SR)
-        t = np.arange(m) / SR
-        s = sum(((t * hz(note) * dt) % 1 - 0.5) for note in ch[:3] for dt in (0.997, 1.003))
-        place(pad, s * env(m, 0.35, 10, 0.6, release=0.25) * 0.10, t0)
-        # arpeggio: 16th notes up the chord, plucked sine with a soft second harmonic
-        for k in range(16):
-            note = ch[[0, 1, 2, 3, 2, 1, 2, 3][k % 8]] + 12
-            mm = int(0.22 * SR)
-            tt = np.arange(mm) / SR
-            p = (np.sin(2 * np.pi * hz(note) * tt) + 0.25 * np.sin(4 * np.pi * hz(note) * tt)) * env(mm, 0.003, 0.09)
-            vel = 0.13 if k % 4 == 0 else 0.08
-            place(arp, p * vel, t0 + k * BEAT / 4)
-        if t0 >= 4.0 - 1e-6:
-            # bass: 8th notes on the root, plucked
-            for k in range(8):
-                mm = int(0.24 * SR)
-                tt = np.arange(mm) / SR
-                f = hz(ROOTS[b % 4] + (12 if k % 4 == 3 else 0))
-                bsig = np.tanh(2.2 * np.sin(2 * np.pi * f * tt)) * env(mm, 0.004, 0.12)
-                place(bass, bsig * 0.22, t0 + k * BEAT / 2)
-            if t0 < 42.0:
-                for k in range(4):
-                    bt = t0 + k * BEAT
-                    if k in (0, 2):   # kick
-                        mm = int(0.25 * SR)
-                        tt = np.arange(mm) / SR
-                        f = 50 + 70 * np.exp(-tt / 0.03)
-                        place(drums, np.sin(2 * np.pi * np.cumsum(f) / SR) * env(mm, 0.001, 0.12) * 0.55, bt)
-                    else:             # clap: filtered noise burst
-                        mm = int(0.18 * SR)
-                        nz = rng.standard_normal(mm)
-                        nz = nz - lowpass(nz, 900)
-                        place(drums, nz * env(mm, 0.002, 0.05) * 0.22, bt)
-                    for h in (0, 1):   # hats on 8ths
-                        mm = int(0.05 * SR)
-                        nz = rng.standard_normal(mm)
-                        nz = nz - lowpass(nz, 6000)
-                        place(drums, nz * env(mm, 0.001, 0.015) * (0.05 if h == 0 else 0.09), bt + h * BEAT / 2)
-    pad = lowpass(pad, 1800)
-    # TV power-off: falling zip at 44.2 s, short static blip at 44.9 s
-    mm = int(0.55 * SR)
-    tt = np.arange(mm) / SR
-    f = 2200 * np.exp(-tt / 0.18) + 120
-    place(fx, np.sin(2 * np.pi * np.cumsum(f) / SR) * env(mm, 0.005, 0.25) * 0.12, 44.2)
-    mm = int(0.18 * SR)
-    place(fx, rng.standard_normal(mm) * env(mm, 0.002, 0.06) * 0.10, 44.9)
-
-    music = pad + arp + bass + drums
     t = np.arange(n) / SR
-    fade = np.clip(t / 1.2, 0, 1) * np.clip((45.2 - t) / 3.0, 0, 1)
-    mix = music * fade + fx
-    # light stereo width: delay the pad and arp by 9 ms on the right channel
-    d = int(0.009 * SR)
-    width = np.zeros(n)
-    width[d:] = ((pad + arp) * fade)[:-d]
-    left = mix
-    right = mix - (pad + arp) * fade + width
-    st = np.stack([left, right], axis=1)
-    st = st / np.max(np.abs(st)) * 10 ** (-1 / 20)   # peak -1 dBFS
+    pads = np.zeros(n)
+    # chords overlap by their release so the pad never drops out
+    k = 0
+    start = 0.0
+    while start < T_LOGO - 0.5:
+        s0, sig = pad_voice(CHORDS[k % 4], start, CHORD_LEN + 2.2, 1.0)
+        place(pads, s0, sig)
+        start += CHORD_LEN
+        k += 1
+    s0, sig = pad_voice(LOGO_CHORD, T_LOGO - 0.8, (T_CUT + 0.1) - (T_LOGO - 0.8), 1.15)
+    place(pads, s0, sig)
+    pads = onepole(pads, 1100)
+
+    # air: band-limited noise, slowly breathing
+    air = rng.standard_normal(n)
+    air = onepole(air, 3200) - onepole(air, 250)
+    air *= 0.5 + 0.5 * np.sin(2 * np.pi * t / 9.0) ** 2
+    air *= 0.05
+
+    # heartbeat: lub-dub roughly once a second, low and muted
+    pulse = np.zeros(n)
+    period = 1.05
+    tb = T_PULSE_ON
+    while tb < T_PULSE_OFF:
+        for off, vel in ((0.0, 1.0), (0.24, 0.55)):
+            m = int(0.30 * SR)
+            tt = np.arange(m) / SR
+            f = 42 + 26 * np.exp(-tt / 0.04)
+            thump = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt / 0.11) * np.minimum(1, tt / 0.006)
+            place(pulse, tb + off, thump * vel * 0.32)
+        tb += period
+    pulse_env = np.clip((t - T_PULSE_ON) / 2.5, 0, 1) * np.clip((T_PULSE_OFF + 0.4 - t) / 0.8, 0, 1)
+    pulse = onepole(pulse * pulse_env, 400)
+
+    # stereo: two reverbs with different tails for width
+    dry = pads + air
+    left = 0.45 * dry + 0.75 * reverb(dry, seed=3) + pulse
+    right = 0.45 * dry + 0.75 * reverb(dry, seed=5) + pulse
+
+    # arc: quiet intro, gentle build through the tour, swell into the logo, hard cut at the switch-off
+    arc = np.interp(t, [0, 3.5, 4.5, 38.0, 40.0, 41.5, 43.6, T_CUT, T_CUT + 0.06, DUR],
+                       [0.0, 0.42, 0.55, 0.78, 0.85, 1.0, 1.0, 0.85, 0.0, 0.0])
+    left *= arc
+    right *= arc
+
+    # soft power-down at the switch-off: a low falling tone and a faint static breath
+    m = int(0.6 * SR)
+    tt = np.arange(m) / SR
+    f = 900 * np.exp(-tt / 0.2) + 60
+    zip_ = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt / 0.22) * 0.05
+    st = rng.standard_normal(int(0.15 * SR)) * np.exp(-np.arange(int(0.15 * SR)) / SR / 0.05) * 0.03
+    for ch in (left, right):
+        place(ch, T_CUT, zip_)
+        place(ch, T_CUT + 0.7, st)
+
+    mix = np.stack([left, right], axis=1)
+    rms = np.sqrt((mix[int(4 * SR):int(40 * SR)] ** 2).mean())
+    mix *= 10 ** (-24 / 20) / rms            # tour section at -24 dBFS RMS
+    peak = np.abs(mix).max()
+    if peak > 10 ** (-3 / 20):
+        mix *= 10 ** (-3 / 20) / peak
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(OUT), "wb") as w:
         w.setnchannels(2)
         w.setsampwidth(2)
         w.setframerate(SR)
-        w.writeframes((st * 32767).astype("<i2").tobytes())
-    print("wrote", OUT, f"{DUR:.1f} s")
+        w.writeframes((mix * 32767).astype("<i2").tobytes())
+    print("wrote", OUT)
 
 
 if __name__ == "__main__":
