@@ -1,0 +1,58 @@
+{
+  "images/01-same-county-worlds-apart.png": {
+    "id": "lQKSaFkgaBkTYn1X",
+    "width": 1800,
+    "height": 1440,
+    "url": "https://images.prismic.io/data4thepeople/lQKSaFkgaBkTYn1X_01-same-county-worlds-apart.png?auto=format,compress",
+    "stamp": "295417:1790883711"
+  },
+  "images/02-high-poverty-districts.png": {
+    "id": "I5uRwomGXdwPvtC8",
+    "width": 1800,
+    "height": 1125,
+    "url": "https://images.prismic.io/data4thepeople/I5uRwomGXdwPvtC8_02-high-poverty-districts.png?auto=format,compress",
+    "stamp": "101564:1790883427"
+  },
+  "images/03-largest-districts.png": {
+    "id": "d3e88VP0pMmsNwme",
+    "width": 1800,
+    "height": 1500,
+    "url": "https://images.prismic.io/data4thepeople/d3e88VP0pMmsNwme_03-largest-districts.png?auto=format,compress",
+    "stamp": "219967:1790883427"
+  },
+  "images/04-largest-increases.png": {
+    "id": "ql5jm7ImANuYglTP",
+    "width": 1800,
+    "height": 1275,
+    "url": "https://images.prismic.io/data4thepeople/ql5jm7ImANuYglTP_04-largest-increases.png?auto=format,compress",
+    "stamp": "180537:1790883427"
+  },
+  "images/05a-delta-child-poverty.png": {
+    "id": "qAVRyDnQdTb5-cJk",
+    "width": 1800,
+    "height": 1125,
+    "url": "https://images.prismic.io/data4thepeople/qAVRyDnQdTb5-cJk_05a-delta-child-poverty.png?auto=format,compress",
+    "stamp": "125184:1790883427"
+  },
+  "images/05b-delta-labor-force.png": {
+    "id": "8ZgdCL8aIh0E43ga",
+    "width": 1800,
+    "height": 1125,
+    "url": "https://images.prismic.io/data4thepeople/8ZgdCL8aIh0E43ga_05b-delta-labor-force.png?auto=format,compress",
+    "stamp": "131114:1790883428"
+  },
+  "images/06-just-above-the-line.png": {
+    "id": "diTuxY4TkUVGsI6E",
+    "width": 1800,
+    "height": 1125,
+    "url": "https://images.prismic.io/data4thepeople/diTuxY4TkUVGsI6E_06-just-above-the-line.png?auto=format,compress",
+    "stamp": "96813:1790883427"
+  },
+  "images/six-takeaways-child-poverty-hero-1680x1080.png": {
+    "id": "l8nAsu8VTLRzfwm2",
+    "width": 1680,
+    "height": 1080,
+    "url": "https://images.prismic.io/data4thepeople/l8nAsu8VTLRzfwm2_six-takeaways-child-poverty-hero-1680x1080.png?auto=format,compress",
+    "stamp": "301514:1790888719"
+  }
+}
