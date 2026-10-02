@@ -51,3 +51,4 @@ None.
 - 2026-10-02 2f: dry run then publish. Created draft ar8zIBEAACsAQfLT (uid six-takeaways-child-poverty) in the Migration Release; 47 slices; 8 images uploaded. Date 2026-10-02 6:00 pm EDT (placeholder). Before publishing: set author and tags in Prismic.
 - 2026-10-02 2f: date set to 2026-10-02 12:30 am EDT (Eric); draft ar8zIBEAACsAQfLT re-pushed.
 - 2026-10-02 Step 2f confirmed by Eric. Open before publishing in Prismic: set author and tags.
+- 2026-10-02 2g: EMAIL.md drafted on the wage takeaways model (hero only, six takeaways numbered, Eric's click-through line, 7 charts); hero JPG 117 KB; every number checked against the post.
