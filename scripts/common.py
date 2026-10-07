@@ -1,4 +1,26 @@
 """Shared paths, HTTP helper and state list for the pipeline."""
+# Contact address for the User-Agent: read at run time, never hardcoded in the repo.
+# Set D4TP_CONTACT_EMAIL in the environment or in ~/.claude/d4tp-process/.env.
+import os as _os
+
+
+def _d4tp_contact():
+    v = _os.environ.get("D4TP_CONTACT_EMAIL")
+    if v:
+        return v
+    try:
+        with open(_os.path.expanduser("~/.claude/d4tp-process/.env"), encoding="utf-8") as fh:
+            for line in fh:
+                if line.strip().startswith("D4TP_CONTACT_EMAIL="):
+                    return line.split("=", 1)[1].strip().strip("'\"")
+    except OSError:
+        pass
+    return ""
+
+
+D4TP_CONTACT = _d4tp_contact()
+
+
 import os
 import threading
 import time
@@ -10,7 +32,7 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 PROC = ROOT / "data" / "processed"
-UA = "Mozilla/5.0 (Macintosh) Data4ThePeople research D4TP_CONTACT_EMAIL"
+UA = f"Mozilla/5.0 (Macintosh) Data4ThePeople research {D4TP_CONTACT}"
 
 # 50 states + DC (territories dropped)
 STATES = ["01", "02", "04", "05", "06", "08", "09", "10", "11", "12", "13", "15", "16", "17",
